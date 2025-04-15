@@ -1,0 +1,3 @@
+### QDM-Paper
+
+The final part of your coursework for ”Quantitative Dynamic Macroeconomics” consists of a take-home assignment where you are asked to use a NK-DSGE model (provided) to conduct policy analysis and write a policy report based on your simulation results. The scenarios used in this assignment are real-world recessionary episodes. Your task is to replicate the baseline scenario and analyze whether policy could have been improved. As this is a policy report and not a technical report, the discussion should focus on economic intuition albeit based on a quantitative macro model. Lastly, put your findings into a broader picture of policy design
