@@ -6,3 +6,5 @@ docs/*
 *.run.xml
 *.synctex.gz
 *.pdf
+
+data/*.csv
