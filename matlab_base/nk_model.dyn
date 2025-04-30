@@ -37,7 +37,8 @@ var
     
     // AR(1) Shock Processes - Exogenous Shocks
     // Default shock
-    sM          ${s_M}$         (long_name='Monetary policy shock process')
+%    sM          ${s_M}$         (long_name='Monetary policy shock process')
+    sMC          ${s_MC}$         (long_name='Marginal cost shock process')
     ;
 
 predetermined_variables     
@@ -46,7 +47,8 @@ K, muu, lg                      // Here we we set our control variables with tim
 
 varexo          // Here we set our exogenous variables. 
                 // Note: AR(1) processes are endogenous to the model, only the shock is exogenous.
-    eM          ${\varepsilon_M}$   (long_name='Monetary policy shock')
+//    eM          ${\varepsilon_M}$   (long_name='Monetary policy shock')
+    eMC          ${\varepsilon_MC}$   (long_name='marginal cost shock')
     ;   
 
 parameters
@@ -74,10 +76,12 @@ parameters
     tetPi       ${\theta_{\pi}}$    (long_name='Taylor coefficient w.r.t. inflation')
 
     // Shock standard deviations
-    stdM        ${\sigma_M}$        (long_name='Standard deviation monetary policy shock')
+%    stdM        ${\sigma_M}$        (long_name='Standard deviation monetary policy shock')
+    stdMC        ${\sigma_MC}$        (long_name='Standard deviation marginal cost shock')
 
     // Shock autocorrelations
-    rhoM        ${\rho_M}$          (long_name='Autocorrelation monetary policy shock')
+%    rhoM        ${\rho_M}$          (long_name='Autocorrelation monetary policy shock')
+    rhoMC        ${\rho_MC}$          (long_name='Autocorrelation marginal cost shock')
     ;
     
 % Assigning values from Matlab workspace to the parameters
@@ -106,10 +110,12 @@ set_param_value('lgY_ss',par.lgY_ss);
 set_param_value('tetPi',par.tetPi);
 
 % Shock standard deviations
-set_param_value('stdM',par.stdM);
+% set_param_value('stdM',par.stdM);
+set_param_value('stdMC',par.stdMC);
 
 % Shock autocorrelations
-set_param_value('rhoM',par.rhoM);
+% set_param_value('rhoM',par.rhoM);
+set_param_value('rhoMC',par.rhoMC);
 
 %-------------------------------------------------------------------------------
 % II) Model Block
@@ -131,30 +137,34 @@ muc     = C^(-sig);
 w       = (1+tauC+tauu)/(1-tauL-tauu) * (vphi*L^gam) / (muu*muc);
 
 [name='Cash-in-Advance Constraint']
-muu*(nuu)     = betta/(1+pii(+1))*muc(+1)/muc*((1-muu(+1))+(nuu)*muu(+1));
+muu*(nuu)     = betta/(1+pii(+1))*muc(+1)/muc*(1+tauC+tauu)/(1+tauC+tauu(+1))*((1-muu(+1))+(nuu)*muu(+1));
 
 [name='Euler Equation (Bond Prices)']
-muc     = betta* muu(+1)/muu * (1+rb)/(1+pii(+1)) * muc(+1);
+muc     = betta* muu(+1)/muu*(1+tauC+tauu)/(1+tauC+tauu(+1)) * (1+rb)/(1+pii(+1)) * muc(+1);
 
 [name='Capital allocation (Tobins Q/Euler equation)']
-tet     = betta*muc(+1)/muc 
+tet     = betta*muc(+1)/muc*(1+tauC+tauu)/(1+tauC+tauu(+1)) 
             * ( tet(+1)*(1-delt) + muu(+1)*(r(+1)*(1-tauK-tauu)) );
 
 [name='Optimal capital investment']
-muu     = tet*(1-ci-cii) + betta*muc(+1)/muc*tet(+1)*X(+1)/X*cii(+1);
+muu     = tet*(1-ci-cii) + betta*muc(+1)/muc*(1+tauC+tauu)/(1+tauC+tauu(+1))*tet(+1)*X(+1)/X*cii(+1);
 
+% ---------------------------------
+% ---------------------------------
 % Intermediate good firm
+% ---------------------------------
 % ---------------------------------
 
 [name='Labor demand']
-w       = (1-alp)*mc*Y/L;
+w       = (1-alp)*(mc)*Y/L;
 
 [name='Capital demand']
-r       = alp*mc*Y/K;
+r       = alp*(mc)*Y/K;
 
 [name='NK Phillips curve']
-cpp/(1-cp) = (1-rhoo/mc)/(1-rhoo)
-                + (1+pii(+1))/(1+rb) *Y(+1)/Y*mc(+1)/mc * cpp(+1)/(1-cp(+1));
+cpp/(1-cp) = (1-rhoo/(mc+sMC))/(1-rhoo)
+            + (1+pii(+1))/(1+rb) *Y(+1)/Y*(mc(+1)+sMC(+1))/(mc+sMC) * cpp(+1)/(1-cp(+1));
+
 
 % Constraints
 % ---------------------------------
@@ -169,7 +179,7 @@ Y       = (1-cp) * (L)^(1-alp)*K^alp;
 K(+1)   = (1-delt)*K + (1-ci)*X;
 
 [name='Cash-in-advance constraint']
-m       = (nuu)*C;
+m       = (nuu)*(1+tauC+tauu)*C;
 
 [name='Government budget constraint']
 lg(+1)  = (1+rb)/(1+pii(+1))*lg  - rb*m
@@ -194,7 +204,7 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 % ---------------------------------
 
 [name='Monetary policy rule']
-(1+rb)/(1+steady_state(rb)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) * exp(sM);
+(1+rb)/(1+steady_state(rb)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) ; % DELETED * exp(sM) to m here!!!
 
 [name='Fiscal policy rule']
 tauu - steady_state(tauu) 
@@ -204,8 +214,10 @@ tauu - steady_state(tauu)
 % Exogenous processes
 %-------------------------------------------------------------------------------
 
-[name='Monetary policy shock process']
-sM      = rhoM*sM(-1) + eM;
+% [name='Monetary policy shock process']
+% sM      = rhoM*sM(-1) + eM;
+[name='Marginal cost shock process']
+sMC      = rhoMC*sMC(-1) + eMC;
 
 end;
 
@@ -221,7 +233,8 @@ end;
 %--------------------------------------------------------------------------
 
 shocks;
-    var eM  = stdM^2;
+%    var eM  = stdM^2;
+    var eMC  = stdMC^2;
 end;
 
 %--------------------------------------------------------------------------
@@ -229,9 +242,9 @@ end;
 %--------------------------------------------------------------------------
 
 stoch_simul(order=@{approx_order},
-            //nodisplay,
-            //nograph,
-            //noprint,
+            // nodisplay,
+            // nograph,
+            noprint,
             pruning,
             irf=@{irf_periods},
             periods=@{sim_periods},

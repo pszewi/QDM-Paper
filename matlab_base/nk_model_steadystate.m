@@ -11,7 +11,8 @@ check = 0;
 
 %% Model equations block - Default and Natural Model
 % Shock processes
-sM      = 0;
+% sM      = 0;
+sMC      = 0;
 
 % Inflation
 pii     = 0;
@@ -47,7 +48,7 @@ C       = cl*L;
 % Capital stock
 K       = kl*L;
 % Money supply
-m       = C*nuu;
+m       = (nuu)*(1+tauC+tauu)*C;
 % Private investment
 X       = delt*K;
 % Real GDP / output
