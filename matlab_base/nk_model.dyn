@@ -242,7 +242,7 @@ end;
 %--------------------------------------------------------------------------
 
 stoch_simul(order=@{approx_order},
-            // nodisplay,
+             nodisplay,
             // nograph,
             noprint,
             pruning,

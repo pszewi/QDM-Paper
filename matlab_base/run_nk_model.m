@@ -20,13 +20,15 @@ simreplicnumber = 10;       % Set Number of Simulation Replications
 dropnumber      = 1000;     % Set Number of Simulation Periods dropped
 
 % Loop options
-run_loop        = 0;        % Set to "1" if you want to execute the FOR-loop!
+run_loop        = 1;        % Set to "1" if you want to execute the FOR-loop!
 loopcount       = 3;
 loop_robustness = linspace(1,3,loopcount);
 
 %% ------------------------------------------------------------------------
 % Parameters
 % -------------------------------------------------------------------------
+
+% BASE PARAMETERS ----------------
 % Households
 par.betta   = 0.99;
 par.sig     = 2;
@@ -49,6 +51,33 @@ par.gamLG   = 0.2;
 
 % Monetary policy
 par.tetPi   = 1.5;
+
+% OUR PARAMETERS ----------------
+% Households
+% par.betta   = 0.96;
+% par.sig     = 1;
+% par.gam     = 3;
+% par.nuu     = 0.7;
+% par.delt    = 0.1;
+% par.phiX    = 2;
+
+
+% % Firms
+% par.alp     = 0.31;
+% par.rhoo    = 0.8;
+% par.kap     = 60;
+
+
+% % Government
+% par.lgY_ss  = 0.2;
+% par.tauL    = 0.2;
+% par.tauK    = 0.2;
+% par.tauC    = 0.2;
+% par.gamLG   = 0.2;
+
+
+% % Monetary policy
+% par.tetPi   = 1.5;
 
 % Shock standard deviations
 % par.stdM    = 0.001;
@@ -124,8 +153,8 @@ for tt = 1:length(loop_robustness)
     end
 
     % Save IRFs of each iteration
-    output_eM(:,tt)         = Y_eM./stst.Y;
-    inflation_eM(:,tt)      = pii_eM;
+    output_eM(:,tt)         = Y_eMC./stst.Y;
+    inflation_eM(:,tt)      = pii_eMC;
 
 end
 
