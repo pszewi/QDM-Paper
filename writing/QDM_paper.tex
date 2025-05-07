@@ -7,6 +7,8 @@
 \usepackage[backend=biber, style=apa]{biblatex} % Use biblatex with biber
 \usepackage{wrapfig}
 \usepackage{hyperref}
+\usepackage{appendix} % For appendix management
+\usepackage{booktabs} % For better table lines
 
 
 % Page layout
@@ -51,14 +53,53 @@
 
 \subsection*{(a) Outline of the Model Structure (graphical and verbal, no equations)}
 % Content here (include figure environment if needed).
+The Dynamic Stochastic General Equilibrium (DSGE) Model used for this policy analysis features
+three representative agents, namely a representative household, intermediate goods firm and final goods firm, 
+as well as the government. 
+
+The reperesentative household aims to maximize its intertemporal utility, i.e. well-being 
+across all periods. It derives utitlity from consumption and its utitltiy is reduced by working. To optimize the its objective
+it chooses consumption, labour effort, investment in capital for the in every period. %Ct,Lt,Xt,Mt+1,Bt+1,Kt+1
+Furthermore it makes choices that affect the next period,  how much money holdings to save, which determines the money available
+in the next period. As well as how many bonds to pay at price $q_t$ which pay off in the next period. (\textbf{Should 
+I say here it also chooses} $K_{t+1}$ \textbf{I think that is covered by } $X_t$). When trying to maximize its utility
+the reperesentative household faces two constraints. First, to consume it must have cash available beforehand, i.e. only money 
+saved in the last period, at 0\% interest compared to $\frac{1}{q} -1$ from the bonds, can be used to buy consumption goods. 
+The second constraint is a common budget constraint, which simply requires that income be larger than or equal to expenses. 
+The households values utility derived today more highly than that derived in a future period. Thus future utility is discounted. 
+
+The intermediate goods firm as well as the final goods firm maximize their profit. 
+The revenue of the intermediate firm stem from selling their intermediate good to the 
+final goods firm. The cost incurred consitst of the nominal wage paid to labour, rent paid to capital, both
+of which are provided by the household. It is bound by a Cobb-Douglas function with a price stickiness friction, and 
+the supply of all intermediate goods must be met by demand for that good from the final good firm. 
+As just explained the final good firm buys the intermediate goods. The firm's input are substitutable to some degree. 
+
+The government has fiscal and monetary policy at their disposal, but cannot combine the two. 
+
+
 
 \subsection*{(b) Policy Structure of the Model (main equations)}
 % Content here (use align or equation environments).
 
 \subsection*{(c) Calibration of the Model}
-% Content here.
+The model is calibrated to the Canadian economy in 1979, assuming that one period corresponds to a year. 
+The discount factor $\beta$ is set to 0.96, inline with \cite{...} and \cite {...}. 
+The intertemporal consumption elasticity $\sigma$ is set to less than 1, \textbf{indicating that households are somewhat risk-averse Double check} \cite{...}.
+Estimates for the inverse Frisch elasticity $\gamma$ differ starkly, between macro and micro estimates. Reasons for this discrepancy are discussed in \cite{...} and 
+include micro studies use a sample which constitutes a subset of the population (e.g. primary earners, in the midst of their careers) whereas macro estimates try
+ to copy behaviour of the entire population. Furthermore, micro estimates usually do not consider the extensive margin, i.e. the decision to work or not. Since the model attempts to capture
+macro behaviour, the inverse Frisch elasticity is set to 3, using a macro estimate \cite{...}. Money velocity $\nu$ is calculated as the ratio of nominal GDP to the money stock (M1), with data from \cite{...}.
+\textbf{this is from Fisher's quantity equation} $MV =PY$ \textbf{, rearranging binding CiA gives: }$\nu = \frac{M}{PC}$ \textbf{so model is inverse money velocity?}.
+The capital depreciation rate $\delta$ is set to 0.1, matching the estimate of \cite{...} and the calibration in \cite{...}.
+The capital share of income $\alpha$ is set to 0.31 \cite{...}. 
+\textbf{The literature on the elasticity of substitution for differentiated goods is sparse, we use the estimate by \cite{...}, which is low compared to the default value. The estimation is done in India and 
+micro based, but described by the authors as a more of an upper bound. Verify}. 
+Price stickiness $\kappa$ is set to , which is the default value of the given model.
+The public-debt-to-GDP steady-state target $lg^Y_{ss}$ is set to average of public-debt-to-GDP ratio from ... to ... (Data from: \cite{...}).
+The three tax rates on labour $\tau_L$, captial $\tau_K$ and, consumption $\tau_C$ are set so that the tax revenue (in \% of GDP) matches the average tax revenue (in \% of GDP) from ... to ... (Data from: \cite{...}).
 
-\newpage
+
 % ------------------------------------------------------------------------
 %  JAKUB -------------------------------
 % ------------------------------------------------------------------------
@@ -131,5 +172,36 @@ At the same time, in an effort to smooth out the path of the economy, the centra
 \subsection*{(c) Do your results confirm or conflict with your perception about optimal policy? Discuss how.}
 % Content here.
 % \printbibliography() % Print the bibliography
+
+% Appendix 
+\appendix
+\section*{Appendix A: Further Tables}
+\begin{table}[ht]
+    \centering
+    \caption{Parameter Calibration}
+    \begin{tabular}{clcl}
+        \toprule
+        Parameter & Description & Value & Source \\ \midrule
+        %\hline \hline
+        $\beta$ & Period discount factor  & 0.96 & - \\
+        $\sigma$ & Intertemporal consumption elasticity  & $<1$ & - \\
+        $\gamma$ & Inverse Frisch elasticity  & 3 & - \\
+        $\varphi$ & Labour disutility parameter  & - & - \\
+        $\nu$ & Money velocity  & 7 & - \\
+        $\delta$ & Capital depreciation rate  & 0.1 & - \\
+        $\phi_X$ & Investment adjustment cost parameter & - & - \\
+        $\alpha$ & Capital share of income & 0.31 & - \\
+        $\rho$ & Elasticity of substitution for differentiated goods &  0.38 & - \\
+        $\kappa$ & Price stickiness & - & - \\
+        $lg^Y_{ss}$ & Public-debt-to-GDP steady-state target & - & - \\
+        ${\tau_L}$ & Labor income tax & - & - \\
+        ${\tau_K}$ & Capital income tax & - & - \\
+        ${\tau_C}$ & Consumption tax & - & -  \\
+        ${\gamma_{l_g}}$ & Fiscal rule coefficient w.r.t. government liabilities & - & -  \\
+        ${\theta_{\pi}}$ & Taylor coefficient w.r.t. inflation gap & 2 & - \\
+        $\theta_R$ & Taylor coefficient w.r.t. interest rate & NA  & - \\  \bottomrule
+    \end{tabular}
+    \label{tab:parameters}
+\end{table}
 
 \end{document}
