@@ -6,6 +6,8 @@
 \usepackage{geometry}
 \usepackage[backend=biber, style=apa]{biblatex} % Use biblatex with biber
 \usepackage{hyperref}
+\usepackage{appendix} % For appendix management
+\usepackage{booktabs} % For better table lines
 
 % Page layout
 \geometry{a4paper, margin=1in}
@@ -57,8 +59,8 @@ The reperesentative household aims to maximize its intertemporal utility, i.e. w
 across all periods. It derives utitlity from consumption and its utitltiy is reduced by working. To optimize the its objective
 it chooses consumption, labour effort, investment in capital for the in every period. %Ct,Lt,Xt,Mt+1,Bt+1,Kt+1
 Furthermore it makes choices that affect the next period,  how much money holdings to save, which determines the money available
-in the next period. As well as how many bonds to pay at price $q_t$ which pay off in the next period. (\emph{Should 
-I say here it also chooses} $K_{t+1}$ \emph{I think that is covered by } $X_t$). When trying to maximize its utility
+in the next period. As well as how many bonds to pay at price $q_t$ which pay off in the next period. (\textbf{Should 
+I say here it also chooses} $K_{t+1}$ \textbf{I think that is covered by } $X_t$). When trying to maximize its utility
 the reperesentative household faces two constraints. First, to consume it must have cash available beforehand, i.e. only money 
 saved in the last period, at 0\% interest compared to $\frac{1}{q} -1$ from the bonds, can be used to buy consumption goods. 
 The second constraint is a common budget constraint, which simply requires that income be larger than or equal to expenses. 
@@ -149,5 +151,36 @@ At the same time, in an effort to smooth out the path of the economy, the centra
 \subsection*{(c) Do your results confirm or conflict with your perception about optimal policy? Discuss how.}
 % Content here.
 % \printbibliography() % Print the bibliography
+
+% Appendix 
+\appendix
+\section*{Appendix A: Further Tables}
+\begin{table}[ht]
+    \centering
+    \caption{Parameter Calibration}
+    \begin{tabular}{clcl}
+        \toprule
+        Parameter & Description & Value & Source \\ \midrule
+        %\hline \hline
+        $\beta$ & Period discount factor  & 0.96 & - \\
+        $\sigma$ & Intertemporal consumption elasticity  & $<1$ & - \\
+        $\gamma$ & Inverse Frisch elasticity  & 3 & - \\
+        $\varphi$ & Labour disutility parameter  & - & - \\
+        $\nu$ & Money velocity  & 7 & - \\
+        $\delta$ & Capital depreciation rate  & 0.1 & - \\
+        $\phi_X$ & Investment adjustment cost parameter & - & - \\
+        $\alpha$ & Capital share of income & 0.31 & - \\
+        $\rho$ & Elasticity of substitution for differentiated goods &  0.38 & - \\
+        $\kappa$ & Price stickiness & - & - \\
+        $lg^Y_{ss}$ & Public-debt-to-GDP steady-state target & - & - \\
+        ${\tau_L}$ & Labor income tax & - & - \\
+        ${\tau_K}$ & Capital income tax & - & - \\
+        ${\tau_C}$ & Consumption tax & - & -  \\
+        ${\gamma_{l_g}}$ & Fiscal rule coefficient w.r.t. government liabilities & - & -  \\
+        ${\theta_{\pi}}$ & Taylor coefficient w.r.t. inflation gap & 2 & - \\
+        $\theta_R$ & Taylor coefficient w.r.t. interest rate & NA  & - \\  \bottomrule
+    \end{tabular}
+    \label{tab:parameters}
+\end{table}
 
 \end{document}
