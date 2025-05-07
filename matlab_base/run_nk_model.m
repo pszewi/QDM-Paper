@@ -20,7 +20,7 @@ simreplicnumber = 10;       % Set Number of Simulation Replications
 dropnumber      = 1000;     % Set Number of Simulation Periods dropped
 
 % Loop options
-run_loop        = 1;        % Set to "1" if you want to execute the FOR-loop!
+run_loop        = 0;        % Set to "1" if you want to execute the FOR-loop!
 loopcount       = 3;
 loop_robustness = linspace(1,3,loopcount);
 
@@ -85,7 +85,7 @@ par.stdMC    = 0.001;
 
 % Shock autocorrelations
 % par.rhoM    = 0.5;
-par.rhoMC    = 0.6;
+par.rhoMC    = 0.5;
 
 %% ------------------------------------------------------------------------
 % Impulse Response Analysis - Default Model
@@ -131,6 +131,7 @@ axis tight
 xlabel('Periods')
 ylabel('%-Dev. St.St.')
 
+saveas(gcf,'output/irf_gdp_taylor.png')
 
 %% ------------------------------------------------------------------------
 % IRF ROBUSTNESS ANALYSIS - Labor Supply Elasticity 
