@@ -74,7 +74,7 @@ parameters
 
     // Monetary policy
     tetPi       ${\theta_{\pi}}$    (long_name='Taylor coefficient w.r.t. inflation')
-    tetMC    ${\theta_{L}}$  (long_name = 'Money supply taylor coefficient w.r.t. labour')
+    tetL    ${\theta_{L}}$  (long_name = 'Money supply taylor coefficient w.r.t. labour')
 
     // Shock standard deviations
 %    stdM        ${\sigma_M}$        (long_name='Standard deviation monetary policy shock')
@@ -216,7 +216,7 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 % ---------------------------------
 
 m / m(-1)
-    = ( L / steady_state(L) )^( - tetL  )
+    = ( L(+1) / steady_state(L) )^( - tetL  )
       * ( (1 + pii) / (1 + steady_state(pii)) )^( - tetPi ) ;
 
 
@@ -256,8 +256,8 @@ end;
 %--------------------------------------------------------------------------
 
 stoch_simul(order=@{approx_order},
-            // nodisplay,
-            // nograph,
+            //nodisplay,
+            //nograph,
             noprint,
             pruning,
             irf=@{irf_periods},
