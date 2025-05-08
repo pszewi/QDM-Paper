@@ -216,7 +216,7 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 % ---------------------------------
 
 m / m(-1)
-    = ( L(+1) / steady_state(L) )^( - tetL  )
+    = ( L / steady_state(L) )^( - tetL  )
       * ( (1 + pii) / (1 + steady_state(pii)) )^( - tetPi ) ;
 
 
