@@ -49,7 +49,7 @@ par.gamLG   = 0.2;
 
 % Monetary policy
 par.tetPi   = 1.5;
-par.tetMC = 1.0;
+par.tetL = 1.0;
 
 % Shock standard deviations
 % par.stdM    = 0.001;
