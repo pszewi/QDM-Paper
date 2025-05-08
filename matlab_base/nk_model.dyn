@@ -74,7 +74,7 @@ parameters
 
     // Monetary policy
     tetPi       ${\theta_{\pi}}$    (long_name='Taylor coefficient w.r.t. inflation')
-    tetMC    ${\theta_{mc}}$  (long_name = 'Response to expected MC shock')
+    tetMC    ${\theta_{L}}$  (long_name = 'Money supply taylor coefficient w.r.t. labour')
 
     // Shock standard deviations
 %    stdM        ${\sigma_M}$        (long_name='Standard deviation monetary policy shock')
@@ -109,7 +109,7 @@ set_param_value('lgY_ss',par.lgY_ss);
 
 % Monetary policy
 set_param_value('tetPi',par.tetPi);
-set_param_value('tetMC', par.tetMC);
+set_param_value('tetL', par.tetL);
 
 % Shock standard deviations
 % set_param_value('stdM',par.stdM);
@@ -211,12 +211,12 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 
 % ---------------------------------
 % ---------------------------------
-% RULE PROPOSED BY MY BEST FRIEND, VERIFY WHETHER MAKES SENSE!!!!
+% I believe MC rule should be counterfactual policy rather than baseline policy
 % ---------------------------------
 % ---------------------------------
 
 m / m(-1)
-    = ( mc(+1) / steady_state(mc) )^( - tetMC  )
+    = ( L(+1) / steady_state(L) )^( - tetL  )
       * ( (1 + pii) / (1 + steady_state(pii)) )^( - tetPi ) ;
 
 
