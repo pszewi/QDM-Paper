@@ -164,9 +164,14 @@ w       = (1-alp)*(mc)*Y/L;
 r       = alp*(mc)*Y/K;
 
 [name='NK Phillips curve']
+
+% specification with exponent
+% cpp/(1-cp) = (1-rhoo/(mc*exp(sMC)))/(1-rhoo)
+%            + (1+pii(+1))/(1+rb) *Y(+1)/Y*(mc(+1)*exp(sMC(+1)))/(mc*exp(sMC)) * cpp(+1)/(1-cp(+1));
+
+% additive specification
 cpp/(1-cp) = (1-rhoo/(mc+sMC))/(1-rhoo)
             + (1+pii(+1))/(1+rb) *Y(+1)/Y*(mc(+1)+sMC(+1))/(mc+sMC) * cpp(+1)/(1-cp(+1));
-
 
 % Constraints
 % ---------------------------------
@@ -223,7 +228,7 @@ m / m(-1)
 [name='Fiscal policy rule']
 tauu - steady_state(tauu) 
         = gamLG * ( lg - steady_state(lg) );
-
+                  
 %-------------------------------------------------------------------------------
 % Exogenous processes
 %-------------------------------------------------------------------------------
