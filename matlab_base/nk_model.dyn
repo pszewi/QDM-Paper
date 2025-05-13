@@ -23,7 +23,7 @@ var
     lg          ${l_g}$         (long_name='Government liabilities')
     m           ${m}$           (long_name='Money supply')
     tauu        ${\tau}$        (long_name='Variable lump-sum taxes')
-
+    
     // Marginal Utility & Penalty Prices
     muc         ${muc}$         (long_name='Marginal Utility out of Consumption')
     muu         ${\mu}$         (long_name='Budget Constraint Penalty Price')
@@ -162,9 +162,8 @@ w       = (1-alp)*(mc)*Y/L;
 r       = alp*(mc)*Y/K;
 
 [name='NK Phillips curve']
-cpp/(1-cp) = (1-rhoo/(mc+sMC))/(1-rhoo)
-            + (1+pii(+1))/(1+rb) *Y(+1)/Y*(mc(+1)+sMC(+1))/(mc+sMC) * cpp(+1)/(1-cp(+1));
-
+cpp/(1-cp) = (1-rhoo/(mc*exp(sMC)))/(1-rhoo)
+            + (1+pii(+1))/(1+rb) *Y(+1)/Y*(mc(+1)*exp(sMC(+1)))/(mc*exp(sMC)) * cpp(+1)/(1-cp(+1));
 
 % Constraints
 % ---------------------------------
@@ -203,8 +202,10 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 % Policy rules
 % ---------------------------------
 
-[name='Monetary policy rule']
-(1+rb)/(1+steady_state(rb)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) ; % DELETED * exp(sM) to m here!!!
+% [name='Monetary policy rule']
+%(1+rb)/(1+steady_state(rb)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) ; % DELETED * exp(sM) to m here!!!
+
+m/steady_state(m(-1)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) ; % DELETED * exp(sM) to m here!!!
 
 [name='Fiscal policy rule']
 tauu - steady_state(tauu) 

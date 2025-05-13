@@ -30,43 +30,17 @@ loop_robustness = linspace(1,3,loopcount);
 
 % BASE PARAMETERS ----------------
 % Households
-par.betta   = 0.99;
-par.sig     = 2;
-par.gam     = 4;
-par.nuu     = 0.5;
-par.delt    = 0.025;
-par.phiX    = 2;
-
-% Firms
-par.alp     = 0.3;
-par.rhoo    = 0.8;
-par.kap     = 60;
-
-% Government
-par.lgY_ss  = 0.2;
-par.tauL    = 0.2;
-par.tauK    = 0.2;
-par.tauC    = 0.2;
-par.gamLG   = 0.2;
-
-% Monetary policy
-par.tetPi   = 1.5;
-
-% OUR PARAMETERS ----------------
-% Households
-% par.betta   = 0.96;
-% par.sig     = 1;
-% par.gam     = 3;
-% par.nuu     = 0.7;
-% par.delt    = 0.1;
+% par.betta   = 0.99;
+% par.sig     = 2;
+% par.gam     = 4;
+% par.nuu     = 0.5;
+% par.delt    = 0.025;
 % par.phiX    = 2;
 
-
 % % Firms
-% par.alp     = 0.31;
+% par.alp     = 0.3;
 % par.rhoo    = 0.8;
 % par.kap     = 60;
-
 
 % % Government
 % par.lgY_ss  = 0.2;
@@ -75,13 +49,39 @@ par.tetPi   = 1.5;
 % par.tauC    = 0.2;
 % par.gamLG   = 0.2;
 
-
 % % Monetary policy
 % par.tetPi   = 1.5;
 
+% OUR PARAMETERS ----------------
+% Households
+par.betta   = 0.96;
+par.sig     = 2;
+par.gam     = 3;
+par.nuu     = 0.7;
+par.delt    = 0.1;
+par.phiX    = 2;
+
+
+% Firms
+par.alp     = 0.31;
+par.rhoo    = 0.8;
+par.kap     = 60;
+
+
+% Government
+par.lgY_ss  = 0.2;
+par.tauL    = 0.2;
+par.tauK    = 0.2;
+par.tauC    = 0.2;
+par.gamLG   = 0.2;
+
+
+% Monetary policy
+par.tetPi   = 1.5;
+
 % Shock standard deviations
 % par.stdM    = 0.001;
-par.stdMC    = 0.001;
+par.stdMC    = 1;
 
 % Shock autocorrelations
 % par.rhoM    = 0.5;
