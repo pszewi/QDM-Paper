@@ -166,12 +166,9 @@ r       = alp*(mc)*Y/K;
 [name='NK Phillips curve']
 
 % specification with exponent
-% cpp/(1-cp) = (1-rhoo/(mc*exp(sMC)))/(1-rhoo)
-%            + (1+pii(+1))/(1+rb) *Y(+1)/Y*(mc(+1)*exp(sMC(+1)))/(mc*exp(sMC)) * cpp(+1)/(1-cp(+1));
 
-% additive specification
-cpp/(1-cp) = (1-rhoo/(mc+sMC))/(1-rhoo)
-            + (1+pii(+1))/(1+rb) *Y(+1)/Y*(mc(+1)+sMC(+1))/(mc+sMC) * cpp(+1)/(1-cp(+1));
+cpp/(1-cp) = (1-rhoo/(mc*exp(sMC)))/(1-rhoo)
+            + (1+pii(+1))/(1+rb) *Y(+1)/Y*(mc(+1)*exp(sMC(+1)))/(mc*exp(sMC)) * cpp(+1)/(1-cp(+1));
 
 % Constraints
 % ---------------------------------
@@ -216,14 +213,19 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 
 % ---------------------------------
 % ---------------------------------
-% RULE PROPOSED BY MY BEST FRIEND, VERIFY WHETHER MAKES SENSE!!!!
+% rule by gpt, tries to follow taylor and includes the marginal costs
 % ---------------------------------
 % ---------------------------------
 
-m / m(-1)
-    = ( mc(+1) / steady_state(mc) )^( - tetMC  )
-      * ( (1 + pii) / (1 + steady_state(pii)) )^( - tetPi ) ;
+% m / m(-1)
+%      = ( mc / steady_state(mc) )^(-tetMC)
+%        * ( (1 + pii) / (1 + steady_state(pii)) )^(-tetPi) ;
 
+
+% ---------------------------------
+% Simple rule that just looks at the inflation rate
+% ---------------------------------
+m/m(-1) = ((1+pii)/(1+steady_state(pii)))^(-tetPi) ;
 
 [name='Fiscal policy rule']
 tauu - steady_state(tauu) 
@@ -244,7 +246,7 @@ end;
 % III) Steady-State Calculations
 %-------------------------------------------------------------------------------
 
-resid;
+//resid;
 //check;
 
 %--------------------------------------------------------------------------
@@ -261,8 +263,8 @@ end;
 %--------------------------------------------------------------------------
 
 stoch_simul(order=@{approx_order},
-            // nodisplay,
-            // nograph,
+            nodisplay,
+            nograph,
             noprint,
             pruning,
             irf=@{irf_periods},

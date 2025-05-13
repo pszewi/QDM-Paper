@@ -42,9 +42,9 @@ par.kap     = 60;
 
 % Government
 par.lgY_ss  = 0.2;
-par.tauL    = 0.2;
-par.tauK    = 0.2;
-par.tauC    = 0.2;
+par.tauL    = 0.225;
+par.tauK    = 0.299;
+par.tauC    = 0.164;
 par.gamLG   = 0.2;
 
 % Monetary policy
@@ -53,11 +53,11 @@ par.tetMC = 1.0;
 
 % Shock standard deviations
 % par.stdM    = 0.001;
-par.stdMC    = 0.001;
+par.stdMC    = 0.1;
 
 % Shock autocorrelations
 % par.rhoM    = 0.5;
-par.rhoMC    = 0.6;
+par.rhoMC    = 0.8;
 
 %% ------------------------------------------------------------------------
 % Impulse Response Analysis - Default Model
