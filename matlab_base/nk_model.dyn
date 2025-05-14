@@ -220,9 +220,9 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 % ---------------------------------
 % ---------------------------------
 
-m / m(-1)
-    = ( L(+1) / steady_state(L) )^( - tetL  )
-      * ( (1 + pii) / (1 + steady_state(pii)) )^( - tetPi ) ;
+%m / m(-1)
+%    = ( L(+1) / steady_state(L) )^( - tetL  )
+%      * ( (1 + pii) / (1 + steady_state(pii)) )^( - tetPi ) ;
 
 
 %m / m(-1)
@@ -232,6 +232,7 @@ m / m(-1)
 % ---------------------------------
 % Simple rule that just looks at the inflation rate
 % ---------------------------------
+
 %m/m(-1) = ((1+pii)/(1+steady_state(pii)))^(-tetPi) ;
 
 [name='Fiscal policy rule']
@@ -278,8 +279,8 @@ end;
 %--------------------------------------------------------------------------
 
 stoch_simul(order=@{approx_order},
-            //nodisplay,
-            //nograph,
+            nodisplay,
+            nograph,
             noprint,
             pruning,
             irf=@{irf_periods},
