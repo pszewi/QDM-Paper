@@ -10,4 +10,4 @@ docs/*
 /matlab_base/nk_model/*
 data/*.csv
 literature/*
-/matlab_base/output
+/matlab_base/output/*
