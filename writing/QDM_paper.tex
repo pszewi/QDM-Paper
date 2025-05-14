@@ -94,25 +94,20 @@ include that micro studies use a sample which constitutes a subset of the popula
 estimates try to copy behaviour of the entire population. Furthermore, micro estimates usually do not consider the extensive margin, i.e. the decision 
 to work or not. Since the model attempts to capture macro trends we use a macro estimate of 3 \parencite{petermanReconcilingMicroMacro2016}. 
 
-Money velocity $\nu$ is calculated as the ratio of nominal GDP to the money stock (M1) (with data from: \textcite{bankofenglandCanadianDollarData2021}; 
+Money velocity $\nu$ is calculated, using Fisher's quantity equation, as the ratio of nominal GDP to the money stock (M1) (with data from: \textcite{bankofenglandCanadianDollarData2021}; 
 \textcite{federalreservebankofminneapolisInflationCalculatorFederal}; \textcite{worldbankgroupWorldBankNational}; \textcite{bankofcanadaSelectedMonetaryAggregates})
 \footnote{GDP from World Bank in 2015 USD converted to 1979 USD using Federal Reserve Minneapolis, converted to CAD using historic annual average exchange rate from 
-the Bank of England, Money Supply from Bank of Canada.} yielding 4.2.
-\textbf{this is from Fisher's quantity equation} $MV =PY$ \textbf{, rearranging binding CiA gives: }$\nu = \frac{M}{PC}$ \textbf{so model is inverse money velocity? The actual result I got is 1/4.2}.
+the Bank of England, Money Supply from Bank of Canada.} yielding 4.2. Thus, $\nu$ is set to 1/4.2 = 0.24. 
 
 The capital depreciation rate $\delta$ is set to 0.1, matching the estimate of \textcite{statisticscanadaDepreciationRatesProductivity2007} and the calibration in \textcite{someOilDemandSupply2023} and \textcite{corriganToTEMIIIBank2021}.
 The capital share of income $\alpha$ is set to 0.31 (\cite{fredst.louisShareLabourCompensation2021}; \cite{feenstraNextGenerationPenn2015}). 
 \textbf{The elasticity of substitution between differentiated goods, even though a parameter of the final goods firm is not really a production process parameter. 
-Rather, it aggregates into a single consumption good and thus is better understood as a elasticity of substitution between consuming differentiated goods. Verify}. 
+Rather, it aggregates all goods into a single consumption good and thus is better understood as a elasticity of substitution between consuming differentiated goods.}. 
 
-Price stickiness $\kappa$ is set to , which is the default value of the given model.
+Price stickiness parameter $\kappa$ is set to 60, which is the default value of the given model.
 
 The three tax-rates are set in accordance with the average effective tax rates in Canada in 1980-85. The labour income tax rate $\tau_L$ is set to 0.24, the capital income tax rate $\tau_K$ is set to 0.25 and the consumption tax rate $\tau_C$ is set to 0.13 
 \parencite{careyAverageEffectiveTax2000}.
-
-The labour disutility parameter $\varphi$ is set so that the steady-state labour supply is equal to 1.
-
-
 % ------------------------------------------------------------------------
 %  JAKUB -------------------------------
 % ------------------------------------------------------------------------
@@ -192,26 +187,26 @@ At the same time, in an effort to smooth out the path of the economy, the centra
 \begin{table}[ht]
     \centering
     \caption{Parameter Calibration}
-    \begin{tabular}{clcl}
+    \begin{tabular}{cll}
         \toprule
-        Parameter & Description & Value & Source \\ \midrule
+        Parameter & Description & Value  \\ \midrule
         %\hline \hline
-        $\beta$ & Period discount factor  & 0.96 & - \\
-        $\sigma$ & Intertemporal consumption elasticity  & $<1$ & - \\
-        $\gamma$ & Inverse Frisch elasticity  & 3 & - \\
-        $\nu$ & Money velocity  & 7 & - \\
-        $\delta$ & Capital depreciation rate  & 0.1 & - \\
-        $\phi_X$ & Investment adjustment cost parameter & - & - \\
-        $\alpha$ & Capital share of income & 0.31 & - \\
-        $\rho$ & Elasticity of substitution for differentiated goods &  0.38 & - \\
-        $\kappa$ & Price stickiness & - & - \\
-        $lg^Y_{ss}$ & Public-debt-to-GDP steady-state target & - & - \\
-        ${\tau_L}$ & Labor income tax & - & - \\
-        ${\tau_K}$ & Capital income tax & - & - \\
-        ${\tau_C}$ & Consumption tax & - & -  \\
-        ${\gamma_{l_g}}$ & Fiscal rule coefficient w.r.t. government liabilities & - & -  \\
-        ${\theta_{\pi}}$ & Taylor coefficient w.r.t. inflation gap & 2 & - \\
-        $\theta_R$ & Taylor coefficient w.r.t. interest rate & NA  & - \\  \bottomrule
+        $\beta$ & Period discount factor  & 0.96  \\
+        $\sigma$ & Intertemporal consumption elasticity  & 2  \\
+        $\gamma$ & Inverse Frisch elasticity  & 3  \\
+        $\nu$ & Money velocity  & 7  \\
+        $\delta$ & Capital depreciation rate  & 0.1  \\
+        $\phi_X$ & Investment adjustment cost parameter & -  \\
+        $\alpha$ & Capital share of income & 0.31  \\
+        $\rho$ & Elasticity of substitution for differentiated goods &  -  \\
+        $\kappa$ & Price stickiness & 60 \\
+        $lg^Y_{ss}$ & Public-debt-to-GDP steady-state target & -  \\
+        ${\tau_L}$ & Labor income tax & 0.24 \\
+        ${\tau_K}$ & Capital income tax & 0.25 \\
+        ${\tau_C}$ & Consumption tax & 0.13 \\
+        ${\gamma_{l_g}}$ & Fiscal rule coefficient w.r.t. government liabilities & - \\
+        ${\theta_{\pi}}$ & Taylor coefficient w.r.t. inflation gap & 2 \\
+        $\theta_R$ & Taylor coefficient w.r.t. interest rate & NA  \\  \bottomrule
     \end{tabular}
     \label{tab:parameters}
 \end{table}
