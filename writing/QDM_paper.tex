@@ -86,18 +86,16 @@ The government has fiscal and monetary policy at their disposal, but cannot comb
 \subsection*{(c) Calibration of the Model}
 The model is calibrated to the Canadian economy in 1979, assuming that one period corresponds to a year. 
 The discount factor $\beta$ is set to 0.96, inline with \textcite{someOilDemandSupply2023} and close to \textcite{corriganToTEMIIIBank2021}. 
-The intertemporal consumption elasticity $\sigma$ is set to less than 1, \textbf{indicating that households are somewhat risk-averse Double check}
+The intertemporal consumption elasticity $\sigma$ is set to 2. Positive values indicate risk-aversion, whereas a negative value would correspond to risk-loving behaviour
 \parencite{thimmeIntertemporalSubstitutionConsumption2017}.
 
-Estimates for the inverse Frisch elasticity $\gamma$ differ starkly, between macro and micro estimates. Reasons for this discrepancy are discussed 
-in \textcite{chettyBoundsElasticitiesOptimization2012} \textbf{Verify} and 
+Estimates for the inverse Frisch elasticity $\gamma$ differ starkly, between macro and micro estimates. Reasons for this discrepancy
 include that micro studies use a sample which constitutes a subset of the population (e.g. primary earners, in the midst of their careers) whereas macro 
 estimates try to copy behaviour of the entire population. Furthermore, micro estimates usually do not consider the extensive margin, i.e. the decision 
-to work or not. Since the model attempts to capture macro behaviour. 
+to work or not. Since the model attempts to capture macro trends we use a macro estimate of 3 \parencite{petermanReconcilingMicroMacro2016}. 
 
-The inverse Frisch elasticity is set to 3, using a macro estimate 
-\parencite{petermanReconcilingMicroMacro2016}. Money velocity $\nu$ is calculated as the ratio of nominal GDP to the money stock (M1), with data from: \textcite{bankofenglandCanadianDollarData2021}; 
-\textcite{federalreservebankofminneapolisInflationCalculatorFederal}; \textcite{worldbankgroupWorldBankNational}; \textcite{bankofcanadaSelectedMonetaryAggregates}
+Money velocity $\nu$ is calculated as the ratio of nominal GDP to the money stock (M1) (with data from: \textcite{bankofenglandCanadianDollarData2021}; 
+\textcite{federalreservebankofminneapolisInflationCalculatorFederal}; \textcite{worldbankgroupWorldBankNational}; \textcite{bankofcanadaSelectedMonetaryAggregates})
 \footnote{GDP from World Bank in 2015 USD converted to 1979 USD using Federal Reserve Minneapolis, converted to CAD using historic annual average exchange rate from 
 the Bank of England, Money Supply from Bank of Canada.} yielding 4.2.
 \textbf{this is from Fisher's quantity equation} $MV =PY$ \textbf{, rearranging binding CiA gives: }$\nu = \frac{M}{PC}$ \textbf{so model is inverse money velocity? The actual result I got is 1/4.2}.
@@ -108,11 +106,10 @@ The capital share of income $\alpha$ is set to 0.31 (\cite{fredst.louisShareLabo
 Rather, it aggregates into a single consumption good and thus is better understood as a elasticity of substitution between consuming differentiated goods. Verify}. 
 
 Price stickiness $\kappa$ is set to , which is the default value of the given model.
-%The public-debt-to-GDP steady-state target $lg^Y_{ss}$ is set to average of public-debt-to-GDP ratio from ... to ... (Data from: \cite{...}).
-The three tax rates on labour $\tau_L$, captial $\tau_K$ and, consumption $\tau_C$ are set so that the tax revenue (in \% of GDP) is equal to the tax revenue (in \% of GDP) from 1979, which is 24\% 
-(\textbf{Would be better to take longer averages}) 
-(Data from: \cite{bankofenglandCanadianDollarData2021}; \cite{federalreservebankofminneapolisInflationCalculatorFederal}; \cite{statisticscanadaNationalBalanceSheet2012}; 
-\cite{worldbankgroupWorldBankNational})\footnote{As above except Tax Revenue is from Statistics Canada.}.
+
+The three tax-rates are set in accordance with the average effective tax rates in Canada in 1980-85. The labour income tax rate $\tau_L$ is set to 0.24, the capital income tax rate $\tau_K$ is set to 0.25 and the consumption tax rate $\tau_C$ is set to 0.13 
+\parencite{careyAverageEffectiveTax2000}.
+
 The labour disutility parameter $\varphi$ is set so that the steady-state labour supply is equal to 1.
 
 
