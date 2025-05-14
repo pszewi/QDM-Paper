@@ -104,6 +104,10 @@ end
 %% ------------------------------------------------------------------------
 % IRF Plotting - Default Model
 % -------------------------------------------------------------------------
+T = readtable('../data/empirics.csv', ReadVariableNames=true);
+T.index = transpose([1:81]);
+T = T(mod(T.index,4)==0, :)
+
 
 % Impulse Responses Productivity
 figure('Name','IRFs to a marginal cost shock')
@@ -113,6 +117,7 @@ nexttile
 title('Real GDP')
 hold on
 plot(Y_eMC./stst.Y.*100,'LineWidth',2);
+plot(T.dev_trend*100,'LineWidth',2);
 % ADD FURTHER SHOCKS SYMMETRICALLY
 yline(0,'r')
 hold off
@@ -124,6 +129,7 @@ nexttile
 title('Inflation')
 hold on
 plot(pii_eMC.*100,'LineWidth',2);
+plot(T.dev_pi,'LineWidth',2);
 % ADD FURTHER SHOCKS SYMMETRICALLY
 yline(0,'r')
 hold off

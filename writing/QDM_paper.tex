@@ -122,13 +122,24 @@ As our scenario requires that the Central Bank adopts a money supply target aimi
     \frac{M_t}{M_{t-1}} = \Big(\frac{1+\pi_{t}}{1+ \bar \pi}\Big)^{\theta_{\pi}}
 \end{equation}
 
-Moreover, it seems natural, that the $MC$ shock should enter the model through the Phillips curve. That is because the curve represents the pricing decision rule of the intermediate companies, and so it will most accurately represent their reaction to an increase in marginal costs.
+Moreover, it seems natural, that the $MC$ shock should enter the model through the Phillips curve. That is because the curve represents the pricing decision rule of the intermediate companies, and so it will most accurately represent their reaction to an increase in marginal costs. Including our shock, the NK-Phillips curve is given by: 
+
+\begin{equation}
+    \frac{\kappa \pi_t (1 + \pi_t)}{1 - \frac{\kappa}{2} \pi_t^2}
+    = \frac{1 - \frac{\rho}{mc_t \cdot e^{MC_s,t}}}{1 - \rho}
+    + \mathbb{E}_t \beta_{t,t+1}
+    \frac{Y_{t+1}}{Y_t}
+    \frac{mc_{t+1} \cdot e^{MC_{s,t+1}}}{mc_t \cdot e^{MC_s,t}}
+    \frac{\kappa \pi_{t+1} (1 + \pi_{t+1})^2}{1 - \frac{\kappa}{2} \pi_{t+1}^2}
+\end{equation}
+
+Where the periodic shock is expressed multiplicatively as $mc_t \cdot e^{MC_{s, t}}$ to ensure convenient estimation.
 
 \subsection*{(a) How does the shock lead to economic fluctuations (baseline scenario)?}
 
-These two assumptions lead to the fact that in the period following the shock, intermediate firms will adjust their prices and revise their hiring decisions. The economic intuition behind this is that an increase in marginal costs, decreases the markup of the firm which then chooses to adjust its prices. As adjustment is costly (due to $\kappa$), the firms will raise their prices less than the increase in marginal costs. In turn, higher prices, cause a decrease in demand for the aggregate product, therefore prompting the firms to decrease output. At the same time, the higher marginal costs imply that the companies choose to hire less labour and capital, as it becomes more costly. Finally, real wages and the real rental rate of capital fall, as \dots\ \textit{finish} \dots\ \textbf{Note: Check my reasoning here.}
+These two assumptions lead to the fact that in the period following the shock, intermediate firms will adjust their prices and revise their hiring decisions. The economic intuition behind this is that an increase in marginal costs, decreases the markup of the firm which then chooses to adjust its prices. As adjustment is costly (due to $\kappa$), the firms will raise their prices less than the increase in marginal costs. In turn, higher prices, cause a decrease in demand for the aggregate product, therefore prompting the firms to decrease output. At the same time, the higher marginal costs imply that the companies choose to hire less labour and capital, as it becomes more costly. Finally, given the high prices and lower output, real wages and the real rental rate of capital fall.
 
-Furthermore, the $MC_t$ feeds into firms' expectations about the future. When firms choose to set their prices for $t$, they trade off increasing their prices today and in the future. If the shock is expected to be persistent, firms may choose to increase their prices by less in $t$ and choose to keep increasing them slowly over time. 
+Furthermore, the $mc_t \cdot e^{MC_{s, t}}$ feeds into firms' expectations about the future. When firms choose to set their prices for $t$, they trade off increasing their prices today and in the future. If the shock is expected to be persistent, firms may choose to increase their prices by less in $t$ and choose to keep increasing them slowly over time. 
 
 The firm's pricing decision is also important for the future, as it is used as a benchmark relative to which they set their next period's prices. If prices are set high in period $t$, \textbf{does it increase the costs of raising the prices later on??? I don't think so}.
 
