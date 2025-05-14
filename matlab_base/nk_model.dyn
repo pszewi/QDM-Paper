@@ -39,6 +39,9 @@ var
     // Default shock
 %    sM          ${s_M}$         (long_name='Monetary policy shock process')
     sMC          ${s_MC}$         (long_name='Marginal cost shock process')
+
+    // additional variables
+    mc_act       ${mc_act}$          (long_name='Actual marginal cost value')
     ;
 
 predetermined_variables     
@@ -74,6 +77,7 @@ parameters
 
     // Monetary policy
     tetPi       ${\theta_{\pi}}$    (long_name='Taylor coefficient w.r.t. inflation')
+    tetL    ${\theta_{L}}$  (long_name = 'Money supply taylor coefficient w.r.t. labour')
 
     // Shock standard deviations
 %    stdM        ${\sigma_M}$        (long_name='Standard deviation monetary policy shock')
@@ -81,7 +85,7 @@ parameters
 
     // Shock autocorrelations
 %    rhoM        ${\rho_M}$          (long_name='Autocorrelation monetary policy shock')
-    rhoMC        ${\rho_MC}$          (long_name='Autocorrelation marginal cost shock')
+    rhoMC        ${\rho_MC}$         (long_name='Autocorrelation marginal cost shock')
     ;
     
 % Assigning values from Matlab workspace to the parameters
@@ -108,6 +112,7 @@ set_param_value('lgY_ss',par.lgY_ss);
 
 % Monetary policy
 set_param_value('tetPi',par.tetPi);
+set_param_value('tetL', par.tetL);
 
 % Shock standard deviations
 % set_param_value('stdM',par.stdM);
@@ -162,6 +167,9 @@ w       = (1-alp)*(mc)*Y/L;
 r       = alp*(mc)*Y/K;
 
 [name='NK Phillips curve']
+
+% specification with exponent
+
 cpp/(1-cp) = (1-rhoo/(mc*exp(sMC)))/(1-rhoo)
             + (1+pii(+1))/(1+rb) *Y(+1)/Y*(mc(+1)*exp(sMC(+1)))/(mc*exp(sMC)) * cpp(+1)/(1-cp(+1));
 
@@ -204,11 +212,33 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 
 % [name='Monetary policy rule']
 (1+rb)/(1+steady_state(rb)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) ; % DELETED * exp(sM) to m here!!!
+% steady_state(pii) + (3/2)*steady_state(pii)^2 = (pii(+1))/(1+rb)*Y(+1)/Y*(mc(+1)+sMC(+1))/(mc+sMC)*cpp(+1)*(1-rhoo)/(1-rhoo/(mc+sMC))+1;
+
+% ---------------------------------
+% ---------------------------------
+% rule by gpt, tries to follow taylor and includes the marginal costs
+% ---------------------------------
+% ---------------------------------
+
+%m / m(-1)
+%    = ( L(+1) / steady_state(L) )^( - tetL  )
+%      * ( (1 + pii) / (1 + steady_state(pii)) )^( - tetPi ) ;
+
+
+%m / m(-1)
+%      = ( mc / steady_state(mc) )^(-tetMC)
+%        * ( (1 + pii) / (1 + steady_state(pii)) )^(-tetPi) ;
+
+% ---------------------------------
+% Simple rule that just looks at the inflation rate
+% ---------------------------------
+
+%m/m(-1) = ((1+pii)/(1+steady_state(pii)))^(-tetPi) ;
 
 [name='Fiscal policy rule']
 tauu - steady_state(tauu) 
         = gamLG * ( lg - steady_state(lg) );
-
+                  
 %-------------------------------------------------------------------------------
 % Exogenous processes
 %-------------------------------------------------------------------------------
@@ -217,6 +247,14 @@ tauu - steady_state(tauu)
 % sM      = rhoM*sM(-1) + eM;
 [name='Marginal cost shock process']
 sMC      = rhoMC*sMC(-1) + eMC;
+
+
+
+%-------------------------------------------------------------------------------
+% Extra variable
+%-------------------------------------------------------------------------------
+
+mc_act = mc*exp(sMC);
 
 end;
 
@@ -241,8 +279,8 @@ end;
 %--------------------------------------------------------------------------
 
 stoch_simul(order=@{approx_order},
-            // nodisplay,
-            // nograph,
+            nodisplay,
+            nograph,
             noprint,
             pruning,
             irf=@{irf_periods},
