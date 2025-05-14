@@ -8,6 +8,6 @@ docs/*
 *.pdf
 /matlab_base/+nk_model/*
 /matlab_base/nk_model/*
+/matlab_base/output/*
 data/*.csv
 literature/*
-matlab_base/output/*
