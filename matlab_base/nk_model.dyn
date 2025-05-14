@@ -39,6 +39,9 @@ var
     // Default shock
 %    sM          ${s_M}$         (long_name='Monetary policy shock process')
     sMC          ${s_MC}$         (long_name='Marginal cost shock process')
+
+    // additional variables
+    mc_act       ${mc_act}$          (long_name='Actual marginal cost value')
     ;
 
 predetermined_variables     
@@ -82,7 +85,7 @@ parameters
 
     // Shock autocorrelations
 %    rhoM        ${\rho_M}$          (long_name='Autocorrelation monetary policy shock')
-    rhoMC        ${\rho_MC}$          (long_name='Autocorrelation marginal cost shock')
+    rhoMC        ${\rho_MC}$         (long_name='Autocorrelation marginal cost shock')
     ;
     
 % Assigning values from Matlab workspace to the parameters
@@ -208,7 +211,7 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 % ---------------------------------
 
 [name='Monetary policy rule']
-% (1+rb)/(1+steady_state(rb)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) ; % DELETED * exp(sM) to m here!!!
+(1+rb)/(1+steady_state(rb)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) ; % DELETED * exp(sM) to m here!!!
 % steady_state(pii) + (3/2)*steady_state(pii)^2 = (pii(+1))/(1+rb)*Y(+1)/Y*(mc(+1)+sMC(+1))/(mc+sMC)*cpp(+1)*(1-rhoo)/(1-rhoo/(mc+sMC))+1;
 
 % ---------------------------------
@@ -217,7 +220,7 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 % ---------------------------------
 % ---------------------------------
 
-% m / m(-1)
+%m / m(-1)
 %      = ( mc / steady_state(mc) )^(-tetMC)
 %        * ( (1 + pii) / (1 + steady_state(pii)) )^(-tetPi) ;
 
@@ -225,7 +228,7 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 % ---------------------------------
 % Simple rule that just looks at the inflation rate
 % ---------------------------------
-m/m(-1) = ((1+pii)/(1+steady_state(pii)))^(-tetPi) ;
+%m/m(-1) = ((1+pii)/(1+steady_state(pii)))^(-tetPi) ;
 
 [name='Fiscal policy rule']
 tauu - steady_state(tauu) 
@@ -239,6 +242,14 @@ tauu - steady_state(tauu)
 % sM      = rhoM*sM(-1) + eM;
 [name='Marginal cost shock process']
 sMC      = rhoMC*sMC(-1) + eMC;
+
+
+
+%-------------------------------------------------------------------------------
+% Extra variable
+%-------------------------------------------------------------------------------
+
+mc_act = mc*exp(sMC);
 
 end;
 
@@ -263,8 +274,8 @@ end;
 %--------------------------------------------------------------------------
 
 stoch_simul(order=@{approx_order},
-            nodisplay,
-            nograph,
+            //nodisplay,
+            //nograph,
             noprint,
             pruning,
             irf=@{irf_periods},
