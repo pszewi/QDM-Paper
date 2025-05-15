@@ -22,7 +22,8 @@ dropnumber      = 1000;     % Set Number of Simulation Periods dropped
 % Loop options
 run_loop        = 0;        % Set to "1" if you want to execute the FOR-loop!
 loopcount       = 3;
-loop_robustness = linspace(1,3,loopcount);
+loop_robustness = linspace(0.5,1.5,loopcount);
+
 
 %% ------------------------------------------------------------------------
 % Parameters
@@ -66,7 +67,7 @@ par.phiX    = 12;
 par.alp     = 0.31;
 par.rhoo    = 0.8;
 % par.kap     = 60;
-par.kap     = 100;
+par.kap     = 120;
 
 % Government
 par.lgY_ss  = 0.2;
@@ -77,7 +78,8 @@ par.gamLG   = 0.2;
 
 
 % Monetary policy
-par.tetPi   = 1.5;
+% par.tetPi   = 1.5;
+par.tetPi   = 1;
 par.tetL = 1.0;
 
 % Shock standard deviations
@@ -107,7 +109,7 @@ end
 % -------------------------------------------------------------------------
 T = readtable('../data/empirics.csv', ReadVariableNames=true);
 T.index = transpose([1:81]);
-T = T(mod(T.index,4)==0, :)
+T = T(mod(T.index,4)==0, :);
 
 
 % Impulse Responses Productivity
@@ -118,6 +120,7 @@ nexttile
 title('Real GDP')
 hold on
 plot(Y_eMC./stst.Y.*100,'LineWidth',2);
+%plot actual data
 plot(T.dev_trend*100,'LineWidth',2);
 % ADD FURTHER SHOCKS SYMMETRICALLY
 yline(0,'r')
@@ -130,6 +133,7 @@ nexttile
 title('Inflation')
 hold on
 plot(pii_eMC.*100,'LineWidth',2);
+%plot actual data
 plot(T.dev_pi,'LineWidth',2);
 % ADD FURTHER SHOCKS SYMMETRICALLY
 yline(0,'r')
@@ -252,7 +256,7 @@ ylabel('%-Dev. St.St.')
 if run_loop == 1
 
 for tt = 1:length(loop_robustness)
-    % Set Frisch Elasticity of Labor Supply
+    % Set theta_pi of baseline policy rule
     par.gam = loop_robustness(tt);
     % Call Dynare to initialize model (YOU DO NOT HAVE DO CHANGE ANYTHING HERE)
     eval(['dynare nk_model.dyn -Dreplic_number=' num2str(replicnumber) ...
@@ -273,7 +277,7 @@ end
 
 % Impulse Responses Productivity
 figure('Name','IRFs to a positive productivity shock (robustness)')
-T = tiledlayout(1,2);
+F = tiledlayout(1,2);
 
 nexttile
 title('Real GDP') % Title for this tile
@@ -299,11 +303,11 @@ axis tight
 xlabel('Periods')
 ylabel('%-Dev. St.St.')
 
-title(T,'Impulse Responses to a Monetary Policy Shock') % Title for the entire figure
+title(F,'Impulse Responses to a Marginal Cost Shock') % Title for the entire figure
 leg = legend('$\gamma = 1$','$\gamma = \frac{1}{2}$','$\gamma = \frac{1}{3}$','Orientation', 'Horizontal');
 set(leg, 'Interpreter','latex')
 leg.Layout.Tile = 'south';
-title(leg,'Frisch Elasticity')
+title(leg,'Policy Rule Parameter')
 
 end
 
