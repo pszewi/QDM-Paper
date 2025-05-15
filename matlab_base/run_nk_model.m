@@ -57,7 +57,7 @@ loop_robustness = linspace(1,3,loopcount);
 par.betta   = 0.96;
 par.sig     = 2;
 par.gam     = 3;
-par.nuu     = 0.7;
+par.nuu     = 0.5;
 par.delt    = 0.1;
 par.phiX    = 2;
 
@@ -70,14 +70,15 @@ par.kap     = 60;
 
 % Government
 par.lgY_ss  = 0.2;
-par.tauL    = 0.2;
-par.tauK    = 0.2;
-par.tauC    = 0.2;
+par.tauL    = 0.225;
+par.tauK    = 0.299;
+par.tauC    = 0.164;
 par.gamLG   = 0.2;
 
 
 % Monetary policy
 par.tetPi   = 1.5;
+par.tetL = 1.0;
 
 % Shock standard deviations
 % par.stdM    = 0.001;
@@ -104,6 +105,10 @@ end
 %% ------------------------------------------------------------------------
 % IRF Plotting - Default Model
 % -------------------------------------------------------------------------
+T = readtable('../data/empirics.csv', ReadVariableNames=true);
+T.index = transpose([1:81]);
+T = T(mod(T.index,4)==0, :)
+
 
 % Impulse Responses Productivity
 figure('Name','IRFs to a marginal cost shock')
@@ -113,6 +118,7 @@ nexttile
 title('Real GDP')
 hold on
 plot(Y_eMC./stst.Y.*100,'LineWidth',2);
+plot(T.dev_trend*100,'LineWidth',2);
 % ADD FURTHER SHOCKS SYMMETRICALLY
 yline(0,'r')
 hold off
@@ -124,6 +130,7 @@ nexttile
 title('Inflation')
 hold on
 plot(pii_eMC.*100,'LineWidth',2);
+plot(T.dev_pi,'LineWidth',2);
 % ADD FURTHER SHOCKS SYMMETRICALLY
 yline(0,'r')
 hold off
@@ -131,7 +138,112 @@ axis tight
 xlabel('Periods')
 ylabel('%-Dev. St.St.')
 
-saveas(gcf,'output/irf_gdp_taylor.png')
+% ---------------------------------------
+%  Second graph
+% ---------------------------------------
+
+% Impulse Responses Productivity
+figure('Name','IRFs to a marginal cost shock')
+tiledlayout(3,3)
+
+nexttile
+title('Labour')
+hold on
+plot(L_eMC/stst.L.*100,'LineWidth',2);
+% ADD FURTHER SHOCKS SYMMETRICALLY
+yline(0,'r')
+hold off
+axis tight
+xlabel('Periods')
+ylabel('%-Dev. St.St.')
+
+nexttile
+title('Capital')
+hold on
+plot(K_eMC/stst.K.*100,'LineWidth',2);
+% ADD FURTHER SHOCKS SYMMETRICALLY
+yline(0,'r')
+hold off
+axis tight
+xlabel('Periods')
+ylabel('%-Dev. St.St.')
+
+nexttile
+title('Consumption')
+hold on
+plot(C_eMC/stst.C.*100,'LineWidth',2);
+% ADD FURTHER SHOCKS SYMMETRICALLY
+yline(0,'r')
+hold off
+axis tight
+xlabel('Periods')
+ylabel('%-Dev. St.St.')
+
+nexttile
+title('Wages')
+hold on
+plot(w_eMC./stst.w.*100,'LineWidth',2);
+% ADD FURTHER SHOCKS SYMMETRICALLY
+yline(0,'r')
+hold off
+axis tight
+xlabel('Periods')
+ylabel('%-Dev. St.St.')
+
+nexttile
+title('Return on Capital')
+hold on
+plot(r_eMC/stst.r.*100,'LineWidth',2);
+% ADD FURTHER SHOCKS SYMMETRICALLY
+yline(0,'r')
+hold off
+axis tight
+xlabel('Periods')
+ylabel('%-Dev. St.St.')
+
+nexttile
+title('Investment')
+hold on
+plot(X_eMC/stst.X.*100,'LineWidth',2);
+% ADD FURTHER SHOCKS SYMMETRICALLY
+yline(0,'r')
+hold off
+axis tight
+xlabel('Periods')
+ylabel('%-Dev. St.St.')
+
+nexttile
+title('Interest Rate')
+hold on
+plot(rb_eMC/stst.rb.*100,'LineWidth',2);
+% ADD FURTHER SHOCKS SYMMETRICALLY
+yline(0,'r')
+hold off
+axis tight
+xlabel('Periods')
+ylabel('%-Dev. St.St.')
+
+nexttile
+title('Marginal Costs')
+hold on
+plot(mc_act_eMC/stst.mc_act.*100,'LineWidth',2);
+% ADD FURTHER SHOCKS SYMMETRICALLY
+yline(0,'r')
+hold off
+axis tight
+xlabel('Periods')
+ylabel('%-Dev. St.St.')
+
+nexttile
+title('Money stock')
+hold on
+plot(m_eMC/stst.m.*100,'LineWidth',2);
+% ADD FURTHER SHOCKS SYMMETRICALLY
+yline(0,'r')
+hold off
+axis tight
+xlabel('Periods')
+ylabel('%-Dev. St.St.')
 
 %% ------------------------------------------------------------------------
 % IRF ROBUSTNESS ANALYSIS - Labor Supply Elasticity 

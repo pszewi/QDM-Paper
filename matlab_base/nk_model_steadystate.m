@@ -66,6 +66,8 @@ r       = alp*Y/K*mc;
 % Taxes implied by government budget constraint
 lg      = m - (1+rb)/rb*( g_ss-(tauC)*C-(tauL)*w*L-(tauK)*r*K );
 
+% new mc variable
+mc_act = mc;
 %% end own model equations
 
 params=NaN(NumberOfParameters,1);
