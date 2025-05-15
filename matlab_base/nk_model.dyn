@@ -211,7 +211,7 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 % ---------------------------------
 
 % [name='Monetary policy rule']
-(1+rb)/(1+steady_state(rb)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) ; % DELETED * exp(sM) to m here!!!
+%(1+rb)/(1+steady_state(rb)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) ; % DELETED * exp(sM) to m here!!!
 % steady_state(pii) + (3/2)*steady_state(pii)^2 = (pii(+1))/(1+rb)*Y(+1)/Y*(mc(+1)+sMC(+1))/(mc+sMC)*cpp(+1)*(1-rhoo)/(1-rhoo/(mc+sMC))+1;
 
 % ---------------------------------
@@ -230,10 +230,10 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 %        * ( (1 + pii) / (1 + steady_state(pii)) )^(-tetPi) ;
 
 % ---------------------------------
-% Simple rule that just looks at the inflation rate
+% Simple rule that just looks at the inflation rate and targets money supply, this is our baseline
 % ---------------------------------
 
-%m/m(-1) = ((1+pii)/(1+steady_state(pii)))^(-tetPi) ;
+m/m(-1) = ((1+pii)/(1+steady_state(pii)))^(-tetPi) ;
 
 [name='Fiscal policy rule']
 tauu - steady_state(tauu) 
