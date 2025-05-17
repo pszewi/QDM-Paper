@@ -43,8 +43,7 @@ end_date = datetime('2001-01-01');
 % Filter the table based on the date range and select specific columns
 df = df(df.observation_date >= start_date & df.observation_date <= end_date, {'observation_date', 'dev_trend', 'dev_pi'});
 
-%listing all vars
-%whos
+
 
 writetable(df,'..\data\empirics.csv','Delimiter',' ')  
 
@@ -63,5 +62,8 @@ legend('GDP','\pi')
 hold off
 
 title(T,'Data') % Title for the entire figure
+
+%listing all vars
+whos
 % end
 
