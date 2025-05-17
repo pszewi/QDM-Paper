@@ -83,6 +83,16 @@ The government has fiscal and monetary policy at their disposal, but cannot comb
 
 
 \subsection*{(b) Policy Structure of the Model (main equations)}
+The government has fiscal and monetary policy at their disposal, but cannot combine the two. Our baseline scenario assumes that the government
+follows a Taylor-like monetary policy rule, which is a function of the inflation rate and determines the change in money supply. 
+The Taylor-like monetary policy rule is given by:
+\begin{align}
+    \frac{M_t}{M_{t-1}} = \biggl[ \frac{1+\pi_t}{1+\bar{\pi}} \biggr]^{-\theta_\pi}
+\end{align}
+
+\textbf{Explain here the equation and how it affects the economy.}
+
+In the counterfactual scenarios we first consider a change of $\theta_\pi$, i.e. the responsiveness of the money supply to inflation from it's target. Then we include a secondary term, meaning that the central bank not only cares about inflation but also employment levels, similar to the dual mandate of the US. As a third monetary policy rule we consider including the marginal cost in the Taylor-like rule.
 % Content here (use align or equation environments).
 
 \subsection*{(c) Calibration of the Model}
@@ -106,10 +116,10 @@ The capital share of income $\alpha$ is set to 0.31 (\cite{fredst.louisShareLabo
 \textbf{The elasticity of substitution between differentiated goods, even though a parameter of the final goods firm is not really a production process parameter. 
 Rather, it aggregates all goods into a single consumption good and thus is better understood as a elasticity of substitution between consuming differentiated goods.}. 
 
-Price stickiness parameter $\kappa$ is set to 60, which is the default value of the given model.
+The three tax-rates are set in accordance with the average effective tax rates in Canada in 1980-85. The labour income tax rate $\tau_L$ is set to 0.24, the capital income tax rate $\tau_K$ is set to 0.25 and the consumption tax rate $\tau_C$ is set to 0.13
+\parencite{careyAverageEffectiveTax2000}. 
 
-The three tax-rates are set in accordance with the average effective tax rates in Canada in 1980-85. The labour income tax rate $\tau_L$ is set to 0.24, the capital income tax rate $\tau_K$ is set to 0.25 and the consumption tax rate $\tau_C$ is set to 0.13 
-\parencite{careyAverageEffectiveTax2000}.
+Price stickiness parameter $\kappa$ and the investment adjustment cost parameter $\phi_X$ are set to increase the model's fit to the data\footnote{As data we use the deviation of inflation from its long-run (1961-2024) average ($\bar{\pi} = xx$). To identify the deviation of GDP from its steady-state we use the one-sided Hodrick-Prescott filter, identifying the cyclical component of GDP. \textbf{We do not use a formal minimization process but rather visually inspect the best-fit. @Jakub can you add the source where you got the data from?}}.
 % ------------------------------------------------------------------------
 %  JAKUB -------------------------------
 % ------------------------------------------------------------------------
@@ -118,7 +128,7 @@ The three tax-rates are set in accordance with the average effective tax rates i
 \newpage
 \section*{4. Benchmark Model Analysis (about two pages)}
 
-As our scenario requires that the Central Bank adopts a money supply target aiming to achieve price stability, we adjust the benchmark model to a monetary policy rule with the following specification: 
+As our scenario requires that the Central Bank adopts a money supply target aiming to achieve price stability, we adjust the benchmark model to a monetary policy rule with the following specification: \textbf{I wrote the same equation in section 3b? Also I dont get how the CB can set $M_t$ using $\pi_t$}
 
 \begin{equation}
     \frac{M_t}{M_{t-1}} = \Big(\frac{1+\pi_{t}}{1+ \bar \pi}\Big)^{\theta_{\pi}}
@@ -165,6 +175,12 @@ At the same time, in an effort to smooth out the path of the economy, the centra
 % 5. Counterfactual Policies
 \section*{5. Counterfactual Policies (about two pages)}
 \subsection*{(a) More or less of the same policy (different coefficients)?}
+\textbf{Put here the IRFs for different Thetas}
+\begin{figure}{H}
+    \caption{Impulse response functions of observable variables}\label{fig:obs_var_taylor_2}
+    \centering
+    \includegraphics[width=0.7\textwidth]{../matlab_base/output/irf_gdp_taylor.png}
+\end{figure}
 % Content here.
 
 \subsection*{(b) Alternative policy (different targets)?}
@@ -194,11 +210,15 @@ At the same time, in an effort to smooth out the path of the economy, the centra
 
 \subsection*{(c) Do your results confirm or conflict with your perception about optimal policy? Discuss how.}
 % Content here.
+
+%references
+\newpage %start a new page
 \printbibliography % Print the bibliography
 
 % Appendix 
+\newpage
 \appendix
-\section*{Appendix A: Further Tables}
+\section{Appendix: Name of the Appendix}
 \begin{table}[ht]
     \centering
     \caption{Parameter Calibration}
@@ -222,8 +242,5 @@ At the same time, in an effort to smooth out the path of the economy, the centra
     \end{tabular}
     \label{tab:parameters}
 \end{table}
-
-\section{Appendix}
-
 
 \end{document}
