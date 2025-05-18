@@ -4,6 +4,13 @@
 % Konstantin Gantert - Tilburg University
 % 01/04/2025
 % *************************************************************************
+
+% ------------------------------------------------------------------------------
+@#ifndef RULE          // default so the file also runs from Dynare’s GUI
+  @#define RULE = 1
+@#endif
+% ------------------------------------------------------------------------------
+
 % ------------------------------------------------------------------------------
 % I) Define Variables and Parameters
 % ------------------------------------------------------------------------------
@@ -213,7 +220,13 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 % ---------------------------------
 
 [name='Monetary policy rule']
-% (1+rb)/(1+steady_state(rb)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) ; % DELETED * exp(sM) to m here!!!
+
+% ---------------------------------
+% Simple rule that just looks at the inflation rate and targets money supply, this is our baseline
+% ---------------------------------
+
+@#if RULE == 1 
+    m/m(-1) = ((1+pii)/(1+steady_state(pii)))^(-tetPi) ;
 
 % ---------------------------------
 % ---------------------------------
@@ -224,23 +237,23 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 % ---------------------------------
 % marginal cost version
 % ---------------------------------
-%m / m(-1)
-%      = ( mc / steady_state(mc) )^(-tetMC)
-%        * ( (1 + pii) / (1 + steady_state(pii)) )^(-tetPi) ;
+@#elseif RULE == 2 
+    m / m(-1)
+          = ( mc / steady_state(mc) )^(-tetMC)
+            * ( (1 + pii) / (1 + steady_state(pii)) )^(-tetPi) ;
 
 % ---------------------------------
 % labour version
 % ---------------------------------
-%m / m(-1)
-%    = ( L(+1) / steady_state(L) )^( - tetL  )
-%      * ( (1 + pii) / (1 + steady_state(pii)) )^( - tetPi ) ;
+@#elseif RULE == 3 
+    m / m(-1)
+        = ( L(+1) / steady_state(L) )^( - tetL  )
+          * ( (1 + pii) / (1 + steady_state(pii)) )^( - tetPi ) ;
 
-% ---------------------------------
-% Simple rule that just looks at the inflation rate and targets money supply, this is our baseline
-% ---------------------------------
+@#elseif   RULE == 4   
+    (1+rb)/(1+steady_state(rb)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) ; % DELETED * exp(sM) to m here!!!
 
-m/m(-1) = ((1+pii)/(1+steady_state(pii)))^(-tetPi) ;
-
+@#endif
 [name='Fiscal policy rule']
 tauu - steady_state(tauu) 
         = gamLG * ( lg - steady_state(lg) );
