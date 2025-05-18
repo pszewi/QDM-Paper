@@ -59,14 +59,14 @@ par.sig     = 2;
 par.gam     = 3;
 par.nuu     = 0.5;
 par.delt    = 0.1;
-par.phiX    = 2;
-
+% par.phiX    = 2;
+par.phiX    = 12;
 
 % Firms
 par.alp     = 0.31;
 par.rhoo    = 0.8;
-par.kap     = 60;
-
+% par.kap     = 60;
+par.kap     = 100;
 
 % Government
 par.lgY_ss  = 0.2;

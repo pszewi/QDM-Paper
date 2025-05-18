@@ -236,10 +236,10 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 %      * ( (1 + pii) / (1 + steady_state(pii)) )^( - tetPi ) ;
 
 % ---------------------------------
-% Simple rule that just looks at the inflation rate
+% Simple rule that just looks at the inflation rate and targets money supply, this is our baseline
 % ---------------------------------
 
-% m/m(-1) = ((1+pii)/(1+steady_state(pii)))^(-tetPi) ;
+m/m(-1) = ((1+pii)/(1+steady_state(pii)))^(-tetPi) ;
 
 [name='Fiscal policy rule']
 tauu - steady_state(tauu) 
