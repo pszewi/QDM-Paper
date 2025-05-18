@@ -338,7 +338,7 @@ set(leg, 'Interpreter','latex')
 leg.Layout.Tile = 'south';
 title(leg,'Policy Rule Parameter')
 
-saveas(gcf, "outupt/policy_variation.png")
+saveas(gcf, "output/policy_variation.png")
 
 end
 
