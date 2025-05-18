@@ -333,12 +333,12 @@ ylabel('%-Dev. St.St.')
 
 
 title(F,'Impulse Responses to a Marginal Cost Shock') % Title for the entire figure
-leg = legend('$\gamma = 1$','$\gamma = \frac{1}{2}$','$\gamma = \frac{1}{3}$','Orientation', 'Horizontal');
+leg = legend('$\theta_\pi = 0.5$','$\theta_\pi = 1$','$\theta_\pi = 1.5$','Orientation', 'Horizontal');
 set(leg, 'Interpreter','latex')
 leg.Layout.Tile = 'south';
 title(leg,'Policy Rule Parameter')
 
-savefile("outupt/policy_variation.png")
+saveas(gcf, "outupt/policy_variation.png")
 
 end
 
