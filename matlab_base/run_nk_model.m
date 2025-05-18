@@ -20,7 +20,7 @@ simreplicnumber = 10;       % Set Number of Simulation Replications
 dropnumber      = 1000;     % Set Number of Simulation Periods dropped
 
 % Loop options
-run_loop        = 0;        % Set to "1" if you want to execute the FOR-loop!
+run_loop        = 1;        % Set to "1" if you want to execute the FOR-loop!
 loopcount       = 3;
 loop_robustness = linspace(0.5,1.5,loopcount);
 
@@ -114,7 +114,7 @@ T = T(mod(T.index,4)==0, :);
 
 % Impulse Responses Productivity
 figure('Name','IRFs to a marginal cost shock')
-tiledlayout(1,2)
+tiledlayout(1,3)
 
 nexttile
 title('Real GDP')
@@ -141,6 +141,19 @@ hold off
 axis tight
 xlabel('Periods')
 ylabel('%-Dev. St.St.')
+
+nexttile
+title('Total Hours Worked')
+hold on
+plot(L_eMC./stst.L.*100,'LineWidth',2);
+% ADD FURTHER SHOCKS SYMMETRICALLY
+yline(0,'r')
+hold off
+axis tight
+xlabel('Periods')
+ylabel('%-Dev. St.St.')
+
+saveas(gcf, "output/main_baseline_policy.png")
 
 % ---------------------------------------
 %  Second graph
@@ -249,6 +262,8 @@ axis tight
 xlabel('Periods')
 ylabel('%-Dev. St.St.')
 
+
+saveas(gcf, "output/other_baseline_policy.png")
 %% ------------------------------------------------------------------------
 % IRF ROBUSTNESS ANALYSIS - Labor Supply Elasticity 
 % -------------------------------------------------------------------------
@@ -270,21 +285,22 @@ for tt = 1:length(loop_robustness)
     end
 
     % Save IRFs of each iteration
-    output_eM(:,tt)         = Y_eMC./stst.Y;
-    inflation_eM(:,tt)      = pii_eMC;
+    output_eMC(:,tt)         = Y_eMC./stst.Y;
+    inflation_eMC(:,tt)      = pii_eMC;
+    labour_eMC(:,tt)      = L_eMC./stst.L;
 
 end
 
 % Impulse Responses Productivity
 figure('Name','IRFs to a positive productivity shock (robustness)')
-F = tiledlayout(1,2);
+F = tiledlayout(1,3);
 
 nexttile
 title('Real GDP') % Title for this tile
 hold on
-plot(output_eM(:,1).*100,'b-','LineWidth',2);
-plot(output_eM(:,2).*100,'r--','LineWidth',2);
-plot(output_eM(:,3).*100,'g-.','LineWidth',2);
+plot(output_eMC(:,1).*100,'b-','LineWidth',2);
+plot(output_eMC(:,2).*100,'r--','LineWidth',2);
+plot(output_eMC(:,3).*100,'g-.','LineWidth',2);
 yline(0,'r')
 hold off
 axis tight
@@ -294,20 +310,35 @@ ylabel('%-Dev. St.St.')
 nexttile
 title('Inflation') % Title for this tile
 hold on
-plot(inflation_eM(:,1).*100,'b-','LineWidth',2)
-plot(inflation_eM(:,2).*100,'r--','LineWidth',2)
-plot(inflation_eM(:,3).*100,'g-.','LineWidth',2)
+plot(inflation_eMC(:,1).*100,'b-','LineWidth',2)
+plot(inflation_eMC(:,2).*100,'r--','LineWidth',2)
+plot(inflation_eMC(:,3).*100,'g-.','LineWidth',2)
 yline(0,'r')
 hold off
 axis tight
 xlabel('Periods')
 ylabel('%-Dev. St.St.')
 
+nexttile
+title('Total Hours Worked')
+hold on
+plot(labour_eMC(:,1).*100,'b-','LineWidth',2)
+plot(labour_eMC(:,2).*100,'r--','LineWidth',2)
+plot(labour_eMC(:,3).*100,'g-.','LineWidth',2)
+yline(0,'r')
+hold off
+axis tight
+xlabel('Periods')
+ylabel('%-Dev. St.St.')
+
+
 title(F,'Impulse Responses to a Marginal Cost Shock') % Title for the entire figure
 leg = legend('$\gamma = 1$','$\gamma = \frac{1}{2}$','$\gamma = \frac{1}{3}$','Orientation', 'Horizontal');
 set(leg, 'Interpreter','latex')
 leg.Layout.Tile = 'south';
 title(leg,'Policy Rule Parameter')
+
+savefile("outupt/policy_variation.png")
 
 end
 

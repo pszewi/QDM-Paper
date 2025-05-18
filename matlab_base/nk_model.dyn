@@ -213,7 +213,7 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 % ---------------------------------
 
 [name='Monetary policy rule']
-(1+rb)/(1+steady_state(rb)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) ; % DELETED * exp(sM) to m here!!!
+% (1+rb)/(1+steady_state(rb)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) ; % DELETED * exp(sM) to m here!!!
 
 % ---------------------------------
 % ---------------------------------
