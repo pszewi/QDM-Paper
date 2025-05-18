@@ -11,7 +11,7 @@
 \usepackage{booktabs} % For better table lines
 %make links look nice
 
-
+\graphicspath{{../matlab_base/output/}}
 % Page layout
 \geometry{a4paper, margin=1in}
 
@@ -164,34 +164,48 @@ The firm's pricing decision is also important for the future, as it is used as a
 
 Over time, as no more shocks happen, firms are able to arrive back at their target markup and therefore the economy is able to come back to the steady state inflation rate.\ \textbf{Expand on this part.}
 
-\begin{figure}
-    \caption{Impulse response functions of observable variables}\label{fig:obs_var_taylor}
+\begin{figure}[!h]
+    \caption{Impulse response functions of observable variables}\label{fig:main_baseline}
     \centering
-    \includegraphics[width=0.7\textwidth]{../matlab_base/output/irf_gdp_taylor.png}
+    \includegraphics[width=0.7\textwidth]{main_baseline_policy.png}
 \end{figure}
 
-\textbf{I THINK THAT THIS IS ALSO WHERE WE ADD OUR IMPULSE RESPONSE FUNCTIONS AS DESCRIBED IN THE INSTRUCTIONS!!!!}
+\begin{figure}[!h]
+    \caption{Impulse response functions of observable variables}\label{fig:other_baseline}
+    \centering
+    \includegraphics[width=0.7\textwidth]{other_baseline_policy.png}
+\end{figure}
+
+
+\textbf{HERE DESCRIBE THE IRF'S AND DISCUSS MODEL LIMITATIONS - E.G. CLOSED ECONOMY, NO EXCHANGE RATE ETC.}
 
 % describe the short run as well as the path back to the steady state. 
 \subsection*{(b) What is the idea behind the implemented policy (current policy scenario)?}
 
 At the same time, in an effort to smooth out the path of the economy, the central bank will adjust the money supply to increase the purchasing power of the households and counter the shocks. By following the Taylor-like monetary policy rule, it will increase the money supply in order to match the inflation and marginal cost gaps of the economy in an effort to achieve price stability. As the bank intervention will increase the money stock of the households, it will allow it to consume more goods and therefore counter the drop in output that the economy experiences.\ \textbf{Think carefully about this, what is the ideal policy rule and how to actually best achieve price stability, what should the central bank target?}
 
-
 \newpage
 % 5. Counterfactual Policies
 \section*{5. Counterfactual Policies (about two pages)}
 \subsection*{(a) More or less of the same policy (different coefficients)?}
-\textbf{Put here the IRFs for different Thetas}
-\begin{figure}{H}
-    \caption{Impulse response functions of observable variables}\label{fig:obs_var_taylor_2}
+
+
+\begin{figure}[!h]
+    \caption{Impulse response functions of observable variables}\label{fig:policy_par_variation}
     \centering
-    \includegraphics[width=0.7\textwidth]{../matlab_base/output/irf_gdp_taylor.png}
+    \includegraphics[width=0.7\textwidth]{policy_par_variation.png}
 \end{figure}
 % Content here.
 
 \subsection*{(b) Alternative policy (different targets)?}
 % Content here.
+
+
+\begin{figure}[!h]
+    \caption{Impulse response functions of observable variables}\label{fig:policy_rule_variation}
+    \centering
+    \includegraphics[width=0.7\textwidth]{policy_rule_variation.png}
+\end{figure}
 
 % -------------------------------------------------------
 %                       NOTES
