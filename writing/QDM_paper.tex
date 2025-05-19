@@ -6,9 +6,10 @@
 \usepackage{geometry}
 \usepackage[backend=biber, style=apa]{biblatex} % Use biblatex with biber
 \usepackage{wrapfig}
-\usepackage{hyperref}
 \usepackage{appendix} % For appendix management
 \usepackage{booktabs} % For better table lines
+\usepackage{color,soul}
+\usepackage{hyperref}
 %make links look nice
 
 \graphicspath{{../matlab_base/output/}}
@@ -22,6 +23,9 @@
 \title{Title of the Paper}
 \author{Author Name}
 \date{\today}
+
+% turning off some linting errors
+% chktex-file 3
 
 % ------------------------------------------------------------------------------
 % Document
@@ -48,7 +52,7 @@
 % ------------------------------------------------------------------------
 % THEO ------------------------
 % ------------------------------------------------------------------------
-
+\newpage
 % 3. Bird’s Eye View of the Model
 \section*{3. Bird’s Eye View of the Model (about two pages)}
 
@@ -57,26 +61,16 @@
 \subsection*{(a) Outline of the Model Structure (graphical and verbal, no equations)}
 % Content here (include figure environment if needed).
 The Dynamic Stochastic General Equilibrium (DSGE) Model used for this policy analysis features
-three representative agents, namely a representative household, intermediate goods firm and final goods firm, 
-as well as the government. 
+three representative agents, namely a representative household, an intermediate goods firm and final goods firm, as well as the \hl{government}.\footnote{Jakub: I would argue that government is not an agent --- it doesn't maximize anything, it just follows a rule (same as the CB), so maybe I wouldn't call it that (instead write ``The model also includes gov + cb''?)} 
 
-The reperesentative household aims to maximize its intertemporal utility, i.e. well-being 
-across all periods. It derives utitlity from consumption and its utitltiy is reduced by working. To optimize the its objective
-it chooses consumption, labour effort, investment in capital for the in every period. %Ct,Lt,Xt,Mt+1,Bt+1,Kt+1
-Furthermore it makes choices that affect the next period,  how much money holdings to save, which determines the money available
-in the next period. As well as how many bonds to pay at price $q_t$ which pay off in the next period. (\textbf{Should 
-I say here it also chooses} $K_{t+1}$ \textbf{I think that is covered by } $X_t$). When trying to maximize its utility
-the reperesentative household faces two constraints. First, to consume it must have cash available beforehand, i.e. only money 
-saved in the last period, at 0\% interest compared to $\frac{1}{q} -1$ from the bonds, can be used to buy consumption goods. 
-The second constraint is a common budget constraint, which simply requires that income be larger than or equal to expenses. 
-The households values utility derived today more highly than that derived in a future period. Thus future utility is discounted. 
+The representative household aims to maximize its intertemporal utility, i.e.~well-being, across all periods.\ \hl{It derives utility from consumption and its utility is reduced by working}\footnote{Jakub: I would re-write to ``It's utility is increasing in consumption and decreasing in hours worked''}. 
+To maximize its objective function it chooses consumption, labour effort and investment in capital, in every period. %Ct,Lt,Xt,Mt+1,Bt+1,Kt+1
+Furthermore, it \hl{makes choices that affect the next period, how much money holdings to save, which determines the money available in the next period}.\footnote{Jakub:``HH's choices today impact its outcomes in the future. Therefore, when choosing its money savings for the next period\ \dots''} As well as how many bonds to pay at price $q_t$ which pay off in the next period.\footnote{Should I say here it also chooses $K_{t+1}$ I think that is covered by $X_t$} 
 
-The intermediate goods firm as well as the final goods firm maximize their profit. 
-The revenue of the intermediate firm stem from selling their intermediate good to the 
-final goods firm. The cost incurred consitst of the nominal wage paid to labour, rent paid to capital, both
-of which are provided by the household. It is bound by a Cobb-Douglas function with a price stickiness friction, and 
-the supply of all intermediate goods must be met by demand for that good from the final good firm. 
-As just explained the final good firm buys the intermediate goods. The firm's input are substitutable to some degree. 
+\footnote{I would consider putting this paragraph before the previous one because the CiA constraint means that the HH has to save money for the future --- better continuity}When trying to maximize its utility the representative household faces two constraints. First, to consume it must have cash available beforehand, i.e.\ only money saved in the last period, at 0\% interest compared to $\frac{1}{q} -1$ from the bonds, can be used to buy consumption goods. 
+The second constraint is a common budget constraint, which simply requires that income be larger than or equal to expenses.  \hl{The households value utility derived today more highly than that derived in a future period. Thus, future utility is discounted.}\footnote{I would re-write this into one sentence ``HH is assumed to discount future utility in to reflect the fact that \dots''. }
+
+The intermediate goods firm as well as the final goods firm maximize their profit. The revenue of the intermediate firm stem from selling their intermediate good to the final goods firm. The cost incurred consist of the nominal wage paid to labour, rent paid to capital, both of which are provided by the household. It is bound by a Cobb-Douglas function with a price stickiness friction, and the supply of all intermediate goods must be met by demand for that good from the final good firm.  As just explained the final good firm buys the intermediate goods. The firm's input are substitutable to some degree. 
 
 The government has fiscal and monetary policy at their disposal, but cannot combine the two. 
 
@@ -84,21 +78,23 @@ The government has fiscal and monetary policy at their disposal, but cannot comb
 
 \subsection*{(b) Policy Structure of the Model (main equations)}
 The government has fiscal and monetary policy at their disposal, but cannot combine the two. Our baseline scenario assumes that the government
-follows a Taylor-like monetary policy rule, which is a function of the inflation rate and determines the change in money supply. If the inflation rate is above the target level, the money supply is decreased and vice versa \textbf{Easier to see if minus in front of theta is removed and fraction flipped}. The strength of the change in money supply relative to the deviation of inflation is given by the parameter $\theta_{pi}$. The monetary policy rule is given by:
-The Taylor-like monetary policy rule is given by:
+follows a Taylor-like monetary policy rule, which is a function of the inflation rate and determines the change in money supply. If the inflation rate is above the target level, the money supply is decreased and vice versa.\footnote{Easier to see if minus in front of theta is removed and fraction flipped} The strength of the change in money supply relative to the deviation of inflation is given by the parameter $\theta_{pi}$. The monetary policy rule is given by:
+The Taylor rule of monetary policy is given by:
 \begin{align}
-    \frac{M_t}{M_{t-1}} = \biggl[ \frac{1+\pi_t}{1+\bar{\pi}} \biggr]^{-\theta_\pi}
+    \frac{1 + r_{B,t}}{1 + \bar{r}_B} = \left( \frac{1 + r_{B,t-1}}{1 + \bar{r}_B} \right)^{\theta_R} \left( \frac{1 + \pi_t}{1 + \pi^*} \right)^{(1 - \theta_R)\theta_{pi}}
+e^{M_t}
 \end{align}
 
-\textbf{Explain here how the policy affects the economy.}
+Next par.\footnote{Change the policy to the baseline one. Explain here how the policy affects the economy.}
 
-In the counterfactual scenarios we first consider a change of $\theta_\pi$, i.e. the responsiveness of the money supply to inflation from it's target. Then we include a secondary term, meaning that the central bank not only cares about inflation but also employment levels, similar to the dual mandate of the US. As a third monetary policy rule we consider including the marginal cost in the Taylor-like rule.
+In the counterfactual scenarios we first consider a change of $\theta_\pi$, i.e.~the responsiveness of the money supply to inflation from its target. Then we include a secondary term, meaning that the central bank not only cares about inflation but also employment levels, similar to the dual mandate of the US.\@ As a third monetary policy rule we consider including the marginal cost in the Taylor-like rule.
 
-The fiscal policy rule works similarly {\textbf{[Should we include a fiscal policy rule as alternative policy?]}}, but instead of changing the money supply, the government adjusts a variable tax surcharge ($\tau_t$). This surcharge is added to the individual tax rates for labour income, capital income and consumption. This surcharge is a function of the level of government debt ($l_{g,t}$) (measured in \% of GDP) and the steady-state target level of government debt ($l^{\star}_{g}$). The governemnt reacts to the difference between the two levels of government debt by adjusting the surcharge. If the debt level is above its steady state target the surcharge is increased above its steady state level and vice versa. The incremental change of the surcharge is guided by a parameter $\lambda_{lg}$, which determines how responsive the government is to the deviation of government debt from its target. The fiscal policy rule is given by:
+The fiscal policy rule works similarly\footnote{Should we include a fiscal policy rule as alternative policy?}, but instead of changing the money supply, the government adjusts a variable tax surcharge ($\tau_t$). This surcharge is added to the individual tax rates for labour income, capital income and consumption. This surcharge is a function of the level of government debt ($l_{g,t}$) (measured in \% of GDP) and the steady-state target level of government debt ($l^{\star}_{g}$). The government reacts to the difference between the two levels of government debt by adjusting the surcharge. If the debt level is above its steady state target the surcharge is increased above its steady state level and vice versa. The incremental change of the surcharge is guided by a parameter $\lambda_{l g}$, which determines how responsive the government is to the deviation of government debt from its target. The fiscal policy rule is given by:
 \begin{align}
-    \tau_t - \tau^{\star} = \lambda_{lg} (l_{g,t} - l^{\star}_{g})
+    \tau_t - \tau^{\star} = \lambda_{l g} (l_{g,t} - l^{\star}_{g})
 \end{align}
-\textbf{Explain here how the policy affects the economy.}
+
+Next par.\footnote{Explain here how the policy affects the economy.}
 
 
 % Content here (use align or equation environments).
@@ -110,8 +106,8 @@ The intertemporal consumption elasticity $\sigma$ is set to 2. Positive values i
 \parencite{thimmeIntertemporalSubstitutionConsumption2017}.
 
 Estimates for the inverse Frisch elasticity $\gamma$ differ starkly, between macro and micro estimates. Reasons for this discrepancy
-include that micro studies use a sample which constitutes a subset of the population (e.g. primary earners, in the midst of their careers) whereas macro 
-estimates try to copy behaviour of the entire population. Furthermore, micro estimates usually do not consider the extensive margin, i.e. the decision 
+include that micro studies use a sample which constitutes a subset of the population (e.g.\ primary earners, in the midst of their careers) whereas macro 
+estimates try to copy behaviour of the entire population. Furthermore, micro estimates usually do not consider the extensive margin, i.e.\ the decision 
 to work or not. Since the model attempts to capture macro trends we use a macro estimate of 3 \parencite{petermanReconcilingMicroMacro2016}. 
 
 Money velocity $\nu$ is calculated, using Fisher's quantity equation, as the ratio of nominal GDP to the money stock (M1) (with data from: \textcite{bankofenglandCanadianDollarData2021}; 
@@ -119,14 +115,15 @@ Money velocity $\nu$ is calculated, using Fisher's quantity equation, as the rat
 the Bank of England, Money Supply from Bank of Canada.} yielding 4.2. Thus, $\nu$ is set to 1/4.2 = 0.24. 
 
 The capital depreciation rate $\delta$ is set to 0.1, matching the estimate of \textcite{statisticscanadaDepreciationRatesProductivity2007} and the calibration in \textcite{someOilDemandSupply2023} and \textcite{corriganToTEMIIIBank2021}.
-The capital share of income $\alpha$ is set to 0.31 (\cite{fredst.louisShareLabourCompensation2021}; \cite{feenstraNextGenerationPenn2015}). 
-\textbf{The elasticity of substitution between differentiated goods, even though a parameter of the final goods firm is not really a production process parameter. 
-Rather, it aggregates all goods into a single consumption good and thus is better understood as a elasticity of substitution between consuming differentiated goods.}. 
+The capital share of income $\alpha$ is set to 0.31~\parencite{fredst.louisShareLabourCompensation2021,feenstraNextGenerationPenn2015}. 
+\footnote{The elasticity of substitution between differentiated goods, even though a parameter of the final goods firm is not really a production process parameter. 
+Rather, it aggregates all goods into a single consumption good and thus is better understood as an elasticity of substitution between consuming differentiated goods.}. 
 
-The three tax-rates are set in accordance with the average effective tax rates in Canada in 1980-85. The labour income tax rate $\tau_L$ is set to 0.24, the capital income tax rate $\tau_K$ is set to 0.25 and the consumption tax rate $\tau_C$ is set to 0.13
+The three tax-rates are set in accordance with the average effective tax rates in Canada in 1980--1985. The labour income tax rate $\tau_L$ is set to 0.24, the capital income tax rate $\tau_K$ is set to 0.25 and the consumption tax rate $\tau_C$ is set to 0.13
 \parencite{careyAverageEffectiveTax2000}. 
 
-Price stickiness parameter $\kappa$ and the investment adjustment cost parameter $\phi_X$ are set to increase the model's fit to the data\footnote{As data we use the deviation of inflation from its long-run (1961-2024) average ($\bar{\pi} =  3.72$). To identify the deviation of GDP from its steady-state we use the one-sided Hodrick-Prescott filter, identifying the cyclical component of GDP. \textbf{We do not use a formal minimization process but rather visually inspect the best-fit. @Jakub can you add the source where you got the data from?}}.
+Price stickiness parameter $\kappa$ and the investment adjustment cost parameter $\phi_X$ are set to increase the model's fit to the data. As data, we use the deviation of inflation from its long-run (1961--2024) average ($\bar{\pi} =  3.72$)~\parencite{worldbank_inflation_ca}. To identify the deviation of GDP from its steady-state we use the one-sided Hodrick-Prescott filter, identifying the cyclical component of GDP \parencite{fred_gdp_per_capita_ca}.\@ We do not use a formal minimization process but rather visually inspect the best-fit.\footnote{Jakub: Citation added, delete if that's all I was supposed to do here}
+
 % ------------------------------------------------------------------------
 %  JAKUB -------------------------------
 % ------------------------------------------------------------------------
@@ -135,7 +132,7 @@ Price stickiness parameter $\kappa$ and the investment adjustment cost parameter
 \newpage
 \section*{4. Benchmark Model Analysis (about two pages)}
 
-As our scenario requires that the Central Bank adopts a money supply target aiming to achieve price stability, we adjust the benchmark model to a monetary policy rule with the following specification: \textbf{I dont get how the CB can set $M_t$ using $\pi_t$, CB sets M1 afer prices are set but before HH go to market.}
+As our scenario requires that the Central Bank adopts a money supply target aiming to achieve price stability, we adjust the benchmark model to a monetary policy rule with the following specification:\footnote{I don't get how the CB can set $M_t$ using $\pi_t$, CB sets M1 after prices are set but before HH go to market.}
 
 \begin{equation}
     \frac{M_t}{M_{t-1}} = \Big(\frac{1+\pi_{t}}{1+ \bar \pi}\Big)^{\theta_{\pi}}
@@ -149,7 +146,7 @@ Moreover, it seems natural, that the $MC$ shock should enter the model through t
     + \mathbb{E}_t \beta_{t,t+1}
     \frac{Y_{t+1}}{Y_t}
     \frac{mc_{t+1} \cdot e^{MC_{s,t+1}}}{mc_t \cdot e^{MC_s,t}}
-    \frac{\kappa \pi_{t+1} (1 + \pi_{t+1})^2}{1 - \frac{\kappa}{2} \pi_{t+1}^2}
+    \frac{\kappa \pi_{t+1} (1 + \pi_{t+1})^{2}}{1 - \frac{\kappa}{2} \pi_{t+1}^2}
 \end{equation}
 
 Where the periodic shock is expressed multiplicatively as $mc_t \cdot e^{MC_{s, t}}$ to ensure convenient estimation.
@@ -160,9 +157,9 @@ These two assumptions lead to the fact that in the period following the shock, i
 
 Furthermore, the $mc_t \cdot e^{MC_{s, t}}$ feeds into firms' expectations about the future. When firms choose to set their prices for $t$, they trade off increasing their prices today and in the future. If the shock is expected to be persistent, firms may choose to increase their prices by less in $t$ and choose to keep increasing them slowly over time. 
 
-The firm's pricing decision is also important for the future, as it is used as a benchmark relative to which they set their next period's prices. If prices are set high in period $t$, \textbf{does it increase the costs of raising the prices later on??? I don't think so}.
+The firm's pricing decision is also important for the future, as it is used as a benchmark relative to which they set their next period's prices. If prices are set high in period $t$,\ \dots\footnote{Does it increase the costs of raising the prices later on??? I don't think so}
 
-Over time, as no more shocks happen, firms are able to arrive back at their target markup and therefore the economy is able to come back to the steady state inflation rate.\ \textbf{Expand on this part.}
+Over time, as no more shocks happen, firms are able to arrive back at their target markup and therefore the economy is able to come back to the steady state inflation rate.\footnote{Expand on this part.}
 
 \begin{figure}[!h]
     \caption{Impulse response functions of observable variables}\label{fig:main_baseline}
@@ -177,12 +174,12 @@ Over time, as no more shocks happen, firms are able to arrive back at their targ
 \end{figure}
 
 
-\textbf{HERE DESCRIBE THE IRF'S AND DISCUSS MODEL LIMITATIONS - E.G. CLOSED ECONOMY, NO EXCHANGE RATE ETC.}
+Next par.\footnote{HERE DESCRIBE THE IRF'S AND DISCUSS MODEL LIMITATIONS --- E.G. CLOSED ECONOMY, NO EXCHANGE RATE ETC.}
 
 % describe the short run as well as the path back to the steady state. 
 \subsection*{(b) What is the idea behind the implemented policy (current policy scenario)?}
 
-At the same time, in an effort to smooth out the path of the economy, the central bank will adjust the money supply to increase the purchasing power of the households and counter the shocks. By following the Taylor-like monetary policy rule, it will increase the money supply in order to match the inflation and marginal cost gaps of the economy in an effort to achieve price stability. As the bank intervention will increase the money stock of the households, it will allow it to consume more goods and therefore counter the drop in output that the economy experiences.\ \textbf{Think carefully about this, what is the ideal policy rule and how to actually best achieve price stability, what should the central bank target?}
+At the same time, in an effort to smooth out the path of the economy, the central bank will adjust the money supply to increase the purchasing power of the households and counter the shocks. By following the Taylor-like monetary policy rule, it will increase the money supply in order to match the inflation and marginal cost gaps of the economy in an effort to achieve price stability. As the bank intervention will increase the money stock of the households, it will allow it to consume more goods and therefore counter the drop in output that the economy experiences.\footnote{Think carefully about this, what is the ideal policy rule and how to actually best achieve price stability, what should the central bank target?}
 
 \newpage
 % 5. Counterfactual Policies
@@ -234,7 +231,7 @@ At the same time, in an effort to smooth out the path of the economy, the centra
 
 %references
 \newpage %start a new page
-\printbibliography % Print the bibliography
+\printbibliography{} % Print the bibliography
 
 % Appendix 
 \newpage
@@ -242,7 +239,7 @@ At the same time, in an effort to smooth out the path of the economy, the centra
 \section{Appendix: Name of the Appendix}
 \begin{table}[ht]
     \centering
-    \caption{Parameter Calibration}
+    \caption{Parameter Calibration}\label{tab:parameters}
     \begin{tabular}{cll}
         \toprule
         Parameter & Description & Value  \\ \midrule
@@ -252,16 +249,15 @@ At the same time, in an effort to smooth out the path of the economy, the centra
         $\gamma$ & Inverse Frisch elasticity  & 3  \\
         $\nu$ & Money velocity  & 7  \\
         $\delta$ & Capital depreciation rate  & 0.1  \\
-        $\phi_X$ & Investment adjustment cost parameter & -  \\
+        $\phi_X$ & Investment adjustment cost parameter & \dots  \\
         $\alpha$ & Capital share of income & 0.31  \\
-        $\rho$ & Elasticity of substitution for differentiated goods &  -  \\
+        $\rho$ & Elasticity of substitution for differentiated goods &  \dots  \\
         $\kappa$ & Price stickiness & 60 \\
-        ${\tau_L}$ & Labor income tax & 0.24 \\
+        ${\tau_L}$ & Labour income tax & 0.24 \\
         ${\tau_K}$ & Capital income tax & 0.25 \\
         ${\tau_C}$ & Consumption tax & 0.13 \\
     \bottomrule
     \end{tabular}
-    \label{tab:parameters}
 \end{table}
 
 \end{document}

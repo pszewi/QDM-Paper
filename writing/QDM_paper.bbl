@@ -536,6 +536,76 @@
       \endverb
       \keyw{Consumption,Intertemporal substitution,literature review}
     \endentry
+    \entry{worldbank_inflation_ca}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=32730e15a7ca0bf0686ea8d4a3a46ab9}{%
+           family={{World Bank}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {World Bank Group}%
+      }
+      \strng{namehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{fullhash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{fullhashraw}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{bibnamehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authorbibnamehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authornamehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authorfullhash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authorfullhashraw}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \field{extraname}{1}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-05-19}
+      \field{title}{Inflation, consumer prices (annual \%): Canada}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=CA
+      \endverb
+      \verb{url}
+      \verb https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=CA
+      \endverb
+    \endentry
+    \entry{fred_gdp_per_capita_ca}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=32730e15a7ca0bf0686ea8d4a3a46ab9}{%
+           family={{World Bank}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Federal Reserve Bank of St. Louis}%
+      }
+      \strng{namehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{fullhash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{fullhashraw}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{bibnamehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authorbibnamehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authornamehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authorfullhash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authorfullhashraw}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \field{extraname}{2}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Retrieved from FRED, Federal Reserve Bank of St. Louis, May 19, 2025}
+      \field{title}{Constant GDP per capita for Canada [NYGDPPCAPKDCAN]}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://fred.stlouisfed.org/series/NYGDPPCAPKDCAN
+      \endverb
+      \verb{url}
+      \verb https://fred.stlouisfed.org/series/NYGDPPCAPKDCAN
+      \endverb
+    \endentry
     \entry{worldbankgroupWorldBankNational}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=9b5e537ed38a7fe62c86b6145bfb37d3}{%
@@ -1091,6 +1161,76 @@
       \verb https://onlinelibrary.wiley.com/doi/abs/10.1111/joes.12142
       \endverb
       \keyw{Consumption,Intertemporal substitution,literature review}
+    \endentry
+    \entry{worldbank_inflation_ca}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=32730e15a7ca0bf0686ea8d4a3a46ab9}{%
+           family={{World Bank}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {World Bank Group}%
+      }
+      \strng{namehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{fullhash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{fullhashraw}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{bibnamehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authorbibnamehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authornamehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authorfullhash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authorfullhashraw}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \field{extraname}{1}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-05-19}
+      \field{title}{Inflation, consumer prices (annual \%): Canada}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=CA
+      \endverb
+      \verb{url}
+      \verb https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=CA
+      \endverb
+    \endentry
+    \entry{fred_gdp_per_capita_ca}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=32730e15a7ca0bf0686ea8d4a3a46ab9}{%
+           family={{World Bank}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Federal Reserve Bank of St. Louis}%
+      }
+      \strng{namehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{fullhash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{fullhashraw}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{bibnamehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authorbibnamehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authornamehash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authorfullhash}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \strng{authorfullhashraw}{32730e15a7ca0bf0686ea8d4a3a46ab9}
+      \field{extraname}{2}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Retrieved from FRED, Federal Reserve Bank of St. Louis, May 19, 2025}
+      \field{title}{Constant GDP per capita for Canada [NYGDPPCAPKDCAN]}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://fred.stlouisfed.org/series/NYGDPPCAPKDCAN
+      \endverb
+      \verb{url}
+      \verb https://fred.stlouisfed.org/series/NYGDPPCAPKDCAN
+      \endverb
     \endentry
     \entry{worldbankgroupWorldBankNational}{misc}{}{}
       \name{author}{1}{}{%
