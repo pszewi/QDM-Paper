@@ -61,14 +61,15 @@
 \subsection*{(a) Outline of the Model Structure (graphical and verbal, no equations)}
 % Content here (include figure environment if needed).
 The Dynamic Stochastic General Equilibrium (DSGE) Model used for this policy analysis features
-three representative agents, namely a representative household, an intermediate goods firm and final goods firm, as well as the \hl{government}.\footnote{Jakub: I would argue that government is not an agent --- it doesn't maximize anything, it just follows a rule (same as the CB), so maybe I wouldn't call it that (instead write ``The model also includes gov + cb''?)} 
+three representative agents, namely a representative household, an intermediate goods firm and final goods firm. The model also includes a government that levies taxes and can conduct fiscal policy as well as central bank that can conduct monetary policy. 
 
-The representative household aims to maximize its intertemporal utility, i.e.~well-being, across all periods.\ \hl{It derives utility from consumption and its utility is reduced by working}\footnote{Jakub: I would re-write to ``It's utility is increasing in consumption and decreasing in hours worked''}. 
+The representative household aims to maximize its intertemporal utility, i.e.~well-being, across all periods.\ It's utility is increasing in consumption and decreasing in hours worked. 
+
+When trying to maximize its utility the representative household faces two constraints. First, to consume it must have cash available beforehand, i.e.\ only money saved in the last period, at 0\% interest compared to $\frac{1}{q} -1$ from the bonds, can be used to buy consumption goods. 
+The second constraint is a common budget constraint, which simply requires that income be larger than or equal to expenses.  The households are assumed to discount future utility to reflect the fact that they value utility derived today more highly than that derived in a future period.
+
 To maximize its objective function it chooses consumption, labour effort and investment in capital, in every period. %Ct,Lt,Xt,Mt+1,Bt+1,Kt+1
-Furthermore, it \hl{makes choices that affect the next period, how much money holdings to save, which determines the money available in the next period}.\footnote{Jakub:``HH's choices today impact its outcomes in the future. Therefore, when choosing its money savings for the next period\ \dots''} As well as how many bonds to pay at price $q_t$ which pay off in the next period.\footnote{Should I say here it also chooses $K_{t+1}$ I think that is covered by $X_t$} 
-
-\footnote{I would consider putting this paragraph before the previous one because the CiA constraint means that the HH has to save money for the future --- better continuity}When trying to maximize its utility the representative household faces two constraints. First, to consume it must have cash available beforehand, i.e.\ only money saved in the last period, at 0\% interest compared to $\frac{1}{q} -1$ from the bonds, can be used to buy consumption goods. 
-The second constraint is a common budget constraint, which simply requires that income be larger than or equal to expenses.  \hl{The households value utility derived today more highly than that derived in a future period. Thus, future utility is discounted.}\footnote{I would re-write this into one sentence ``HH is assumed to discount future utility in to reflect the fact that \dots''. }
+Furthermore, it HH's choices today impact its outcomes in the future. Choosing its money savings for the next period determines the cash available for consumption. Money spend on bonds bought at price $q_t$ pay off in the next period and increase wealth.\footnote{Should I say here it also chooses $K_{t+1}$ I think that is covered by $X_t$} 
 
 The intermediate goods firm as well as the final goods firm maximize their profit. The revenue of the intermediate firm stem from selling their intermediate good to the final goods firm. The cost incurred consist of the nominal wage paid to labour, rent paid to capital, both of which are provided by the household. It is bound by a Cobb-Douglas function with a price stickiness friction, and the supply of all intermediate goods must be met by demand for that good from the final good firm.  As just explained the final good firm buys the intermediate goods. The firm's input are substitutable to some degree. 
 
@@ -78,10 +79,10 @@ The government has fiscal and monetary policy at their disposal, but cannot comb
 
 \subsection*{(b) Policy Structure of the Model (main equations)}
 The government has fiscal and monetary policy at their disposal, but cannot combine the two. Our baseline scenario assumes that the government
-follows a Taylor-like monetary policy rule, which is a function of the inflation rate and determines the change in money supply. If the inflation rate is above the target level, the money supply is decreased and vice versa.\footnote{Easier to see if minus in front of theta is removed and fraction flipped} The strength of the change in money supply relative to the deviation of inflation is given by the parameter $\theta_{pi}$. The monetary policy rule is given by:
+follows a Taylor-like monetary policy rule, which is a function of the inflation rate and determines the change in money supply. We illustrate how monetary policy affects the model economy using the standard Taylor-rule which later on is also presented as a counterfactual. If the inflation rate is above the targeted level, the interest rate is decreased and vice versa.\footnote{Easier to see if minus in front of theta is removed and fraction flipped} The strength of the change in money supply relative to the deviation of inflation is given by the parameter $\theta_{\pi}$. 
 The Taylor rule of monetary policy is given by:
 \begin{align}
-    \frac{1 + r_{B,t}}{1 + \bar{r}_B} = \left( \frac{1 + r_{B,t-1}}{1 + \bar{r}_B} \right)^{\theta_R} \left( \frac{1 + \pi_t}{1 + \pi^*} \right)^{(1 - \theta_R)\theta_{pi}}
+    \frac{1 + r_{B,t}}{1 + \bar{r}_B} = \left( \frac{1 + r_{B,t-1}}{1 + \bar{r}_B} \right)^{\theta_R} \left( \frac{1 + \pi_t}{1 + \pi^*} \right)^{(1 - \theta_R)\theta_{\pi}}
 e^{M_t}
 \end{align}
 
