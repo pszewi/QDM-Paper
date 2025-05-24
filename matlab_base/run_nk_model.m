@@ -20,9 +20,9 @@ simreplicnumber = 10;       % Set Number of Simulation Replications
 dropnumber      = 1000;     % Set Number of Simulation Periods dropped
 
 % Loop options
-run_loop        = 0;        % Set to "1" if you want to execute the FOR-loop!
-loopcount       = 3;
-loop_robustness = linspace(0.5,1.5,loopcount);
+run_loop        = 1;        % Set to "1" if you want to execute the FOR-loop!
+% loopcount       = 3;
+loop_robustness = [1.01,1.5,2]
 
 % Loop options for policy counterfactuals
 % different policies are numbered 1-4 
@@ -82,7 +82,7 @@ par.gamLG   = 0.2;
 
 
 % Monetary policy
-par.tetPi   = 1; % NOTE: THIS HAS TO BE 1.5 FOR THE RULE=4 TO RUN 
+par.tetPi   = 1.01; % NOTE: THIS HAS TO BE 1.5 FOR THE RULE=4 TO RUN 
 par.tetMC = 1.0;
 par.tetL = 1.0;
 
