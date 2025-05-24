@@ -78,25 +78,24 @@ The government has fiscal and monetary policy at their disposal, but cannot comb
 
 
 \subsection*{(b) Policy Structure of the Model (main equations)}
-The government has fiscal and monetary policy at their disposal, but cannot combine the two. Our baseline scenario assumes that the government
-follows a Taylor-like monetary policy rule, which is a function of the inflation rate and determines the change in money supply. We illustrate how monetary policy affects the model economy using the standard Taylor-rule which later on is also presented as a counterfactual. If the inflation rate is above the targeted level, the interest rate is decreased and vice versa.\footnote{Easier to see if minus in front of theta is removed and fraction flipped} The strength of the change in money supply relative to the deviation of inflation is given by the parameter $\theta_{\pi}$. 
+The model's default setting assumes that the CB's monetary policy is focused on price stability, i.e. keeping inflation at a target level. The central bank
+follows a Taylor-like monetary policy rule, which is a function of the inflation rate and determines the change in the interest rate. We illustrate how monetary policy affects the model economy using the model's default Taylor-like rule which later on is also presented as a counterfactual. If the inflation rate is above the targeted level, the interest rate is decreased and vice versa. The strength of the change in money supply relative to the deviation of inflation is given by the parameter $\theta_{\pi}$. 
 The Taylor rule of monetary policy is given by:
 \begin{align}
     \frac{1 + r_{B,t}}{1 + \bar{r}_B} = \left( \frac{1 + r_{B,t-1}}{1 + \bar{r}_B} \right)^{\theta_R} \left( \frac{1 + \pi_t}{1 + \pi^*} \right)^{(1 - \theta_R)\theta_{\pi}}
-e^{M_t}
 \end{align}
 
-Next par.\footnote{Change the policy to the baseline one. Explain here how the policy affects the economy.}
+This rule also includes a smoothing term, which means that the change in the interest rate is not only a function of the current inflation rate but also of the previous period's interest rate. The parameter $\theta_R$ determines how much the central bank smooths its interest rate changes, i.e. the inertia of monetary policy. A value of 0 means that the central bank does not smooth its interest rate changes at all, which is the assumption in the counterfactual scenario. 
 
-In the counterfactual scenarios we first consider a change of $\theta_\pi$, i.e.~the responsiveness of the money supply to inflation from its target. Then we include a secondary term, meaning that the central bank not only cares about inflation but also employment levels, similar to the dual mandate of the US.\@ As a third monetary policy rule we consider including the marginal cost in the Taylor-like rule.
+So when the central bank observes a deviation of inflation from its target, it adjusts the interest rate accordingly. This change in the interest rate in turn influences consumption and investment decisions of the household and firms. When the interest rate is higher it becomes more attractiv to buy bonds as their payoff next period is higher. Thus, consumption tomorrow is reduced as the household saves less in money holdings and more in bonds. The same logic applies to investment, when the bond return is higher, relatively the return on capital is lower, thus the household invests less in capital.
+% The central bank's goal is to stabilize inflation around its target level, which is set at 0\% in this model.
 
-The fiscal policy rule works similarly\footnote{Should we include a fiscal policy rule as alternative policy?}, but instead of changing the money supply, the government adjusts a variable tax surcharge ($\tau_t$). This surcharge is added to the individual tax rates for labour income, capital income and consumption. This surcharge is a function of the level of government debt ($l_{g,t}$) (measured in \% of GDP) and the steady-state target level of government debt ($l^{\star}_{g}$). The government reacts to the difference between the two levels of government debt by adjusting the surcharge. If the debt level is above its steady state target the surcharge is increased above its steady state level and vice versa. The incremental change of the surcharge is guided by a parameter $\lambda_{l g}$, which determines how responsive the government is to the deviation of government debt from its target. The fiscal policy rule is given by:
+The fiscal policy rule works similarly\footnote{Should we include a fiscal policy rule as alternative policy?}, but instead of the cnetral bank changing the interest rate the government adjusts a variable tax surcharge ($\tau_t$). This surcharge is added to the individual tax rates for labour income, capital income and consumption. This surcharge is a function of the level of government debt ($l_{g,t}$) and the steady-state target level of government debt ($l^{\star}_{g}$). The government reacts to the difference between the two levels of government debt by adjusting the surcharge. If the debt level is above its steady state target the surcharge is increased above its steady state level and vice versa. The incremental change of the surcharge is guided by a parameter $\lambda_{l g}$, which determines how responsive the government is to the deviation of government debt from its target. The fiscal policy rule is given by:
 \begin{align}
     \tau_t - \tau^{\star} = \lambda_{l g} (l_{g,t} - l^{\star}_{g})
 \end{align}
 
-Next par.\footnote{Explain here how the policy affects the economy.}
-
+The outstanding government debt is given by the outstanding bonds and currency in real terms. The government debt changes by the difference between government spending ($G_t$) and tax revenue (taxes + surcharge on $C_t, K_t, w_tL_t$) adjusted for the bond interest rate. The government spends on the aggregate good provided by the final goods firm. Furthermore, if inflation is positive the real value of bonds issued last periods is decreased and thus reduces government debt.
 
 % Content here (use align or equation environments).
 
@@ -123,8 +122,7 @@ Rather, it aggregates all goods into a single consumption good and thus is bette
 The three tax-rates are set in accordance with the average effective tax rates in Canada in 1980--1985. The labour income tax rate $\tau_L$ is set to 0.24, the capital income tax rate $\tau_K$ is set to 0.25 and the consumption tax rate $\tau_C$ is set to 0.13
 \parencite{careyAverageEffectiveTax2000}. 
 
-Price stickiness parameter $\kappa$ and the investment adjustment cost parameter $\phi_X$ are set to increase the model's fit to the data. As data, we use the deviation of inflation from its long-run (1961--2024) average ($\bar{\pi} =  3.72$)~\parencite{worldbank_inflation_ca}. To identify the deviation of GDP from its steady-state we use the one-sided Hodrick-Prescott filter, identifying the cyclical component of GDP \parencite{fred_gdp_per_capita_ca}.\@ We do not use a formal minimization process but rather visually inspect the best-fit.\footnote{Jakub: Citation added, delete if that's all I was supposed to do here}
-
+Price stickiness parameter $\kappa$ and the investment adjustment cost parameter $\phi_X$ are set to 120 and 12 respectively to increase the model's fit to the data\footnote{ We do not use a formal minimization process but rather visually inspect the best-fit.}. As data, we use the deviation of inflation from its long-run (1961--2024) average ($\bar{\pi} =  3.72$)~\parencite{worldbank_inflation_ca}. To identify the deviation of GDP from its steady-state we use the one-sided Hodrick-Prescott filter, identifying the cyclical component of GDP \parencite{fred_gdp_per_capita_ca}. The chosen values of $\kappa$ is twice as large as the default, meaning that prices are sticker because (the intermediate) firms are more reluctant to change prices. This is enforced due to a penalty deducted from the intermediate firm's output regualted by $\kappa$. $\phi_x$ works similar but rather regulates the penalty given to households for changing their investment choice, by reducing the pass-through from investment to the capital stock. So the increase in both parameters reflects higher levels of inertia for price-setting and investment decisons. 
 % ------------------------------------------------------------------------
 %  JAKUB -------------------------------
 % ------------------------------------------------------------------------
@@ -243,6 +241,7 @@ Figure~\ref{fig:policy_rule_variation} displays the effects of switching the mon
     \centering
     \includegraphics[width=0.7\textwidth]{policy_rule_variation.png}
 \end{figure}
+
 
 
 

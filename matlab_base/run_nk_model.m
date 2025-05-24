@@ -343,7 +343,7 @@ ylabel('%-Dev. St.St.')
 
 
 title(F,'Impulse Responses to a Marginal Cost Shock') % Title for the entire figure
-leg = legend('$\theta_\pi = 0.5$','$\theta_\pi = 1$','$\theta_\pi = 1.5$','Orientation', 'Horizontal');
+leg = legend('$\theta_\pi = 1.01$','$\theta_\pi = 1.5$','$\theta_\pi = 2$','Orientation', 'Horizontal');
 set(leg, 'Interpreter','latex')
 leg.Layout.Tile = 'south';
 title(leg,'Policy Rule Parameter')
