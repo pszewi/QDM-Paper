@@ -1,0 +1,46 @@
+digraph DSGE_Model_Flow {
+    rankdir=LR;
+    node [shape=box, style=rounded, fontsize=10];
+
+    H     [label="Households\n(Eqs. 1–3)"];
+    IGF   [label="Intermediate\nGoods Firms"];
+    FGF   [label="Final Goods\nFirm (Eq. 11)"];
+    G     [label="Government\nFiscal block"];
+    CB    [label="Central Bank\nMonetary block"];
+    Shock [label="Exogenous Shocks\nZₜ, εᴿ, εᵍ"];
+
+    /* Factor markets */
+    H   -> IGF [label="labour Lₜ"];
+    IGF -> H   [label="wages Wₜ"];
+    H   -> IGF [label="capital Kₜ"];
+    IGF -> H   [label="rent rₜKₜ"];
+
+    /* Goods market */
+    IGF -> FGF [label="intermediate output Yₜ(i)"];
+    FGF -> IGF [label="price Pₜ(i)"];
+    FGF -> H   [label="consumption Cₜ"];
+    FGF -> H   [label="investment Xₜ"];
+    FGF -> G   [label="govt demand Gₜ"];
+
+    /* Public sector flows */
+    H -> G  [label="taxes τₜ"];
+    G -> H  [label="bonds Bₜ"];
+
+    /* Money & nominal rate */
+    CB -> H [label="money Mₜ"];
+    CB -> H [label="nominal rate rᴮₜ"];
+
+    /* Shocks */
+    Shock -> IGF [label="TFP Zₜ"];
+    Shock -> CB  [label="monetary shock εᴿ"];
+    Shock -> G   [label="fiscal shock εᵍ"];
+
+    /* Resource constraint (15) – bookkeeping only */
+    Res  [shape=ellipse, style=dashed,
+          label="Resource constraint:\nYₜ = Cₜ + Xₜ + Gₜ"];
+    FGF -> Res [arrowhead=none, weight=0];
+    H   -> Res [arrowhead=none, weight=0];
+    G   -> Res [arrowhead=none, weight=0];
+}
+
+

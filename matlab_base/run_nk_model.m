@@ -82,7 +82,7 @@ par.gamLG   = 0.2;
 
 
 % Monetary policy
-par.tetPi   = 1.01; % NOTE: THIS HAS TO BE 1.5 FOR THE RULE=4 TO RUN 
+par.tetPi   = 1.01; % NOTE: THIS HAS TO BE >1 FOR THE RULE=4 TO RUN 
 par.tetMC = 1.0;
 par.tetL = 1.0;
 

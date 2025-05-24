@@ -242,7 +242,7 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 % ---------------------------------
 @#elseif RULE == 3 
     m / m(-1)
-        = ( L(+1) / steady_state(L) )^( - tetL  )
+        = ( L(-1) / steady_state(L) )^( - tetL  )
           * ( (1 + pii) / (1 + steady_state(pii)) )^( - tetPi ) ;
 
 @#elseif RULE == 4

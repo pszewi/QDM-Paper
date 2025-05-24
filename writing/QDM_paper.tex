@@ -215,20 +215,20 @@ Figure~\ref{fig:policy_par_variation} considers variation in responsiveness of t
 In this subsection we consider other monetary policy rules that the central bank could have followed instead. We consider the following rules:
 
 \begin{equation}\label{eq:mc_rule}
-    m / m(-1)
-          = ( mc / \bar{mc} )^{(-tetMC)}
-            * ( (1 + \pi) / (1 + \bar{\pi}) )^{(-tetPi)}
+    \frac{M_t}{M_{t-1}}
+          = \Big(\frac{mc_t}{\bar{mc}}\Big)^{-\theta_{mc}}
+            \cdot \Big(\frac{1 + \pi_t}{1 + \bar{\pi}}\Big)^{-\theta_{\pi}}
 \end{equation}
 
-Equation~\ref{eq:mc_rule} is our benchmark policy that relates the money supply target to the relative value of marginal cost. In this regime, the central bank expects the shock to the marginal cost specifically, and tries to balance the impact of the economy of the $mc$ and inflation. We consider this our ``first---best'' scenario, as observing the marginal cost in real time is difficult and might not be entirely realistic.
+Equation~\ref{eq:mc_rule} is our benchmark policy that relates the money supply target to both the relative value of marginal cost and inflation. In this regime, the central bank observes the shock to the marginal cost directly, and tries to balance the impact to the economy of the $mc$ and inflation. We consider this our ``first---best'' scenario, as observing the marginal cost in real time is difficult and might not be entirely realistic.
 
 \begin{equation}\label{eq:lab_rule}
-    m / m(-1)
-        = ( L(+1) / \bar{L} )^{( - tetL  )}
-          * ( (1 + pii) / (1 + \bar{\pi}) )^{( - tetPi )}
+    \frac{M_t}{M_{t-1}}
+        = \Big(\frac{L_{t-1}}{\bar{L}}\Big)^{-\theta_L}
+          \cdot \Big(\frac{1 + \pi_t}{1 + \bar{\pi}}\Big)^{-\theta_{\pi}}
 \end{equation}
 
-Equation~\ref{eq:lab_rule} displays the same idea, but with respect to labour. In this scenario, the central bank tries to manage both the impact on inflation and the labour market, therefore making sure that it's second mandate --- maintaining full employment --- is also achieved.\footnote{explain the rule more in depth}
+Equation~\ref{eq:lab_rule} displays the same idea, but with respect to labour. In this scenario, the central bank tries to manage both the impact on inflation and the labour market, therefore making sure that it's second mandate --- maintaining full employment --- is also achieved. However, in this scenario, the central bank considers the labour supply of previous period when increasing the money supply. This is for two reasons: firstly, consumption today is determined by the labour yesterday. Therefore, it makes more sense for the central bank to adjust the money target, and thus the lump sum payment to the households, based on the previous value. Secondly, if the central bank were to set the monetary target based on the labour today, it would only be impacting the consumption tomorrow, which takes away the power of monetary policy.  
 
 \begin{equation}\label{eq:taylor_rule}
     \frac{1 + r_{B,t}}{1 + \bar{r}_B} = \left( \frac{1 + r_{B,t-1}}{1 + \bar{r}_B} \right)^{\theta_R} \left( \frac{1 + \pi_t}{1 + \pi^*} \right)^{(1 - \theta_R)\theta_{pi}}
@@ -237,20 +237,12 @@ Equation~\ref{eq:lab_rule} displays the same idea, but with respect to labour. I
 Finally, we also consider Equation~\ref{eq:taylor_rule}, which is the previously shown Taylor-Rule of monetary policy. We display it as an example of common behaviour of the actual central banks and therefore as a comparison to the method generally accepted in the literature. This is especially useful, as money supply targets rarely appear in the literature on DSGE models, with the Taylor-rule significantly dominating the field.  
 
 
-Figure~\ref{fig:policy_rule_variation} displays the effects of switching the monetary policy on the economy during the shock. 
+Figure~\ref{fig:policy_rule_variation} displays the effects of switching the monetary policy on the economy during the shock. As described above, Equation~\ref{eq:mc_rule} acts as our benchmark, as it performs the best and allows for the economy to come back to the steady state the earliest. This is due to the fact that if the central bank is able to observe the shock directly 
 \begin{figure}[!h]
     \caption{Impulse response functions of observable variables}\label{fig:policy_rule_variation}
     \centering
     \includegraphics[width=0.7\textwidth]{policy_rule_variation.png}
 \end{figure}
-
-% -------------------------------------------------------
-%                       NOTES
-% -------------------------------------------------------
-% - try adding in the labour supply target instead of MC
-% - think about implementing alternative inflation target (0.03)
-% - think about alternative monetary policy rules 
-% -  fiscal instead of monetary as a counter-factual?
 
 
 
