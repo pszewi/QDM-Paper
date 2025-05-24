@@ -228,11 +228,6 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 @#if RULE == 1 
     m/m(-1) = ((1+pii)/(1+steady_state(pii)))^(-tetPi) ;
 
-% ---------------------------------
-% ---------------------------------
-% rule by gpt, tries to follow taylor and includes the marginal costs
-% ---------------------------------
-% ---------------------------------
 
 % ---------------------------------
 % marginal cost version
@@ -250,7 +245,7 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
         = ( L(+1) / steady_state(L) )^( - tetL  )
           * ( (1 + pii) / (1 + steady_state(pii)) )^( - tetPi ) ;
 
-@#elseif   RULE == 4   
+@#elseif RULE == 4
     (1+rb)/(1+steady_state(rb)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) ; % DELETED * exp(sM) to m here!!!
 
 @#endif

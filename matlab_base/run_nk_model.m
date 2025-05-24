@@ -20,7 +20,7 @@ simreplicnumber = 10;       % Set Number of Simulation Replications
 dropnumber      = 1000;     % Set Number of Simulation Periods dropped
 
 % Loop options
-run_loop        = 1;        % Set to "1" if you want to execute the FOR-loop!
+run_loop        = 0;        % Set to "1" if you want to execute the FOR-loop!
 loopcount       = 3;
 loop_robustness = linspace(0.5,1.5,loopcount);
 
@@ -82,7 +82,7 @@ par.gamLG   = 0.2;
 
 
 % Monetary policy
-par.tetPi   = 1;
+par.tetPi   = 1; % NOTE: THIS HAS TO BE 1.5 FOR THE RULE=4 TO RUN 
 par.tetMC = 1.0;
 par.tetL = 1.0;
 
@@ -159,7 +159,11 @@ axis tight
 xlabel('Periods')
 ylabel('%-Dev. St.St.')
 
-saveas(gcf, "output/main_baseline_policy.png")
+leg = legend('Model result','Empirical result','Orientation', 'Horizontal');
+set(leg, 'Interpreter','latex')
+leg.Layout.Tile = 'south';
+
+% saveas(gcf, "output/main_baseline_policy.png")
 
 % ---------------------------------------
 %  Second graph
@@ -278,7 +282,7 @@ if run_loop == 1
 
 for tt = 1:length(loop_robustness)
     % Set theta_pi of baseline policy rule
-    par.gam = loop_robustness(tt);
+    par.tetPi = loop_robustness(tt);
     % Call Dynare to initialize model (YOU DO NOT HAVE DO CHANGE ANYTHING HERE)
     eval(['dynare nk_model.dyn -Dreplic_number=' num2str(replicnumber) ...
 	    ' -Dsimul_replic_number=' num2str(simreplicnumber) ' -Ddrop_number=' num2str(dropnumber) ...
@@ -354,19 +358,19 @@ end
 
 if run_loop_rules == 1
     
-    for tt = rules
-        % Change policy 
+for tt = rules
+    % Change policy 
     % Call Dynare to initialize model (YOU DO NOT HAVE DO CHANGE ANYTHING HERE)
     eval(['dynare nk_model.dyn -Dreplic_number=' num2str(replicnumber) ...
         ' -DRULE=' num2str(tt) ...
-            ' -Dsimul_replic_number=' num2str(simreplicnumber) ' -Ddrop_number=' num2str(dropnumber) ...
-                ' -Dapprox_order=' num2str(approxorder) ' -Dirf_periods=' num2str(irfperiod) ...
-                    ' -Dsim_periods=' num2str(simperiod) ' noclearall;']);
+        ' -Dsimul_replic_number=' num2str(simreplicnumber) ' -Ddrop_number=' num2str(dropnumber) ...
+        ' -Dapprox_order=' num2str(approxorder) ' -Dirf_periods=' num2str(irfperiod) ...
+        ' -Dsim_periods=' num2str(simperiod) ' noclearall;']);
 
-                    % Calculate Steady States (YOU DO NOT HAVE DO CHANGE ANYTHING HERE)
-                    for ii = 1:length(oo_.dr.ys)
-                        eval(['stst.' strjoin(cellstr(M_.endo_names(ii))) ' = oo_.dr.ys(' num2str(ii) ');']);
-                    end
+    % Calculate Steady States (YOU DO NOT HAVE DO CHANGE ANYTHING HERE)
+    for ii = 1:length(oo_.dr.ys)
+        eval(['stst.' strjoin(cellstr(M_.endo_names(ii))) ' = oo_.dr.ys(' num2str(ii) ');']);
+    end
                     
     % Save IRFs of each iteration
     output_eMC(:,tt)         = Y_eMC./stst.Y;
@@ -385,7 +389,7 @@ hold on
 plot(output_eMC(:,1).*100,'b-','LineWidth',2);
 plot(output_eMC(:,2).*100,'r--','LineWidth',2);
 plot(output_eMC(:,3).*100,'g-.','LineWidth',2);
-plot(output_eMC(:,4).*100,'g-.','LineWidth',2);
+plot(output_eMC(:,4).*100,'c:','LineWidth',2);
 yline(0,'r')
 hold off
 axis tight
@@ -398,7 +402,7 @@ hold on
 plot(inflation_eMC(:,1).*100,'b-','LineWidth',2)
 plot(inflation_eMC(:,2).*100,'r--','LineWidth',2)
 plot(inflation_eMC(:,3).*100,'g-.','LineWidth',2)
-plot(inflation_eMC(:,4).*100,'g-.','LineWidth',2)
+plot(inflation_eMC(:,4).*100,'c:','LineWidth',2)
 yline(0,'r')
 hold off
 axis tight
@@ -411,7 +415,7 @@ hold on
 plot(labour_eMC(:,1).*100,'b-','LineWidth',2)
 plot(labour_eMC(:,2).*100,'r--','LineWidth',2)
 plot(labour_eMC(:,3).*100,'g-.','LineWidth',2)
-plot(labour_eMC(:,4).*100,'g-.','LineWidth',2)
+plot(labour_eMC(:,4).*100,'c:','LineWidth',2)
 yline(0,'r')
 hold off
 axis tight
