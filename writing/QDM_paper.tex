@@ -11,8 +11,9 @@
 \usepackage{color,soul}
 % \usepackage[inkscapelatex=false]{svg}
 \usepackage{hyperref}
+\usepackage{setspace}
 %make links look nice
-
+\doublespacing
 \graphicspath{{../matlab_base/output/}}
 % Page layout
 \geometry{a4paper, margin=1in}
@@ -251,7 +252,9 @@ Equation~\ref{eq:lab_rule} performs as the second-best. In the initial period th
 
 However, over time, it is able to bring the economy back to the steady state in the second-fastest manner, by taking into consideration the effects of the shock on labour supply. This happens, because as the central bank sees that the labour supply in previous period was low, it is able to infer that the savings of the households will be smaller and therefore they will not be able to consume as much as they would have in the absence of the shock. Thus, the central bank increases their purchasing power in that given period. It is important to note that this happens at the expense of a slightly higher inflation before returning to the steady-state. Furthermore, this policy works well if the shocks are infrequent and persistent, however if the economy is troubled by many short-lived shocks, it may be unsuitable as then the central bank would repeatedly fail to anticipate it.
 
-Equation~\ref{eq:taylor_rule} presents itself as marginally better than the implemented equation~\ref{eq:baseline_rule}. As the parameter $\theta_R$ is assumed to be $0$, the Taylor-like rule and the 
+Equation~\ref{eq:taylor_rule} presents itself as marginally better than the implemented equation~\ref{eq:baseline_rule}. As the parameter $\theta_R$ is assumed to be $0$, the Taylor-like rule, essentially acts in the same way as equation~\ref{eq:baseline_rule}, with interest-rate targeting based on the inflation deviations. However, as the instrument of choice is the interest rate setting, the effect on the economy is more limited, because\ \dots.\footnote{Think and add} Nonetheless, both of these policy rules present a scenario in which the economy sharply contracts (yet less than under the labour rule), and takes longer to come back to the steady-state. 
+
+Finally, the implemented equation~\ref{eq:baseline_rule}, causes a hard contraction in output, high inflation (followed by deflation) and a sharp decrease in labour supply. This is caused by the fact that the central bank focuses solely on the inflation target. Finally, this instrument causes a temporary deflation, which happens because\ \dots.\footnote{Explain in detail - how it works}
 
 
 
@@ -262,7 +265,8 @@ Equation~\ref{eq:taylor_rule} presents itself as marginally better than the impl
 \section*{6. Policy Recommendation and Discussion (about one page)}
 \subsection*{(a) Give a recommendation on policy based on your simulations.}
 % Content here.
-As shown by figure \ref{fig:policy_rule_variation}, there is a trade-off between the speed at which GDP recovers and how high inflation is initally. We identify money supply targeting based on the deviation of labour and inflation from their steady-state levels as the second-best policy, and thus as the policy that should have been pursued. For reasons outlined above we deem the first-best policy unfeasible. In the second-best scenario This is due to the fact that the central bank does not observe the shock directly and therefore cannot react to it in real time. Nonetheless, it performs significantly better than interest rate or money supply targeting based on the Taylor rule with only inflation....
+As shown by Figure~\ref{fig:policy_rule_variation}, there is a trade-off between the speed at which GDP recovers and how high inflation is initially. We identify money supply targeting based on the deviation of labour and inflation from their steady-state levels as the second-best policy, and thus as the policy that should have been pursued. For reasons outlined above we deem the first-best policy unfeasible. In the second-best scenario This is due to the fact that the central bank does not observe the shock directly and therefore cannot react to it in real time. Nonetheless, it performs significantly better than interest rate or money supply targeting based on the Taylor rule with only inflation 
+
 \subsection*{(b) Should policy have taken a different path?}
 % Content here.
 

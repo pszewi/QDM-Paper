@@ -163,7 +163,7 @@ leg = legend('Model result','Empirical result','Orientation', 'Horizontal');
 set(leg, 'Interpreter','latex')
 leg.Layout.Tile = 'south';
 
-% saveas(gcf, "output/main_baseline_policy.png")
+saveas(gcf, "output/main_baseline_policy.png")
 
 % ---------------------------------------
 %  Second graph
@@ -342,7 +342,7 @@ xlabel('Periods')
 ylabel('%-Dev. St.St.')
 
 
-title(F,'Impulse Responses to a Marginal Cost Shock') % Title for the entire figure
+% title(F,'Impulse Responses to a Marginal Cost Shock') % Title for the entire figure
 leg = legend('$\theta_\pi = 1.01$','$\theta_\pi = 1.5$','$\theta_\pi = 2$','Orientation', 'Horizontal');
 set(leg, 'Interpreter','latex')
 leg.Layout.Tile = 'south';
@@ -423,7 +423,7 @@ xlabel('Periods')
 ylabel('%-Dev. St.St.')
 
 
-title(F,'Impulse Responses to a Marginal Cost Shock') % Title for the entire figure
+% title(F,'Impulse Responses to a Marginal Cost Shock') % Title for the entire figure
 leg = legend('$pol = 1$','$pol = 2$','$pol = 3$', '$pol = 4$','Orientation', 'Horizontal');
 set(leg, 'Interpreter','latex')
 leg.Layout.Tile = 'south';
