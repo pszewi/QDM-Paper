@@ -21,7 +21,7 @@ dropnumber      = 1000;     % Set Number of Simulation Periods dropped
 
 % Loop options for policy (different coefficients) counterfactuals
 % Loop options
-run_loop        = 0;        % Set to "1" if you want to execute the FOR-loop!
+run_loop        = 1;        % Set to "1" if you want to execute the FOR-loop!
 % loopcount       = 3;
 loop_robustness = [1.01,2,3]
 
@@ -425,7 +425,7 @@ ylabel('%-Dev. St.St.')
 
 
 % title(F,'Impulse Responses to a Marginal Cost Shock') % Title for the entire figure
-leg = legend('Eq. (3)','Eq. (5)','Eq. (6)', 'Eq. (7)','Orientation', 'Horizontal');
+leg = legend('Eq. (3)','Eq. (4)','Eq. (5)', 'Eq. (6)','Orientation', 'Horizontal');
 set(leg, 'Interpreter','latex')
 leg.Layout.Tile = 'south';
 title(leg,'Different Policy Rules')
