@@ -426,7 +426,7 @@ ylabel('%-Dev. St.St.')
 
 
 % title(F,'Impulse Responses to a Marginal Cost Shock') % Title for the entire figure
-leg = legend('Eq. (3)','Eq. (5)','Eq. (6)', 'Eq. (7)','Orientation', 'Horizontal');
+leg = legend('Eq. (3)','Eq. (4)','Eq. (5)', 'Eq. (6)','Orientation', 'Horizontal');
 set(leg, 'Interpreter','latex')
 leg.Layout.Tile = 'south';
 title(leg,'Different Policy Rules')
