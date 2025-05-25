@@ -123,7 +123,7 @@ The fiscal policy rule works similarly\footnote{Should we include a fiscal polic
     \tau_t - \tau^{\star} = \lambda_{l g} (l_{g,t} - l^{\star}_{g})
 \end{align}
 
-The outstanding government debt is given by the outstanding bonds and currency in real terms. The government debt changes by the difference between government spending ($G_t$) and tax revenue (taxes + surcharge on $C_t, K_t, w_tL_t$) adjusted for the bond interest rate. The government spends on the aggregate good provided by the final goods firm. Furthermore, if inflation is positive the real value of bonds issued last periods is decreased and thus reduces government debt.
+The outstanding government debt is given by the outstanding bonds and currency in real terms. The government debt changes by the difference between government spending ($G_t$) and tax revenue (taxes + surcharge on $C_t, K_t, w_t,L_t$) adjusted for the bond interest rate. The government spends on the aggregate good provided by the final goods firm. Furthermore, if inflation is positive the real value of bonds issued last periods is decreased and thus reduces government debt.
 
 % Content here (use align or equation environments).
 
@@ -159,16 +159,16 @@ Price stickiness parameter $\kappa$ and the investment adjustment cost parameter
 \newpage
 \section{Benchmark Model Analysis (about two pages)}\label{s:benchmark_model}
 
-In this section, we adjust our model to correctly reflect the policy carried out by the Bank of Canada. To reflect the change in the behaviour of the central bank, we modify the Taylor-like rule to a money supply target. .... to achieve price stability, we adjust the benchmark model to a monetary policy rule with the following specification:
+In this section, we adjust our model to replicate the policy carried out by the Bank of Canada (BoC). To reflect the change in the behaviour of the central bank, we modify the Taylor-like rule to a money supply target. Following the behaviour of Bo, the money supply rule is based on the deviations from the steady-state inflation rate. Therefore, it implies a focus of the bank on achieving price stability. Equation~\ref{eq:baseline_rule} displays the rule min formal notation.
 
 
 \begin{equation}\label{eq:baseline_rule}
     \frac{M_t}{M_{t-1}} = \Big(\frac{1+\pi_{t}}{1+ \bar \pi}\Big)^{-\theta_{\pi}}
 \end{equation}
 
-\hl{Moreover, it seems  natural, that the $MC$ shock should enter the model through the Phillips curve.}\footnote{I think I'd just say that the MC enters here} That is because the curve represents the pricing decision rule of the intermediate companies, and so it will most accurately represent their reaction to an increase in marginal costs. Including our shock, the NK-Phillips curve is given by: 
+We specify the $MC$ shock to enter the model through the Phillips curve. That is because the curve represents the pricing decision rule of the intermediate companies, and so it will most accurately represent their reaction to an increase in marginal costs. Equation~\ref{eq:phillips_curve} shows the NK-Phillips curve adjusted for our shock. 
 
-\begin{equation}
+\begin{equation}\label{eq:phillips_curve}
     \frac{\kappa \pi_t (1 + \pi_t)}{1 - \frac{\kappa}{2} \pi_t^2}
     = \frac{1 - \frac{\rho}{mc_t \cdot e^{MC_s,t}}}{1 - \rho}
     + \mathbb{E}_t \beta_{t,t+1}
@@ -177,28 +177,29 @@ In this section, we adjust our model to correctly reflect the policy carried out
     \frac{\kappa \pi_{t+1} (1 + \pi_{t+1})^{2}}{1 - \frac{\kappa}{2} \pi_{t+1}^2}
 \end{equation}
 
-Where the periodic shock is expressed multiplicatively as $mc_t \cdot e^{MC_{s, t}}$ to ensure convenient estimation.
+Where the periodic shock is expressed multiplicatively as $mc_t \cdot e^{MC_{s, t}}$ for convenient estimation.
 
 \subsection*{(a) How does the shock lead to economic fluctuations (baseline scenario)?}
 
-The \hl{specification} of the shock leads to the fact that in the period of the shock, intermediate firms will adjust their prices and revise their hiring decisions. The economic intuition behind this is that an increase in marginal costs, decreases the markup of the firm which then chooses to adjust its prices. As adjustment is costly (due to $\kappa$), the firms will raise their prices less than the increase in marginal costs. In turn, higher prices, cause a decrease in demand for the aggregate product, therefore prompting the firms to decrease output. At the same time, the higher marginal costs imply that the companies choose to hire less labour and capital, as it becomes more costly. \hl{Finally}, given the high prices and lower output, real wages and the real rental rate of capital fall.
+This specification leads to the fact that in the period of the shock, intermediate firms will adjust their prices and revise their hiring decisions. The economic intuition behind this is that an increase in marginal costs, decreases the markup of the firm which then chooses to adjust its prices. As adjustment is costly (due to $\kappa$), the firms will raise their prices less than the increase in marginal costs. In turn, higher prices, cause a decrease in demand for the aggregate product, therefore prompting the firms to decrease output. At the same time, the higher marginal costs imply that the companies choose to hire less labour and capital, as it becomes more costly. Furthermore, the high prices and lower output imply a fall in real wages and the real rental rate of capital.
 
-Furthermore, the $mc_t \cdot e^{MC_{s, t}}$ feeds into firms' expectations about the future. When firms choose to set their prices for $t$, they trade off increasing their prices today and in the future. If the shock is expected to be persistent, firms may choose to increase their prices by less in $t$ and choose to keep increasing them slowly over time. 
+The $mc_t \cdot e^{MC_{s, t}}$ feeds into firms' expectations about the future. When firms choose to set their prices for $t$, they trade off increasing their prices today and in the future. If the shock is expected to be persistent, firms may choose to increase their prices by less in $t$ and choose to keep increasing them slowly over time. 
 
-The firm's pricing decision is also important for the future, as it is used as a benchmark relative to which they set their next period's prices. If prices are set high in period $t$,\ \dots\footnote{Does it increase the costs of raising the prices later on??? I don't think so}
+The firm's pricing decision is also important for their future behaviour, as it is used as a benchmark relative to which they set their next prices in the next period. 
+% If prices are set high in period $t$,\ \dots\footnote{Does it increase the costs of raising the prices later on??? I don't think so}
 
 Over time, as no more shocks happen, firms are able to arrive back at their target markup and therefore the economy is able to come back to the steady state inflation rate. This also implies that the intermediate firms slowly come back to their steady state hiring decisions, and households again arrive at their steady state consumption.\footnote{Adjust/Expand on this part.}
 
 % describe the short run as well as the path back to the steady state. 
 \subsection*{(b) What is the idea behind the implemented policy (current policy scenario)?}
 
-At the same time, in an effort to counter inflation, the central bank will decrease the money supply which acts analogously to a rise in the interest rate. By following the price stability oriented monetary policy rule, it will increase the money supply in order to match the inflation and marginal cost gaps of the economy in an effort to achieve price stability. As the bank intervention will increase the money stock of the households, it will allow it to consume more goods and therefore counter the drop in output that the economy experiences.\footnote{THIS IS WRONG, ADJUST!!!}
+At the same time, in an effort to counter inflation, the central bank will decrease the money supply which acts analogously to a rise in the interest rate. A reduction in the money supply of households, implies a decrease in purchasing power, which translates into lower output in the given period. However, the decrease in demand incentivizes the firms to slow down the growth in their prices (or even decrease them if the drop in demand is large enough). The reduction in demand further causes firms to revise their hiring decision in favour of lower production. Over time this policy leads to a rapid reduction in inflation and a slow recovery in output.
 
 \subsection*{(c) Impulse Response Functions and Model Limitations}
 
-Figures~\ref{fig:main_baseline} and~\ref{fig:other_baseline} display the impulse response functions of the baseline model. Figure~\ref{fig:main_baseline} displays the IRF's for Real GDP, Inflation and the Total Hours Worked ($L$). The blue curve shows the path of the economy as simulated by our model, while the red curve displays the path of the economy according to the empirical data.\footnote{We restricted ourselves to showing only the comparison for GDP and Inflation, as we couldn't find the labour data.} As one can see, our model approximates the true crisis, however there remain some limitations. Following the shock to marginal costs we can see a drop in output and a rise in prices in the short term. The focus of the central bank on managing inflation causes it to over-contract, which results in the deflation visible in the medium-run. Moreover, one can see total hours worked drop rapidly due to\ \dots. 
+Figures~\ref{fig:main_baseline} and~\ref{fig:other_baseline} display the impulse response functions of the baseline model. Figure~\ref{fig:main_baseline} displays the IRF's for real GDP, inflation and the total hours worked ($L$). The blue curve shows the path of the economy as simulated by our model, while the red curve displays the path of the economy according to the empirical data.\footnote{We restricted ourselves to showing only the comparison for GDP and Inflation, as we couldn't find the labour data.} As one can see, our model approximates the true crisis, however there remain some limitations. Following the shock to marginal costs we can see a drop in output and a rise in prices in the short term. The focus of the central bank on managing inflation causes it to over-contract, which results in the deflation visible in the medium-run. Moreover, one can see total hours worked drop rapidly as described in the above section. 
 
-Figure~\ref{fig:other_baseline} displays the IRF's for the rest of the variables. Similarly to the total hour worked, we can see that capital employment falls following the shock. The shock has larger implications for the whole of the economy with virtually all of the observable variables falling following the shock: wages, return on capital, consumption, investment. 
+Figure~\ref{fig:other_baseline} displays the IRF's for the rest of the variables. Similarly to the total hours worked, we can see that capital employment falls following the shock. The shock has larger implications for the whole of the economy with virtually all of the observable variables falling following the shock: wages, return on capital, consumption, investment. 
 
 \begin{figure}[!h]
     \caption{Impulse response functions of observable variables}\label{fig:main_baseline}
@@ -208,7 +209,7 @@ Figure~\ref{fig:other_baseline} displays the IRF's for the rest of the variables
     \tiny{Data source: \citeauthor{worldbank_inflation_ca}}
 \end{figure}
 
-Finally, the last row of Figure~\ref{fig:other_baseline} displays the effects on the interest rate, real marginal costs and money stock. Whereas the effects on the real marginal costs are quite obvious and as specified by our shock process, the effects on the nominal interest rate and the money stock are of interest. The panel on money stock shows the drastic short-run contraction carried out by the central bank. The panel showing the path of the interest rate shows a large drop in the interest rate in the shock period and an increase in the periods following. This can be explained by\ \dots.\footnote{MAKE SURE THAT YOU UNDERSTAND WHY IT WORKS THIS WAY, IT'S PRETTY UNEXPECTED}   
+Finally, the last row of Figure~\ref{fig:other_baseline} displays the effects on the interest rate, real marginal costs and money stock. Whereas the effects on the real marginal costs are straightforward and as specified by our shock process, the effects on the nominal interest rate and the money stock are of interest. The panel on money stock shows the drastic short-run contraction carried out by the central bank. The panel displaying the path of the interest rate shows a large drop relative to the steady state value in the shock period and an increase in the periods following. This can be explained by considering the effects of the shock on households. In the initial period, household face high prices, and low consumption. As they are aware of the inner workings of the economy (namely the monetary policy rule as well as the persistence of the economic shocks), they can expect both high inflation, low consumption and further contractions in the short term and a slow recovery in the medium term. Therefore, they initially choose to postpone more of their consumption using the purchases of bonds, which pushes the interest rate down relative to its steady state. 
 
 \begin{figure}[!h]
     \caption{Impulse response functions of observable variables}\label{fig:other_baseline}
@@ -216,9 +217,7 @@ Finally, the last row of Figure~\ref{fig:other_baseline} displays the effects on
     \includegraphics[width=0.7\textwidth]{other_baseline_policy.png}
 \end{figure}
 
-Overall, although this model approximates the crisis, it misses certain aspects of history. Firstly, it misses the international effects of the crisis. Although the recession was worldwide, the impact of other nations on the demand for exports from Canada could have had an effect on the economy during the crisis, whereas here it is entirely \hl{excluded}\footnote{seems to me that sth like model of a closed economy should be said}. Furthermore, at this point in time, the Canadian Dollar has been floating freely against other currencies, which naturally could have had effects on the economy through the general stabilization that the floating exchange rates offer.\footnote{Check sources for what happened to exchange rates: https://www.poundsterlinglive.com/bank-of-england-spot/historical-spot-exchange-rates/usd/USD-to-CAD-1980, \\
-
-https://www150.statcan.gc.ca/t1/tbl1/en/cv.action?pid=1010000901}
+Overall, although this model approximates the crisis, it misses certain aspects of history. Firstly, it misses the international effects of the crisis. Although the recession was worldwide, the impact of other nations on the demand for exports from Canada could have had an effect on the economy during the crisis, whereas here it is entirely excluded, given that we operate within the closed-economy framework. Furthermore, at this point in time, the Canadian Dollar has been floating freely against other currencies, which naturally could have had effects on the economy through the general stabilization that the floating exchange rates offer. Moreover, although our model follows the general direction of the economy, it fails to precisely approximate the realized path. This is likely due to the noise included in the empirical data, differences in policy specification and the use of impulse response functions. The noise can be inferred from the large volatility of our data. As can be seen in Figure~\ref{fig:main_baseline}, the original policy may have been specified differently as the economy avoided deflation. Finally, while our impulse response functions assume no repeated/other shocks, the empirical data does not conform to this assumption, with other shocks (such as those related to international finance) possibly impacting the economy.
 
 \newpage
 % 5. Counterfactual Policies
@@ -227,7 +226,7 @@ In this section we consider various alternatives to the policy chosen in initial
 
 \subsection*{(a) More or less of the same policy (different coefficients)?}
 
-Figure~\ref{fig:policy_par_variation} considers variation in responsiveness of the central bank to inflation (using the initial policy). As can be seen on the graph, choosing different values for $\theta_{\pi}$ has a significant impact on the economy, with the contraction in real GDP and the total hours worked both being increasing in the parameter. At the same time, an increase in the parameter does not seem to be causing a significant change to the inflation experienced by the economy. As we can see, if the central bank is \hl{solely}\footnote{Fig 3 shows only policy concerned with inflation, so I think it should if CB reacts stronger to inflation} focused on preventing inflation, they will let the economy contract more which\ \dots.\footnote{why doesn't inflation change though?}
+Figure~\ref{fig:policy_par_variation} considers variation in responsiveness of the central bank to inflation (using the initial policy). As can be seen on the graph, choosing different values for $\theta_{\pi}$ has a significant impact on the economy, with the contraction in real GDP and the total hours worked both being increasing in the parameter. At the same time, an increase in the parameter does not seem to be causing a significant change to the inflation experienced by the economy. This happens, because the stronger change in the money supply (if $\theta_\pi$ increases) impacts the consumption and labour choice of households, however it does not change the price setting behaviour of firms due to the price-stickiness. Therefore, policy that is more strongly focused on preventing inflation, will result in the economy contracting more, while maintaining similar inflation levels.
 
 \begin{figure}[!h]
     \caption{Impulse response functions of observable variables}\label{fig:policy_par_variation}
@@ -248,7 +247,7 @@ In this subsection we consider other monetary policy rules that the central bank
             \cdot \Big(\frac{1 + \pi_t}{1 + \bar{\pi}}\Big)^{-\theta_{\pi}}
 \end{equation}
 
-Equation~\ref{eq:mc_rule} is our benchmark policy that relates the money supply target to both the relative value of marginal cost and inflation. In this regime, the central bank observes the shock to the marginal cost directly, and tries to balance the impact to the economy of the $mc$ and inflation. We consider this our ''first-best'' scenario, as observing the marginal cost in real time is difficult and might not be \hl{entirely realistic}\footnote{Maybe also add that it is very specific and although it performs very well in this scenario it  would be ill suited for another type of shock like labour disutility shock \dots}.
+Equation~\ref{eq:mc_rule} is our benchmark policy that relates the money supply target to both the relative value of marginal cost and inflation. In this regime, the central bank observes the shock to the marginal cost directly, and tries to balance the impact to the economy of the $mc$ and inflation. We consider this our ``first-best'' scenario, as observing the marginal cost in real time is difficult and might not be realistic, while also being specific only to economies plagued \textit{only} by marginal cost shocks.
 
 \begin{equation}\label{eq:lab_rule}
     \frac{M_t}{M_{t-1}}
@@ -256,16 +255,16 @@ Equation~\ref{eq:mc_rule} is our benchmark policy that relates the money supply 
           \cdot \Big(\frac{1 + \pi_t}{1 + \bar{\pi}}\Big)^{-\theta_{\pi}}
 \end{equation}
 
-Equation~\ref{eq:lab_rule} displays the same idea, but with respect to labour. In this scenario, the central bank tries to manage both the impact on inflation and the labour market, therefore making sure that it's \hl{second mandate}\footnote{dual-mandate like FED} --- maintaining full employment --- is also achieved. However, in this scenario, the central bank considers the labour supply of previous period when increasing the money supply. This is for two reasons: firstly, consumption today is determined by the labour yesterday. Therefore, it makes more sense for the central bank to adjust the money target, and thus the lump sum payment to the households, based on the previous value. Secondly, if the central bank were to set the monetary target based on the labour today, it would only be impacting the consumption tomorrow, which takes away the power of monetary policy.  
+Equation~\ref{eq:lab_rule} displays the same idea, but with respect to labour. In this scenario, the central bank tries to manage both the impact on inflation and the labour market, therefore following a U.S. Federal Reserve-like mandate, where the bank also tries to maintain full employment. However, in this scenario, the central bank considers the labour supply of previous period when increasing the money supply. This is for two reasons: firstly, consumption today is determined by the labour yesterday. Therefore, it makes more sense for the central bank to adjust the money target, and thus the lump sum payment to the households, based on the previous value. Secondly, if the central bank were to set the monetary target based on the labour today, it would only be impacting the consumption tomorrow, which takes away the power of monetary policy.  
 
 \begin{equation}\label{eq:taylor_rule}
     \frac{1 + r_{B,t}}{1 + \bar{r}_B} = \left( \frac{1 + r_{B,t-1}}{1 + \bar{r}_B} \right)^{\theta_R} \left( \frac{1 + \pi_t}{1 + \pi^*} \right)^{(1 - \theta_R)\theta_{pi}}
 \end{equation}
 
-Finally, we also consider equation~\ref{eq:taylor_rule}, which is the previously shown Taylor-Rule of monetary policy. We display it as an example of common behaviour of the actual central banks and therefore as a comparison to the method generally accepted in the literature. This is especially useful, as money supply targets rarely appear in the literature on DSGE models, with the Taylor-rule significantly dominating the field.  
+Finally, we also consider equation~\ref{eq:taylor_rule}, which is the previously shown interest rule. We display it as an example of the performance of the basic model.  
 
 
-Figure~\ref{fig:policy_rule_variation} displays the effects \hl{of switching the monetary policy on the economy during the shock}\footnote{Reads odd imo. Maybe Effect if the CB had followed another policy when the shock occured?}. As described above, equation~\ref{eq:mc_rule} acts as our benchmark, as it performs the best and allows for the economy to come back to the steady state the earliest. This is due to the fact that if the central bank is able to observe the shock directly, it can respond in each period to the precise value of the marginal costs.
+Figure~\ref{fig:policy_rule_variation} displays the effects of different monetary policies. As described above, equation~\ref{eq:mc_rule} acts as our benchmark, as it performs the best and allows for the economy to come back to the steady state the earliest. This is due to the fact that if the central bank is able to observe the shock directly, it can respond in each period to the precise value of the marginal costs.
 
 Equation~\ref{eq:lab_rule} performs as the second-best. In the initial period this rule performs poorly, as the central bank is backward looking in this regime, and therefore only takes into consideration the inflation that it observes in that period.  
 
@@ -275,9 +274,9 @@ Equation~\ref{eq:lab_rule} performs as the second-best. In the initial period th
     \includegraphics[width=0.7\textwidth]{policy_rule_variation.png}
 \end{figure}
 
-However, over time, it is able to bring the economy back to the steady state in the second-fastest manner, by taking into consideration the effects of the shock on labour supply. This happens, because as the central bank sees that the labour supply in previous period was low, it is able to infer that the savings of the households will be smaller and therefore they will not be able to consume as much as they would have in the absence of the shock. Thus, the central bank increases their purchasing power in that given period. It is important to note that this happens at the expense of a slightly higher inflation before returning to the steady-state. Furthermore, this policy works well if the shocks are infrequent and persistent, however if the economy is troubled by many short-lived shocks, it may be unsuitable as then the central bank would repeatedly fail to anticipate it.
+However, over time, it is able to bring the economy back to the steady state in the second-fastest manner, by taking into consideration the effects of the shock on labour supply. This happens, because as the central bank sees that the labour supply in previous period was low, it is able to infer that the savings of the households will be smaller, and therefore they will not be able to consume as much as they would have in the absence of the shock. Thus, the central bank increases their purchasing power in that given period. It is important to note that this happens at the expense of a slightly higher inflation before returning to the steady-state. Furthermore, this policy works well if the shocks are infrequent and persistent, however if the economy is troubled by many short-lived shocks, it may be unsuitable as then the central bank would repeatedly fail to anticipate it.
 
-Equation~\ref{eq:taylor_rule} presents itself as marginally better than the implemented equation~\ref{eq:baseline_rule}. As the parameter $\theta_R$ is assumed to be $0$, the Taylor-like rule, essentially acts in the same way as equation~\ref{eq:baseline_rule}, with interest-rate targeting based on the inflation deviations. However, as the instrument of choice is the interest rate setting, the effect on the economy is more limited, because\ \dots.\footnote{Think and add} Nonetheless, both of these policy rules present a scenario in which the economy sharply contracts (yet less than under the labour rule), and takes longer to come back to the steady-state. 
+Equation~\ref{eq:taylor_rule} presents itself as marginally better than the implemented equation~\ref{eq:baseline_rule}. As the parameter $\theta_R$ is assumed to be $0$, the interest rate rule, essentially acts in the same way as equation~\ref{eq:baseline_rule}, with interest-rate targeting based on the inflation deviations. However, as the instrument of choice is the interest rate setting, the effect on the economy is more limited, because\ \dots.\footnote{Think and add} Nonetheless, both of these policy rules present a scenario in which the economy sharply contracts (yet less than under the labour rule), and takes longer to come back to the steady-state. 
 
 Finally, the implemented equation~\ref{eq:baseline_rule}, causes a hard contraction in output, high inflation (followed by deflation) and a sharp decrease in labour supply. This is caused by the fact that the central bank focuses solely on the inflation target. Finally, this instrument causes a temporary deflation, which happens because\ \dots.\footnote{Explain in detail - how it works}
 
