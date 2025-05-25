@@ -55,16 +55,7 @@
 
 \pagenumbering{arabic}
 % 2. Introduction
-\section{Introduction (about one page)}
-\subsection*{(a) Cause and impact of economic fluctuations}
-% Content here.
-
-\subsection*{(b) Consequences for economy and why policy should act}
-% Content here.
-
-\subsection*{(c) Brief overview of suggested policy}
-% Content here.
-
+\section{Introduction}
 During the late 1970's unrest in Iran leading to the Iranian revolution reduced oil supply significantly\parencite{OilSqueeze1979}. In the early 1980's\footnote{choose which to describe} the countries of the Organization of the Petroleum Exporting Countries failed to agree on quotas, however Saudi-Arabia significantly reduced its production impacting world supply \parencite{tagliabueOPECFAILSSET1982} which was further decreased by the Iran-Iraq war. This caused a worldwide oil crisis. The sharp spike in energy costs across the globe lead to a worlwide recession \parencite{koseGlobalRecessions2020}. During which Canada experienced up to 4\% lower GDP than its long-run trend and inflation increased more than 2\% above its long-run mean 
 \parencite{worldbank_inflation_ca,fred_gdp_per_capita_ca}
 
@@ -77,10 +68,10 @@ The report is organized as follows: Section~\ref{s:model_description} describes 
 % ------------------------------------------------------------------------
 \newpage
 % 3. Bird’s Eye View of the Model
-\section{Bird’s Eye View of the Model (about two pages)}\label{s:model_description}
+\section{Bird’s Eye View of the Model}\label{s:model_description}
 
 
-\subsection*{(a) Outline of the Model Structure (graphical and verbal, no equations)}
+\subsection*{Model Structure}
 % Content here (include figure environment if needed).
 The Dynamic Stochastic General Equilibrium (DSGE) Model used for this policy analysis features
 three representative agents, namely a representative household, an intermediate goods firm and final goods firm (See grey boxes in figure \ref{fig:model_flow}). The model also includes a government that levies taxes (Figure \ref{fig:model_flow}: yellow box) and can conduct fiscal policy as well as central bank that can conduct monetary policy (Figure \ref{fig:model_flow}: green box).
@@ -105,7 +96,7 @@ The government has fiscal and monetary policy at their disposal, but cannot comb
     \includegraphics[width=0.8\textwidth]{../../model_graph.png}
 \end{figure}
 
-\subsection*{(b) Policy Structure of the Model (main equations)}
+\subsection*{Policy Structure}
 The model's default setting assumes that the CB's monetary policy is focused on price stability, i.e. keeping inflation at a target level. The central bank
 follows a Taylor-like monetary policy rule, which is a function of the inflation rate and determines the change in the interest rate. We illustrate how monetary policy affects the model economy using the model's default Taylor-like rule which later on is also presented as a counterfactual. If the inflation rate is above the targeted level, the interest rate is decreased and vice versa. The strength of the change in money supply relative to the deviation of inflation is given by the parameter $\theta_{\pi}$. 
 The Taylor rule of monetary policy is given by:
@@ -127,7 +118,7 @@ The outstanding government debt is given by the outstanding bonds and currency i
 
 % Content here (use align or equation environments).
 
-\subsection*{(c) Calibration of the Model}
+\subsection*{Calibration}
 The model is calibrated to the Canadian economy in 1979\footnote{See table \ref{tab:parameters} in the appendix for a concise overview}, assuming that one period corresponds to a year. 
 The discount factor $\beta$ is set to 0.96, inline with \textcite{someOilDemandSupply2023} and close to \textcite{corriganToTEMIIIBank2021}. 
 The intertemporal consumption elasticity $\sigma$ is set to 2. Positive values indicate risk-aversion, whereas a negative value would correspond to risk-loving behaviour
@@ -157,7 +148,7 @@ Price stickiness parameter $\kappa$ and the investment adjustment cost parameter
 
 % 4. Benchmark Model Analysis
 \newpage
-\section{Benchmark Model Analysis (about two pages)}\label{s:benchmark_model}
+\section{Benchmark Model Analysis}\label{s:benchmark_model}
 
 In this section, we adjust our model to correctly reflect the policy carried out by the Bank of Canada. To reflect the change in the behaviour of the central bank, we modify the Taylor-like rule to a money supply target. .... to achieve price stability, we adjust the benchmark model to a monetary policy rule with the following specification:
 
@@ -179,7 +170,7 @@ In this section, we adjust our model to correctly reflect the policy carried out
 
 Where the periodic shock is expressed multiplicatively as $mc_t \cdot e^{MC_{s, t}}$ to ensure convenient estimation.
 
-\subsection*{(a) How does the shock lead to economic fluctuations (baseline scenario)?}
+\subsection*{Economic Fluctuations Induced by the Shock}
 
 The \hl{specification} of the shock leads to the fact that in the period of the shock, intermediate firms will adjust their prices and revise their hiring decisions. The economic intuition behind this is that an increase in marginal costs, decreases the markup of the firm which then chooses to adjust its prices. As adjustment is costly (due to $\kappa$), the firms will raise their prices less than the increase in marginal costs. In turn, higher prices, cause a decrease in demand for the aggregate product, therefore prompting the firms to decrease output. At the same time, the higher marginal costs imply that the companies choose to hire less labour and capital, as it becomes more costly. \hl{Finally}, given the high prices and lower output, real wages and the real rental rate of capital fall.
 
@@ -190,11 +181,11 @@ The firm's pricing decision is also important for the future, as it is used as a
 Over time, as no more shocks happen, firms are able to arrive back at their target markup and therefore the economy is able to come back to the steady state inflation rate. This also implies that the intermediate firms slowly come back to their steady state hiring decisions, and households again arrive at their steady state consumption.\footnote{Adjust/Expand on this part.}
 
 % describe the short run as well as the path back to the steady state. 
-\subsection*{(b) What is the idea behind the implemented policy (current policy scenario)?}
+\subsection*{Idea of the Implemented Policy}
 
 At the same time, in an effort to counter inflation, the central bank will decrease the money supply which acts analogously to a rise in the interest rate. By following the price stability oriented monetary policy rule, it will increase the money supply in order to match the inflation and marginal cost gaps of the economy in an effort to achieve price stability. As the bank intervention will increase the money stock of the households, it will allow it to consume more goods and therefore counter the drop in output that the economy experiences.\footnote{THIS IS WRONG, ADJUST!!!}
 
-\subsection*{(c) Impulse Response Functions and Model Limitations}
+\subsection*{Impulse Response Functions and Model Limitations}
 
 Figures~\ref{fig:main_baseline} and~\ref{fig:other_baseline} display the impulse response functions of the baseline model. Figure~\ref{fig:main_baseline} displays the IRF's for Real GDP, Inflation and the Total Hours Worked ($L$). The blue curve shows the path of the economy as simulated by our model, while the red curve displays the path of the economy according to the empirical data.\footnote{We restricted ourselves to showing only the comparison for GDP and Inflation, as we couldn't find the labour data.} As one can see, our model approximates the true crisis, however there remain some limitations. Following the shock to marginal costs we can see a drop in output and a rise in prices in the short term. The focus of the central bank on managing inflation causes it to over-contract, which results in the deflation visible in the medium-run. Moreover, one can see total hours worked drop rapidly due to\ \dots. 
 
@@ -222,10 +213,10 @@ https://www150.statcan.gc.ca/t1/tbl1/en/cv.action?pid=1010000901}
 
 \newpage
 % 5. Counterfactual Policies
-\section{Counterfactual Policies (about two pages)}\label{s:counterfactual_policy}
+\section{Counterfactual Policies}\label{s:counterfactual_policy}
 In this section we consider various alternatives to the policy chosen in initial scenario.
 
-\subsection*{(a) More or less of the same policy (different coefficients)?}
+\subsection*{Counterfactuals with Different coefficents}
 
 Figure~\ref{fig:policy_par_variation} considers variation in responsiveness of the central bank to inflation (using the initial policy). As can be seen on the graph, choosing different values for $\theta_{\pi}$ has a significant impact on the economy, with the contraction in real GDP and the total hours worked both being increasing in the parameter. At the same time, an increase in the parameter does not seem to be causing a significant change to the inflation experienced by the economy. As we can see, if the central bank is \hl{solely}\footnote{Fig 3 shows only policy concerned with inflation, so I think it should if CB reacts stronger to inflation} focused on preventing inflation, they will let the economy contract more which\ \dots.\footnote{why doesn't inflation change though?}
 
@@ -237,7 +228,7 @@ Figure~\ref{fig:policy_par_variation} considers variation in responsiveness of t
 Content here.
 
 
-\subsection*{(b) Alternative policy (different targets)?}
+\subsection*{Counterfactuals with Alternative Policies}
 % Content here.
 
 In this subsection we consider other monetary policy rules that the central bank could have followed instead. We consider the following rules:
@@ -287,9 +278,7 @@ Finally, the implemented equation~\ref{eq:baseline_rule}, causes a hard contract
 
 \newpage
 % 6. Policy Recommendation and Discussion
-\section{Policy Recommendation and Discussion (about one page)}\label{s:discussion}
-\subsection*{(a) Give a recommendation on policy based on your simulations.}
-% Content here.
+\section{Policy Recommendation and Discussion }\label{s:discussion}
 
 As shown by Figure~\ref{fig:policy_rule_variation}, there is a trade-off between the speed at which GDP recovers and the initial level of inflation. Based on our simulations, we identify money supply targeting based on the deviation of labour and inflation from their steady-state levels as the second-best policy, and thus as the policy that should have been pursued. We deem it the second-best because it has GDP and employment reach the pre-shock level fastest, whilst having lower initial inflation than the benchmark and reaching the pre-shock inflation level at a similar speed to the other tested policies. Nonetheless, the second-best policy performs significantly better than interest rate or money supply targeting based solely on inflation. The first-best policy, which targets marginal costs directly, is deemed unfeasible as outlined above. 
 
@@ -297,11 +286,6 @@ However, the fast recovery of GDP comes at two cost. First, the initial decrease
 
 Based on our analysis we conclude that, in the presence of large supply shocks, central banks should consider monetary policy rules that respond to both inflation and real activity (such as labour), rather than focusing exclusively on inflation. This approach allows for a faster recovery in output and employment, albeit at the cost of temporarily higher inflation. The results suggest that a dual-mandate approach, similar to that of the Federal Reserve, would have been more effective in stabilizing the Canadian economy during the crisis period under study. This recommendation is under the limitations of the model outlined above and furthermore limited by the number of policies tested, as well as that we test counterfactual policies only for a single policy parameter. 
 
-\subsection*{(b) Should policy have taken a different path?}
-% Content here.
-
-\subsection*{(c) Do your results confirm or conflict with your perception about optimal policy? Discuss how.}
-% Content here.
 The superiority of the dual-mandate policy in our simulations is not surprising, given the absence of an active fiscal policy to complement a single-mandate monetary policy. In real-world scenarios, when monetary policy is focused solely on inflation, fiscal policy can stabilize output and employment during supply shocks. For example, during the 2022 European energy crisis (a similar shock to the one studied), many European countries responded to the supply shock with a combination of expansionary fiscal policy and increased interest rates \parencite{bankoffinlandEuropeanCentralBanks2022, checherita-westphalUpdateEuroArea2023}. This coordinated approach helped to cushion the impact on GDP whilst addressing inflationary pressures.
 %references
 \newpage %start a new page
