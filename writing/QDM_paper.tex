@@ -22,7 +22,7 @@
 
 % Title and Author
 \title{\textbf{Impact of an Oil Price Shock on the Canadian Economy} \\ \large{Quantitative Dynamic Macroeconomics}}
-\author{Jakub Przewoski, SNR: 2092491\\ Theo Thrän, SNR: }
+\author{Jakub Przewoski, SNR: 2092491\\ Theo Thrän, SNR: 2094766}
 \date{\today}
 \renewcommand*\abstractname{Executive Summary}
 % turning off some linting errors
@@ -65,10 +65,10 @@
 \subsection*{(c) Brief overview of suggested policy}
 % Content here.
 
-During the late 1970's (early 1980's)\footnote{choose which to describe} the countries of the Organization of the Petroleum Exporting Countries decided to collectively raise the prices of oil in the world, following the start of the Iranian revolution \parencite{OilSqueeze1979}. This agreement caused a worldwide oil crisis, due to the sharp spike in energy costs across the globe. The rise
+During the late 1970's unrest in Iran leading to the Iranian revolution reduced oil supply significantly\parencite{OilSqueeze1979}. In the early 1980's\footnote{choose which to describe} the countries of the Organization of the Petroleum Exporting Countries failed to agree on quotas, however Saudi-Arabia significantly reduced its production impacting world supply \parencite{tagliabueOPECFAILSSET1982} which was further decreased by the Iran-Iraq war. This caused a worldwide oil crisis. The sharp spike in energy costs across the globe lead to a worlwide recession \parencite{koseGlobalRecessions2020}. During which Canada experienced up to 4\% lower GDP than its long-run trend and inflation increased more than 2\% above its long-run mean 
+\parencite{worldbank_inflation_ca,fred_gdp_per_capita_ca}
 
-
-In this report we evaluate the response of the government to this crisis. We simulate the path of the economy for multiple monetary rules to prescribe the most effective policy that the government could have adopted. We propose a monetary rule that takes into consideration both the deviations of inflation from its steady-state and the deviations of labour supply from the steady-state labour supply. This policy performed the best out of the other considered approaches when considered against our benchmark approach in which the central bank can observe the marginal cost in the economy.
+In this report we evaluate the response of the government to this crisis. We simulate the path of the economy for multiple monetary rules to prescribe the most effective policy that the government could have adopted. We propose a monetary rule that takes into consideration both the deviations of inflation from its steady-state and the deviations of labour supply from the steady-state labour supply. This policy performed the best out of the other considered approaches when considered against our benchmark approach in which the central bank can observe the \hl{marginal cost}\footnote{Shouldn't this say shock?} in the economy.
 
 The report is organized as follows: Section~\ref{s:model_description} describes the basic model from which we derive our findings and the parameter calibration. Section~\ref{s:benchmark_model} shows the model simulations with a marginal cost shock (which reflects the oil price shock) and an adjusted monetary policy rule, to reflect the actual events. Section~\ref{s:counterfactual_policy} shows simulations that alternate the strength of the applied policy, and simulations with alternative policy rules. Section~\ref{s:discussion} proposes our preffered policy rule and concludes. 
 
@@ -302,7 +302,7 @@ Based on our analysis we conclude that, in the presence of large supply shocks, 
 
 \subsection*{(c) Do your results confirm or conflict with your perception about optimal policy? Discuss how.}
 % Content here.
-The superiority of the dual-mandate policy in our simulations is not surprising, given the absence of an active fiscal policy to complement a single-mandate monetary policy. In real-world scenarios, when monetary policy is focused solely on inflation, fiscal policy can stabilize output and employment during supply shocks. For example, during the 2022 European energy crisis (a similar shock to the one studied), many European countries responded to the supply shock with a combination of expansionary fiscal policy and increased interest rates (\cite{bankoffinlandEuropeanCentralBanks2022}; \cite{checherita-westphalUpdateEuroArea2023}). This coordinated approach helped to cushion the impact on GDP whilst addressing inflationary pressures.
+The superiority of the dual-mandate policy in our simulations is not surprising, given the absence of an active fiscal policy to complement a single-mandate monetary policy. In real-world scenarios, when monetary policy is focused solely on inflation, fiscal policy can stabilize output and employment during supply shocks. For example, during the 2022 European energy crisis (a similar shock to the one studied), many European countries responded to the supply shock with a combination of expansionary fiscal policy and increased interest rates \parencite{bankoffinlandEuropeanCentralBanks2022, checherita-westphalUpdateEuroArea2023}. This coordinated approach helped to cushion the impact on GDP whilst addressing inflationary pressures.
 %references
 \newpage %start a new page
 \printbibliography{} % Print the bibliography
