@@ -21,7 +21,7 @@ dropnumber      = 1000;     % Set Number of Simulation Periods dropped
 
 % Loop options for policy (different coefficients) counterfactuals
 % Loop options
-run_loop        = 0;        % Set to "1" if you want to execute the FOR-loop!
+run_loop        = 1;        % Set to "1" if you want to execute the FOR-loop!
 % loopcount       = 3;
 loop_robustness = [1.01,2,3]
 
@@ -63,7 +63,8 @@ rules = [1:4];
 par.betta   = 0.94;
 par.sig     = 2;
 par.gam     = 3;
-par.nuu     = 0.5;
+% par.nuu     = 0.5;
+par.nuu     = 0.24;
 par.delt    = 0.1;
 % par.phiX    = 2;
 par.phiX    = 12;
