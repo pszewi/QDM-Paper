@@ -19,12 +19,13 @@ replicnumber    = 10;       % Set Number of Replications
 simreplicnumber = 10;       % Set Number of Simulation Replications
 dropnumber      = 1000;     % Set Number of Simulation Periods dropped
 
+% Loop options for policy (different coefficients) counterfactuals
 % Loop options
 run_loop        = 1;        % Set to "1" if you want to execute the FOR-loop!
 % loopcount       = 3;
 loop_robustness = [1.01,1.5,2]
 
-% Loop options for policy counterfactuals
+% Loop options for policy (alternative policies) counterfactuals
 % different policies are numbered 1-4 
 run_loop_rules        = 1;        % Set to "1" if you want to execute the FOR-loop!
 rules = [1:4];
@@ -275,7 +276,7 @@ ylabel('%-Dev. St.St.')
 saveas(gcf, "output/other_baseline_policy.png")
 
 %% ------------------------------------------------------------------------
-% IRF ROBUSTNESS ANALYSIS - Labor Supply Elasticity 
+% IRF ANALYSIS - Counterfactual policy different coefficients
 % -------------------------------------------------------------------------
 
 if run_loop == 1
@@ -353,7 +354,7 @@ saveas(gcf, "output/policy_par_variation.png")
 end
 
 % ---------------------------------------
-%           Policy Counterfactuals
+%  Alternative Policy Counterfactuals
 % ---------------------------------------
 
 if run_loop_rules == 1

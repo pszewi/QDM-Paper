@@ -5,6 +5,7 @@
 % 01/04/2025
 % *************************************************************************
 
+% Define rule parameter to run for loop with different rules from run_nk_model
 % ------------------------------------------------------------------------------
 @#ifndef RULE          // default so the file also runs from Dynare’s GUI
   @#define RULE = 1
@@ -230,7 +231,7 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
 
 
 % ---------------------------------
-% marginal cost version
+% version including marginal cost and inflation rate
 % ---------------------------------
 @#elseif RULE == 2 
     m / m(-1)
@@ -238,12 +239,16 @@ cii     = phiX*(X/X(-1)-1)*X/X(-1);
             * ( (1 + pii) / (1 + steady_state(pii)) )^(-tetPi) ;
 
 % ---------------------------------
-% labour version
+% version including labour and inflation rate 
 % ---------------------------------
 @#elseif RULE == 3 
     m / m(-1)
         = ( L(-1) / steady_state(L) )^( - tetL  )
           * ( (1 + pii) / (1 + steady_state(pii)) )^( - tetPi ) ;
+
+% ---------------------------------
+% Interest rate targeting based on inflation
+% ---------------------------------
 
 @#elseif RULE == 4
     (1+rb)/(1+steady_state(rb)) = ((1+pii)/(1+steady_state(pii)))^(tetPi) ; % DELETED * exp(sM) to m here!!!
