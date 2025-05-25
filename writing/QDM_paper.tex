@@ -33,20 +33,27 @@
 \begin{document}
 
 \maketitle
-\vfill{}
+\pagenumbering{gobble}
+% \thispagestyle{empty}
+
 \begin{center}
     \large
     Number of words:
+    
+    \vfill{}
+    \begin{abstract}
+        This report analyses the Canadian oil crisis. We calibrate a NK-DSGE model and assume a marginal cost shock. Our findings suggest that the central bank followed a sub-optimal monetary policy rule. Instead, we propose a monetary target rule that incorporates both labour supply and inflation targets. 
+    \end{abstract}
 \end{center}
 
-\begin{abstract}
-    Here is an executive summary.
-\end{abstract}
 \newpage
 
 \tableofcontents{}
+% \thispagestyle{empty}
 
 \newpage
+
+\pagenumbering{arabic}
 % 2. Introduction
 \section{Introduction (about one page)}
 \subsection*{(a) Cause and impact of economic fluctuations}
@@ -151,7 +158,7 @@ Price stickiness parameter $\kappa$ and the investment adjustment cost parameter
 \newpage
 \section{Benchmark Model Analysis (about two pages)}\label{s:benchmark_model}
 
-\hl{As our scenario requires that the Central Bank adopts a money supply target}\footnote{This is course paper not policy paper style} aiming to achieve price stability, we adjust the benchmark model to a monetary policy rule with the following specification:
+In this section, we adjust our model to correctly reflect the policy carried out by the Bank of Canada. To reflect the change in the behaviour of the central bank, we modify the Taylor-like rule to a money supply target. .... to achieve price stability, we adjust the benchmark model to a monetary policy rule with the following specification:
 
 
 \begin{equation}\label{eq:baseline_rule}
