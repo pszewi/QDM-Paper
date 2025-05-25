@@ -22,9 +22,9 @@
 
 % Title and Author
 \title{\textbf{Impact of an Oil Price Shock on the Canadian Economy} \\ \large{Quantitative Dynamic Macroeconomics}}
-\author{Jakub Przewoski, SNR: \\ Theo Thrän, SNR: }
+\author{Jakub Przewoski, SNR: 2092491\\ Theo Thrän, SNR: }
 \date{\today}
-
+\renewcommand*\abstractname{Executive Summary}
 % turning off some linting errors
 % chktex-file 3
 
@@ -38,10 +38,13 @@
     \large
     Number of words:
 \end{center}
+
+\begin{abstract}
+    Here is an executive summary.
+\end{abstract}
 \newpage
 
-\section{Executive summary}
-The shock had some impact, and so I am writing this here. The paper is almost finished, but this is just a text.\ \textbf{WE NEED TO WRITE IT!}
+\tableofcontents{}
 
 \newpage
 % 2. Introduction
@@ -58,13 +61,16 @@ The shock had some impact, and so I am writing this here. The paper is almost fi
 During the late 1970's (early 1980's)\footnote{choose which to describe} the countries of the Organization of the Petroleum Exporting Countries decided to collectively raise the prices of oil in the world, following the start of the Iranian revolution (\textbf{citation needed}). This agreement caused a worldwide oil crisis, due to the sharp spike in energy costs across the globe. The rise
 
 
+In this report we evaluate the response of the government to this crisis. We simulate the path of the economy for multiple monetary rules to prescribe the most effective policy that the government could have adopted. We propose a monetary rule that takes into consideration both the deviations of inflation from its steady-state and the deviations of labour supply from the steady-state labour supply. This policy performed the best out of the other considered approaches when considered against our benchmark approach in which the central bank can observe the marginal cost in the economy.
+
+The report is organized as follows: Section~\ref{s:model_description} describes the basic model from which we derive our findings and the parameter calibration. Section~\ref{s:benchmark_model} shows the model simulations with a marginal cost shock (which reflects the oil price shock) and an adjusted monetary policy rule, to reflect the actual events. Section~\ref{s:counterfactual_policy} shows simulations that alternate the strength of the applied policy, and simulations with alternative policy rules. Section~\ref{s:discussion} proposes our preffered policy rule and concludes. 
 
 % ------------------------------------------------------------------------
 % THEO ------------------------
 % ------------------------------------------------------------------------
 \newpage
 % 3. Bird’s Eye View of the Model
-\section{Bird’s Eye View of the Model (about two pages)}
+\section{Bird’s Eye View of the Model (about two pages)}\label{s:model_description}
 
 
 \subsection*{(a) Outline of the Model Structure (graphical and verbal, no equations)}
@@ -143,7 +149,7 @@ Price stickiness parameter $\kappa$ and the investment adjustment cost parameter
 
 % 4. Benchmark Model Analysis
 \newpage
-\section{Benchmark Model Analysis (about two pages)}
+\section{Benchmark Model Analysis (about two pages)}\label{s:benchmark_model}
 
 \hl{As our scenario requires that the Central Bank adopts a money supply target}\footnote{This is course paper not policy paper style} aiming to achieve price stability, we adjust the benchmark model to a monetary policy rule with the following specification:
 
@@ -208,7 +214,7 @@ https://www150.statcan.gc.ca/t1/tbl1/en/cv.action?pid=1010000901}
 
 \newpage
 % 5. Counterfactual Policies
-\section{Counterfactual Policies (about two pages)}
+\section{Counterfactual Policies (about two pages)}\label{s:counterfactual_policy}
 In this section we consider various alternatives to the policy chosen in initial scenario.
 
 \subsection*{(a) More or less of the same policy (different coefficients)?}
@@ -273,7 +279,7 @@ Finally, the implemented equation~\ref{eq:baseline_rule}, causes a hard contract
 
 \newpage
 % 6. Policy Recommendation and Discussion
-\section{Policy Recommendation and Discussion (about one page)}
+\section{Policy Recommendation and Discussion (about one page)}\label{s:discussion}
 \subsection*{(a) Give a recommendation on policy based on your simulations.}
 % Content here.
 
