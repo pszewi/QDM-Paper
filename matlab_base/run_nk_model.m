@@ -21,9 +21,9 @@ dropnumber      = 1000;     % Set Number of Simulation Periods dropped
 
 % Loop options for policy (different coefficients) counterfactuals
 % Loop options
-run_loop        = 1;        % Set to "1" if you want to execute the FOR-loop!
+run_loop        = 0;        % Set to "1" if you want to execute the FOR-loop!
 % loopcount       = 3;
-loop_robustness = [1.01,1.5,2]
+loop_robustness = [1.01,2,3]
 
 % Loop options for policy (alternative policies) counterfactuals
 % different policies are numbered 1-4 
@@ -344,7 +344,7 @@ ylabel('%-Dev. St.St.')
 
 
 % title(F,'Impulse Responses to a Marginal Cost Shock') % Title for the entire figure
-leg = legend('$\theta_\pi = 1.01$','$\theta_\pi = 1.5$','$\theta_\pi = 2$','Orientation', 'Horizontal');
+leg = legend('$\theta_\pi = 1.01$','$\theta_\pi = 2$','$\theta_\pi = 3$','Orientation', 'Horizontal');
 set(leg, 'Interpreter','latex')
 leg.Layout.Tile = 'south';
 title(leg,'Policy Rule Parameter')
@@ -425,7 +425,7 @@ ylabel('%-Dev. St.St.')
 
 
 % title(F,'Impulse Responses to a Marginal Cost Shock') % Title for the entire figure
-leg = legend('$pol = 1$','$pol = 2$','$pol = 3$', '$pol = 4$','Orientation', 'Horizontal');
+leg = legend('Eq. (3)','Eq. (5)','Eq. (6)', 'Eq. (7)','Orientation', 'Horizontal');
 set(leg, 'Interpreter','latex')
 leg.Layout.Tile = 'south';
 title(leg,'Different Policy Rules')
