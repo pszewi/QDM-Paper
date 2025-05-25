@@ -55,7 +55,7 @@ The shock had some impact, and so I am writing this here. The paper is almost fi
 \subsection*{(c) Brief overview of suggested policy}
 % Content here.
 
-During the late 1970's (early 1980's)\footnote{choose which to describe} the countries of the Organization of the Petroleum Exporting Countries decided to collectively raise the prices of oil in the world, following the start of the Iranian revolution (\textbf{citation needed}). This agreement caused a worldwide oil crisis, due to the sharp spike in energy costs across the globe. The rise
+During the late 1970's (early 1980's)\footnote{choose which to describe} the countries of the Organization of the Petroleum Exporting Countries decided to collectively raise the prices of oil in the world, following the start of the Iranian revolution \parencite{OilSqueeze1979}. This agreement caused a worldwide oil crisis, due to the sharp spike in energy costs across the globe. The rise
 
 
 
@@ -70,19 +70,20 @@ During the late 1970's (early 1980's)\footnote{choose which to describe} the cou
 \subsection*{(a) Outline of the Model Structure (graphical and verbal, no equations)}
 % Content here (include figure environment if needed).
 The Dynamic Stochastic General Equilibrium (DSGE) Model used for this policy analysis features
-three representative agents, namely a representative household, an intermediate goods firm and final goods firm. The model also includes a government that levies taxes and can conduct fiscal policy as well as central bank that can conduct monetary policy. 
+three representative agents, namely a representative household, an intermediate goods firm and final goods firm (See grey boxes in figure \ref{fig:model_flow}). The model also includes a government that levies taxes (Figure \ref{fig:model_flow}: yellow box) and can conduct fiscal policy as well as central bank that can conduct monetary policy (Figure \ref{fig:model_flow}: green box).
 
-The representative household aims to maximize its intertemporal utility, i.e.~well-being, across all periods.\ It's utility is increasing in consumption and decreasing in hours worked. 
+The representative household aims to maximize its intertemporal utility, which increases with consumption and decreases with hours worked. To do so, it chooses consumption, labour effort, and investment in capital in every period, taking into account how today's choices affect future outcomes. The household discounts future utility, reflecting a preference for present consumption over future consumption.
 
-When trying to maximize its utility the representative household faces two constraints. First, to consume it must have cash available beforehand, i.e.\ only money saved in the last period, at 0\% interest compared to $\frac{1}{q} -1$ from the bonds, can be used to buy consumption goods. 
-The second constraint is a common budget constraint, which simply requires that income be larger than or equal to expenses.  The households are assumed to discount future utility to reflect the fact that they value utility derived today more highly than that derived in a future period.
+The household faces two main constraints. First, it must have cash available to consume, meaning only money saved from the previous period (at 0\% interest) can be used for current consumption. Alternatively, it can purchase one-period government bonds at price $q$, which yield a return of $\frac{1}{q} - 1$ and can be used for consumption two periods later. The household can also invest in capital, earning a capital rent $r$ in the future. Thus, income from labour and capital can be allocated to current consumption, money savings, bond purchases, or capital investment.
 
-To maximize its objective function it chooses consumption, labour effort and investment in capital, in every period. %Ct,Lt,Xt,Mt+1,Bt+1,Kt+1
-Furthermore, it HH's choices today impact its outcomes in the future. Choosing its money savings for the next period determines the cash available for consumption. Money spend on bonds bought at price $q_t$ pay off in the next period and increase wealth.\footnote{Should I say here it also chooses $K_{t+1}$ I think that is covered by $X_t$} 
+Second, the household is subject to a standard budget constraint, requiring that total income is at least as large as total expenses. The allocation between consumption, savings, and investment is made to maximize utility, given these constraints.
 
-The intermediate goods firm as well as the final goods firm maximize their profit. The revenue of the intermediate firm stem from selling their intermediate good to the final goods firm. The cost incurred consist of the nominal wage paid to labour, rent paid to capital, both of which are provided by the household. It is bound by a Cobb-Douglas function with a price stickiness friction, and the supply of all intermediate goods must be met by demand for that good from the final good firm.  As just explained the final good firm buys the intermediate goods. The firm's input are substitutable to some degree. 
+In summary, the household's optimization problem involves choosing how much to consume, work, save, and invest each period, balancing immediate utility with future benefits, and operating within the limits of available resources and intertemporal trade-offs.
+The representative household aims to maximize its intertemporal utility, i.e.~well-being across all periods.\ It's utility is increasing in consumption and decreasing in hours worked. 
 
-The government has fiscal and monetary policy at their disposal, but cannot combine the two. 
+The intermediate goods firm as well as the final goods firm maximize their profit. The revenue of the intermediate firm stem from selling their intermediate good to the final goods firm. The cost incurred consist of the nominal wage paid to labour, rent paid to capital, both of which are provided by the household. It is bound by a Cobb-Douglas production function with a price stickiness friction, and the supply of all intermediate goods must be met by demand for that good from the final good firm.  As just explained the final good firm buys the intermediate goods. It aggregates them into a single final good bought by households and the government. For markets to clear the goods ($Y$) must either be bought by the household for consumption ($C$) or investment ($X$), or the government ($G$). To enforce this the model features a resource contraint (Figure \ref{fig:model_flow}: red ellipsis). The final good firm's input are substitutable to some degree. 
+
+The government has fiscal and monetary policy at their disposal, but cannot combine the two. To represent the shock in energy supply we introduce a exogenous marginal cost shock at the intermediate firm level (Figure \ref{fig:model_flow}: blue box)
 
 
 \begin{figure}[!h]
