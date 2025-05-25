@@ -135,11 +135,12 @@ The capital share of income $\alpha$ is set to 0.31~\parencite{fredst.louisShare
 The three tax-rates are set in accordance with the average effective tax rates in Canada in 1980--1985. The labour income tax rate $\tau_L$ is set to 0.24, the capital income tax rate $\tau_K$ is set to 0.25 and the consumption tax rate $\tau_C$ is set to 0.13
 \parencite{careyAverageEffectiveTax2000}. 
 
-Price stickiness parameter $\kappa$ and the investment adjustment cost parameter $\phi_X$ are set to 120 and 12 respectively to increase the model's fit to the data\footnote{ We do not use a formal minimization process but rather visually inspect the best-fit.}. As data, we use the deviation of inflation from its long-run (1961--2024) average ($\bar{\pi} =  3.72$)~\parencite{worldbank_inflation_ca}. To identify the deviation of GDP from its steady-state we use the one-sided Hodrick-Prescott filter, identifying the cyclical component of GDP \parencite{fred_gdp_per_capita_ca}. 
+The price stickiness parameter $\kappa$ and the investment adjustment cost parameter $\phi_X$ are set to 120 and 12 respectively to increase the model's fit to the data\footnote{ We do not use a formal minimization process but rather visually inspect the best-fit.}. As data, we use the deviation of inflation from its long-run (1961--2024) average ($\bar{\pi} =  3.72$)~\parencite{worldbank_inflation_ca}. To identify the deviation of GDP from its steady-state we use the one-sided Hodrick-Prescott filter, identifying the cyclical component of GDP \parencite{fred_gdp_per_capita_ca}. 
 
-The chosen values of $\kappa$ is twice as large as the default, meaning that prices are sticker because (the intermediate) firms are more reluctant to change prices. This is enforced due to a penalty deducted from the intermediate firm's output regulated by $\kappa$. The investment adjustment cost parameter $\phi_x$ regulates the penalty given to households for changing their investment choice, by reducing the pass-through from investment to the capital stock. So the increase in both parameters reflects higher levels of inertia for price-setting and investment decisions.
+The chosen values of $\kappa$ is twice as large as the default, meaning that prices are sticker because (the intermediate) firms are more reluctant to change prices. This is enforced by a penalty deducted from the intermediate firm's output regulated by $\kappa$. The investment adjustment cost parameter $\phi_x$ regulates the penalty given to households for changing their investment choice, by reducing the pass-through from investment to the capital stock. So the increase in both parameters reflects higher levels of inertia for price-setting and investment decisions.
+
+The persistency parameter of the shock ($\rho_{sMC}$) described in section~\ref{s:benchmark_model} is set to 0.5, while its standard deviation ($\sigma_{sMC}$) is set to 1. A more thorough analysis of these choices would be valuable in the future.
 % ------------------------------------------------------------------------
-%  JAKUB -------------------------------
 % ------------------------------------------------------------------------
 
 % 4. Benchmark Model Analysis
@@ -284,7 +285,7 @@ The superiority of the dual-mandate policy in our simulations is not surprising,
         $\beta$ & Period discount factor  & 0.96  \\
         $\sigma$ & Intertemporal consumption elasticity  & 2  \\
         $\gamma$ & Inverse Frisch elasticity  & 3  \\
-        $\nu$ & Money velocity  & 7  \\
+        $\nu$ & Money velocity  & 0.24  \\
         $\delta$ & Capital depreciation rate  & 0.1  \\
         $\phi_X$ & Investment adjustment cost parameter & 12  \\
         $\alpha$ & Capital share of income & 0.31  \\
@@ -293,6 +294,8 @@ The superiority of the dual-mandate policy in our simulations is not surprising,
         ${\tau_L}$ & Labour income tax & 0.24 \\
         ${\tau_K}$ & Capital income tax & 0.25 \\
         ${\tau_C}$ & Consumption tax & 0.13 \\
+        $\sigma_{sMC}$ & Standard deviation of shock & 1 \\
+        $\rho_{sMC}$ & Persistency of shock & 0.5 \\
     \bottomrule
     \end{tabular}
 \end{table}
