@@ -1,0 +1,70 @@
+digraph DSGE_Model {
+    rankdir=TB;
+    splines=true;
+    bgcolor="white";
+    fontname="Times-Roman";
+    
+    // Node styling
+    node [
+        shape=box, 
+        style="rounded,filled", 
+        fontsize=10,
+        fontname="Times-Roman",
+        color="#333333",
+        penwidth=1.0,
+        margin=0.2
+    ];
+    
+    // Edge styling
+    edge [
+        fontname="Times-Roman",
+        fontsize=9,
+        penwidth=0.8,
+        fontcolor="#444444"
+    ];
+
+    // Main component groups
+    Shock [label="Marginal Cost Shock (sMC)", fillcolor="#E6EFF9", color="#4472C4"];
+    CB [label="Central Bank\n• Money Supply Rule\n• Interest Rate Policy", fillcolor="#EBF1DE", color="#70AD47"];
+    FP [label="Government\n• Government Spending\n• Tax Policy", fillcolor="#FFF2CC", color="#ED7D31"];
+    Households [label="Households\n• Utility Maximization\n• Labor & Capital Supply\n•  Provision", fillcolor="#E4E4E4", color="#525252"];
+    Firms [label="Firms\n• Production Function\n• Price Setting (NK Phillips Curve)\n• Factor Demands", fillcolor="#E4E4E4", color="#525252"];
+    Resource [label="Aggregate Resource Constraint\nY = C + X + G", shape=ellipse, style="filled", fillcolor="#FCE4D6", color="#C55A11", fontsize=9];
+
+    // Invisible edges for layout
+    { rank=source; Shock; }
+    { rank=same; CB; FP; }
+    { rank=same; Households; Firms; }
+    { rank=sink; Resource; }
+    
+    // Rank constraints to enforce flow
+    Shock -> CB [style=invis, weight=10];
+    CB -> Households [style=invis, weight=10];
+    Households -> Resource [style=invis, weight=10];
+    
+    // Connections
+    Shock -> Firms [label="sMC", color="#4472C4"];
+    
+    CB -> Households [label="m, rb", color="#70AD47"];
+    
+    FP -> Households [label="τ", color="#ED7D31"];
+    FP -> Firms [label="G", color="#ED7D31"];
+    Households -> FP [label="lg", color="#ED7D31"];
+    
+    Households -> Firms [label="L, K", color="#525252"];
+    Firms -> Households [label="w, r", color="#525252"];
+    
+    Firms -> Households [label="Y, C", color="#525252"];
+    Households -> Firms [label="X", color="#525252"];
+    
+    Firms -> CB [label="π, mc", style="dashed", color="#70AD47"];
+    
+    // Resource constraint
+    Firms -> Resource [color="#C55A11"];
+    Households -> Resource [color="#C55A11"];
+    FP -> Resource [color="#C55A11"];
+    
+    // Title
+    labelloc="t";
+    label=<<font face="Times-Roman" point-size="14"><b>New Keynesian DSGE Model with Sticky Prices</b></font>>;
+}

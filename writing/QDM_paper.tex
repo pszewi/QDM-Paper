@@ -9,11 +9,10 @@
 \usepackage{appendix} % For appendix management
 \usepackage{booktabs} % For better table lines
 \usepackage{color,soul}
-% \usepackage[inkscapelatex=false]{svg}
-\usepackage{hyperref}
 \usepackage{setspace}
+\usepackage{hyperref}
 %make links look nice
-\doublespacing
+\doublespacing{}
 \graphicspath{{../matlab_base/output/}}
 % Page layout
 \geometry{a4paper, margin=1in}
@@ -22,8 +21,8 @@
 \addbibresource{references.bib} % Specify the .bib file
 
 % Title and Author
-\title{Title of the Paper}
-\author{Author Name}
+\title{\textbf{Impact of an Oil Price Shock on the Canadian Economy} \\ \large{Quantitative Dynamic Macroeconomics}}
+\author{Jakub Przewoski, SNR: \\ Theo Thrän, SNR: }
 \date{\today}
 
 % turning off some linting errors
@@ -34,12 +33,19 @@
 \begin{document}
 
 \maketitle
-% 1. Executive Summary
-\section*{1. Executive Summary (max half page)}
-% Your summary here.
+\vfill{}
+\begin{center}
+    \large
+    Number of words:
+\end{center}
+\newpage
 
+\section{Executive summary}
+The shock had some impact, and so I am writing this here. The paper is almost finished, but this is just a text.\ \textbf{WE NEED TO WRITE IT!}
+
+\newpage
 % 2. Introduction
-\section*{2. Introduction (about one page)}
+\section{Introduction (about one page)}
 \subsection*{(a) Cause and impact of economic fluctuations}
 % Content here.
 
@@ -49,18 +55,20 @@
 \subsection*{(c) Brief overview of suggested policy}
 % Content here.
 
+During the late 1970's (early 1980's)\footnote{choose which to describe} the countries of the Organization of the Petroleum Exporting Countries decided to collectively raise the prices of oil in the world, following the start of the Iranian revolution (\textbf{citation needed}). This agreement caused a worldwide oil crisis, due to the sharp spike in energy costs across the globe. The rise
 
+
+% \begin{figure}
+%     \includegraphics[width=0.8\textwidth]{model_graph.png}
+% \end{figure}
 
 % ------------------------------------------------------------------------
 % THEO ------------------------
 % ------------------------------------------------------------------------
 \newpage
 % 3. Bird’s Eye View of the Model
-\section*{3. Bird’s Eye View of the Model (about two pages)}
+\section{Bird’s Eye View of the Model (about two pages)}
 
-% \begin{figure}
-%     \includesvg{model_graph.svg}
-% \end{figure}
 
 \subsection*{(a) Outline of the Model Structure (graphical and verbal, no equations)}
 % Content here (include figure environment if needed).
@@ -94,7 +102,7 @@ This rule also includes a smoothing term, which means that the change in the int
 So when the central bank observes a deviation of inflation from its target, it adjusts the interest rate accordingly. This change in the interest rate in turn influences consumption and investment decisions of the household and firms. When the interest rate is higher it becomes more attractiv to buy bonds as their payoff next period is higher. Thus, consumption tomorrow is reduced as the household saves less in money holdings and more in bonds. The same logic applies to investment, when the bond return is higher, relatively the return on capital is lower, thus the household invests less in capital.
 % The central bank's goal is to stabilize inflation around its target level, which is set at 0\% in this model.
 
-The fiscal policy rule works similarly\footnote{Should we include a fiscal policy rule as alternative policy?}, but instead of the cnetral bank changing the interest rate the government adjusts a variable tax surcharge ($\tau_t$). This surcharge is added to the individual tax rates for labour income, capital income and consumption. This surcharge is a function of the level of government debt ($l_{g,t}$) and the steady-state target level of government debt ($l^{\star}_{g}$). The government reacts to the difference between the two levels of government debt by adjusting the surcharge. If the debt level is above its steady state target the surcharge is increased above its steady state level and vice versa. The incremental change of the surcharge is guided by a parameter $\lambda_{l g}$, which determines how responsive the government is to the deviation of government debt from its target. The fiscal policy rule is given by:
+The fiscal policy rule works similarly\footnote{Should we include a fiscal policy rule as alternative policy?}, but instead of the central bank changing the interest rate the government adjusts a variable tax surcharge ($\tau_t$). This surcharge is added to the individual tax rates for labour income, capital income and consumption. This surcharge is a function of the level of government debt ($l_{g,t}$) and the steady-state target level of government debt ($l^{\star}_{g}$). The government reacts to the difference between the two levels of government debt by adjusting the surcharge. If the debt level is above its steady state target the surcharge is increased above its steady state level and vice versa. The incremental change of the surcharge is guided by a parameter $\lambda_{l g}$, which determines how responsive the government is to the deviation of government debt from its target. The fiscal policy rule is given by:
 \begin{align}
     \tau_t - \tau^{\star} = \lambda_{l g} (l_{g,t} - l^{\star}_{g})
 \end{align}
@@ -133,7 +141,7 @@ Price stickiness parameter $\kappa$ and the investment adjustment cost parameter
 
 % 4. Benchmark Model Analysis
 \newpage
-\section*{4. Benchmark Model Analysis (about two pages)}
+\section{Benchmark Model Analysis (about two pages)}
 
 \hl{As our scenario requires that the Central Bank adopts a money supply target}\footnote{This is course paper not policy paper style} aiming to achieve price stability, we adjust the benchmark model to a monetary policy rule with the following specification:
 
@@ -198,7 +206,7 @@ https://www150.statcan.gc.ca/t1/tbl1/en/cv.action?pid=1010000901}
 
 \newpage
 % 5. Counterfactual Policies
-\section*{5. Counterfactual Policies (about two pages)}
+\section{Counterfactual Policies (about two pages)}
 In this section we consider various alternatives to the policy chosen in initial scenario.
 
 \subsection*{(a) More or less of the same policy (different coefficients)?}
@@ -210,7 +218,7 @@ Figure~\ref{fig:policy_par_variation} considers variation in responsiveness of t
     \centering
     \includegraphics[width=0.7\textwidth]{policy_par_variation.png}
 \end{figure}
-% Content here.
+Content here.
 
 
 \subsection*{(b) Alternative policy (different targets)?}
@@ -244,6 +252,7 @@ Finally, we also consider equation~\ref{eq:taylor_rule}, which is the previously
 Figure~\ref{fig:policy_rule_variation} displays the effects \hl{of switching the monetary policy on the economy during the shock}\footnote{Reads odd imo. Maybe Effect if the CB had followed another policy when the shock occured?}. As described above, equation~\ref{eq:mc_rule} acts as our benchmark, as it performs the best and allows for the economy to come back to the steady state the earliest. This is due to the fact that if the central bank is able to observe the shock directly, it can respond in each period to the precise value of the marginal costs.
 
 Equation~\ref{eq:lab_rule} performs as the second-best. In the initial period this rule performs poorly, as the central bank is backward looking in this regime, and therefore only takes into consideration the inflation that it observes in that period.  
+
 \begin{figure}[!h]
     \caption{Impulse response functions of observable variables}\label{fig:policy_rule_variation}
     \centering
@@ -262,7 +271,7 @@ Finally, the implemented equation~\ref{eq:baseline_rule}, causes a hard contract
 
 \newpage
 % 6. Policy Recommendation and Discussion
-\section*{6. Policy Recommendation and Discussion (about one page)}
+\section{Policy Recommendation and Discussion (about one page)}
 \subsection*{(a) Give a recommendation on policy based on your simulations.}
 % Content here.
 As shown by Figure~\ref{fig:policy_rule_variation}, there is a trade-off between the speed at which GDP recovers and how high inflation is initially. We identify money supply targeting based on the deviation of labour and inflation from their steady-state levels as the second-best policy, and thus as the policy that should have been pursued. For reasons outlined above we deem the first-best policy unfeasible. In the second-best scenario This is due to the fact that the central bank does not observe the shock directly and therefore cannot react to it in real time. Nonetheless, it performs significantly better than interest rate or money supply targeting based on the Taylor rule with only inflation 
