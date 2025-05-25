@@ -38,7 +38,7 @@
 
 \begin{center}
     \large
-    Number of words: 4004
+    Number of words: 4013
     
     \vfill{}
     \begin{abstract}
@@ -139,12 +139,12 @@ The price stickiness parameter $\kappa$ and the investment adjustment cost param
 
 The chosen values of $\kappa$ is twice as large as the default, meaning that prices are sticker because (the intermediate) firms are more reluctant to change prices. This is enforced by a penalty deducted from the intermediate firm's output regulated by $\kappa$. The investment adjustment cost parameter $\phi_x$ regulates the penalty given to households for changing their investment choice, by reducing the pass-through from investment to the capital stock. So the increase in both parameters reflects higher levels of inertia for price-setting and investment decisions.
 
-The persistency parameter of the shock ($\rho_{sMC}$) described in section~\ref{s:benchmark_model} is set to 0.5, while its standard deviation ($\sigma_{sMC}$) is set to 1. A more thorough analysis of these choices would be valuable in the future.
+The persistency parameter of the shock ($\rho_{sMC}$) described in Section~\ref{s:benchmark_model} is set to 0.5, while its standard deviation ($\sigma_{sMC}$) is set to 1. These values were chosen to match the persistency and variance within the data.
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
 % 4. Benchmark Model Analysis
-\newpage
+% \newpage
 \section{Benchmark Model Analysis}\label{s:benchmark_model}
 
 In this section, we adjust our model to replicate the policy carried out by the Bank of Canada (BoC). To reflect the change in the behaviour of the central bank, we modify the interest rate rule to a money supply target. Following the behaviour of BoC, the money supply rule is based on the deviations from the steady-state inflation rate. Therefore, it implies a focus of the bank on achieving price stability. Equation~\ref{eq:baseline_rule} displays the rule in formal notation.
@@ -194,7 +194,7 @@ Finally, the last row of Figure~\ref{fig:other_baseline} displays the effects on
 
 Overall, although this model approximates the crisis, it misses certain aspects of history. Firstly, it misses the international effects of the crisis. Although the recession was worldwide, the impact of other nations on the demand for exports from Canada could have had an effect on the economy during the crisis, whereas here it is entirely excluded, given that we operate within the closed-economy framework. Furthermore, at this point in time, the Canadian Dollar has been floating freely against other currencies, which naturally could have had effects on the economy through the general stabilization that the floating exchange rates offer. Moreover, although our model follows the general direction of the economy, it fails to precisely approximate the realized path. This is likely due to the noise included in the empirical data, differences in policy specification and the use of impulse response functions. The noise can be inferred from the large volatility of our data. As can be seen in Figure~\ref{fig:main_baseline}, the original policy may have been specified differently as the economy avoided deflation. Finally, while our impulse response functions assume no repeated/other shocks, the empirical data does not conform to this assumption, with other shocks (such as those related to international finance) possibly impacting the economy.
 
-\newpage
+% \newpage
 % 5. Counterfactual Policies
 \section{Counterfactual Policies}\label{s:counterfactual_policy}
 In this section we consider various alternatives to the policy chosen in the initial scenario.
@@ -238,7 +238,7 @@ Equation~\ref{eq:lab_rule} displays the same idea, but with respect to labour. I
 
 Finally, we also consider equation~\ref{eq:taylor_rule}, which is the previously shown interest rate rule. We display it as an example of the performance of the basic model.  
 
-\newpage
+% \newpage
 Figure~\ref{fig:policy_rule_variation} displays the effects of different monetary policies. As described above, equation~\ref{eq:mc_rule} acts as our benchmark, as it performs the best and allows for the economy to come back to the steady-state the earliest. This is due to the fact that if the central bank is able to observe the shock directly, it can respond in each period to the precise value of the marginal costs. Equation~\ref{eq:lab_rule} performs as the second-best. In the initial period this rule performs poorly, as the central bank is backward looking in this regime, and therefore only takes into consideration the inflation that it observes in that period.  
 
 \begin{figure}[!h]
@@ -252,7 +252,6 @@ However, over time, it is able to bring the economy back to the steady-state in 
 Equation~\ref{eq:taylor_rule} presents itself as marginally better than the implemented equation~\ref{eq:baseline_rule}. As the parameter $\theta_R$ is assumed to be $0$, the interest rate rule, essentially acts in the same way as equation~\ref{eq:baseline_rule}, with interest-rate targeting based on the inflation deviations. However, as the instrument of choice is the interest rate setting, the effect on the economy is more measured, because it doesn't directly impact consumption. This rule instead acts on the trade-off between future money and bond savings, which results in a more moderate reduction in output and higher inflation. Nonetheless, both of these policy rules present a scenario in which the economy sharply contracts (yet less than under the labour rule), and takes longer to come back to the steady-state. 
 
 Finally, the implemented equation~\ref{eq:baseline_rule}, causes a hard contraction in output, high inflation (followed by deflation) and a sharp decrease in labour supply. This is caused by the fact that the central bank focuses solely on the inflation target. Unlike the other policies, this instrument causes a temporary deflation, which happens because of the drastic action taken by the central bank and a lack of consideration for other variables.
-
 
 
 
